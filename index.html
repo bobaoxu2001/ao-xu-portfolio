@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ao Xu · Data Science</title>
+<meta name="color-scheme" content="dark">
+<style>
+  :root {
+    --bg:#0b1220; --card:#111a2b; --muted:#99a3b4; --fg:#e7edf6; --pill:#1a2740; --pill-text:#aee6ff; --accent:#6ee7ff; --shadow:rgba(0,0,0,.35);
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  header { position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background: rgba(10,15,25,.6); border-bottom: 1px solid #18223a; }
+  .wrap { max-width:1120px; margin:auto; padding:14px 18px; display:flex; align-items:center; gap:18px; }
+  .brand { font-weight:700; letter-spacing:.2px; }
+  nav { margin-left:auto; display:flex; gap:18px; }
+  nav a { color:var(--muted); font-size:14px; }
+
+  .hero { max-width:1120px; margin:0 auto; padding:48px 18px; display:grid; grid-template-columns: 1.2fr .9fr; gap:26px; align-items:center; }
+  .badge { display:inline-flex; align-items:center; gap:8px; background:#13233b; color:#b7eaff; border:1px solid #1b3655; border-radius:999px; padding:6px 12px; font-size:12px; }
+  h1 { font-size:44px; line-height:1.1; margin:12px 0 6px; }
+  .subtitle { color:var(--muted); max-width:58ch; }
+  .cta { margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
+  .btn { background:var(--accent); color:#001018; border:0; padding:12px 16px; border-radius:12px; font-weight:700; }
+  .btn.alt { background:#162238; color:var(--fg); border:1px solid #223454; }
+  .avatar { justify-self:end; width:360px; border-radius:22px; padding:16px; background:var(--card); border:1px solid #1a2540; box-shadow:0 18px 60px var(--shadow); }
+  .avatar img { width:100%; border-radius:14px; display:block; object-fit:cover; background:#fff; }
+  .small { font-size:13px; color:var(--muted); margin-top:8px; }
+
+  section { max-width:1120px; margin:0 auto; padding:28px 18px; }
+  h2 { font-size:28px; margin:10px 0 18px; }
+
+  .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:18px; }
+  .col-6 { grid-column: span 6; }
+  .col-4 { grid-column: span 4; }
+
+  .card { background:var(--card); border:1px solid #1a2540; border-radius:16px; padding:18px; box-shadow:0 14px 40px var(--shadow); }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill { background:var(--pill); border:1px solid #243657; padding:6px 10px; border-radius:999px; color:var(--pill-text); font-size:12px; }
+
+  .experience { display:grid; grid-template-columns: repeat(12,1fr); gap:18px; }
+  .exp-card { grid-column: span 6; }
+  .exp-card .title { font-weight:700; }
+  .exp-card .meta { color:var(--muted); font-size:13px; margin:2px 0 8px; }
+  .exp-card ul { margin:0; padding-left:18px; color:var(--fg); }
+  .exp-card li { margin:8px 0; }
+
+  .kpi { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+  .kpi .item { background:#cfeef7; color:#0b304b; padding:10px 14px; border-radius:20px; font-weight:700; border:1px solid #b1e2f2; }
+  .kpi .item small { color:#0f5072; font-weight:700; margin-left:6px; }
+
+  /* Contact section styles */
+  .contact-container {
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    align-items:flex-start;
+  }
+  .contact-info {
+    flex:1 1 280px;
+  }
+  .contact-info .contact-note {
+    margin-top:12px;
+    color:var(--muted);
+    font-size:14px;
+  }
+  .contact-form {
+    flex:1 1 280px;
+  }
+  .contact-form form {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width:100%;
+    padding:10px;
+    background:transparent;
+    border:1px solid #243657;
+    border-radius:8px;
+    color:var(--fg);
+    font-size:14px;
+  }
+  .contact-form textarea {
+    resize:vertical;
+  }
+  .contact-form button {
+    align-self:flex-start;
+    background:var(--accent);
+    color:#001018;
+    border:0;
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .contact-form button:hover {
+    background:#84e9ff;
+  }
+
+  footer { max-width:1120px; margin:26px auto 40px; padding:0 18px; color:var(--muted); font-size:14px; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .avatar { justify-self:stretch; width:auto; }
+    .col-6, .col-4 { grid-column: span 12; }
+    .exp-card { grid-column: span 12; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">Ao Xu · Data Science</div>
+    <nav>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <!-- Updated tagline to reflect Ao Xu's focus areas: data science, data analytics and quantitative research -->
+    <span class="badge">💗 Data Scientist · Data Analytics · Quant Researcher</span>
+    <h1>Hello! I’m Ao Xu</h1>
+    <div class="small">(徐奥)</div>
+    <p class="subtitle">M.S. in Data Science @ NYU · B.S. in Data Science & Applied Math @ UCSB. I build end-to-end analytics and ML systems that turn messy data into business outcomes.</p>
+    <div class="kpi">
+      <!-- Move the Kaggle badge to the end and update its description -->
+      <div class="item">📈 Seller Satisfaction Scores +3pp in 1 quarter <small>· TikTok internship</small></div>
+      <div class="item">⏱️ ART −51% in onboarding <small>· TikTok internship</small></div>
+      <div class="item">📊 Case volume 4× & ROI +5% <small>· Deloitte internship</small></div>
+      <div class="item">💡 Capstone: Bitcoin price prediction — hybrid ML (CNN‑LSTM / iTransformer), MAE −71% vs baseline <small>· S&P Global collaboration</small></div>
+    </div>
+    <div class="cta">
+      <a class="btn" href="#projects">View Projects</a>
+      <a class="btn alt" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+    <div class="avatar">
+    <img src="assets/profile.jpg" alt="Ao Xu portrait">
+    <!-- Updated location text beneath the portrait -->
+    <div class="small">New York/California/Singapore</div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="experience">
+    <div class="exp-card card">
+      <div class="title">TikTok (Bytedance) — Data Analyst Intern</div>
+      <div class="meta">Jun 2024 – Aug 2024 · NYC</div>
+      <ul>
+        <li>Fixed Seller Satisfaction Score methodology; delivered weekly deep-dives by channel, skill group and site.</li>
+        <li>Onboarding funnel: identified two issues causing 84% of failures; improved documentation flow and proactive outreach, boosting <b>Seller Satisfaction Scores</b> by 3pp and reducing <b>ART</b> by 51%.</li>
+        <li>Built Tableau dashboards tracking Seller Satisfaction Scores, 72HRR and ART; established anomaly monitors and delayed-feedback logic.</li>
+      </ul>
+    </div>
+    <div class="exp-card card">
+      <div class="title">Deloitte — Risk Consulting Intern</div>
+      <div class="meta">Jun 2021 – Sep 2021 · Beijing</div>
+      <ul>
+        <li>Standardized bidding processes and reporting; increased monthly case volume from 40 → 160, achieving a 5% ROI uplift.</li>
+        <li>Automated contract cataloging (VBA/SQL) for 3,500+ documents; improved handover efficiency by 70%.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Selected Projects</h2>
+  <div class="grid">
+    <div class="col-4">
+      <div class="card">
+        <b>Bitcoin Price Prediction with Deep Learning</b>
+        <p style="color:var(--muted); margin:6px 0 12px">Developed deep learning models (LSTM and neural nets) to forecast Bitcoin price using historical and social sentiment data.</p>
+        <p style="margin-top:10px"><a href="projects/Deep_Learning_for_Bitcoin_Price.pdf" target="_blank">Read full report →</a></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <b>Earthquake Damage Prediction</b>
+        <p style="color:var(--muted); margin:6px 0 12px">Built models to predict earthquake damage severity on the Nepal dataset; achieved top 8% ranking on Kaggle with a log-loss of 0.431 and 75% accuracy.</p>
+        <p style="margin-top:10px"><a href="projects/Modeling_Earthquake_Damage_Project.pdf" target="_blank">Read full report →</a></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <b>NAIC Scenario Generator Evaluation</b>
+        <p style="color:var(--muted); margin:6px 0 12px">Generated economic scenarios under NAIC guidelines and evaluated long-term yield curves to support insurance risk assessments.</p>
+        <p style="margin-top:10px"><a href="projects/New_NAIC_Scenario.pdf" target="_blank">Read full report →</a></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <b>JEPA Methods & Evaluation</b>
+        <p style="color:var(--muted); margin:6px 0 12px">Implemented training and evaluation techniques for Joint Embedding Predictive Architecture (JEPA) models on sequential data.</p>
+        <p style="margin-top:10px"><a href="projects/Methods_for_Training_and_Evaluating_the_JEPA_Model.pdf" target="_blank">Read full report →</a></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <b>Interactive Activation Model as Bayesian Inference</b>
+        <p style="color:var(--muted); margin:6px 0 12px">Reinterpreted the Interactive Activation Model of word recognition within a Bayesian inference framework to study cognitive processing.</p>
+        <p style="margin-top:10px"><a href="projects/Interactive_Activation_Model_IAM_as_Bayesian_Inference.pdf" target="_blank">Read full report →</a></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <b>NLP & Large Language Models</b>
+        <p style="color:var(--muted); margin:6px 0 12px">Researched fine-tuning techniques and evaluation strategies for large language models applied to natural language processing tasks.</p>
+        <p style="margin-top:10px"><a href="projects/NLP-LLM_Project.pdf" target="_blank">Read full report →</a></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <b>Big Data & Movie Recsys</b>
+        <p style="color:var(--muted); margin:6px 0 12px">Built a big data pipeline and movie recommendation system using MinHash-LSH and matrix factorization to segment users and improve recommendations.</p>
+        <p style="margin-top:10px"><a href="projects/Big_Data_Project.pdf" target="_blank">Read full report →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="card">
+    <div class="pills">
+      <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">PyTorch</span>
+      <span class="pill">LightGBM</span><span class="pill">Optuna</span><span class="pill">Tableau</span>
+      <span class="pill">Spark</span><span class="pill">A/B Testing</span><span class="pill">Time Series</span><span class="pill">LLM/NLP</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-container">
+    <!-- Contact info and roles of interest -->
+    <div class="contact-info card">
+      Email: <a href="mailto:ax2183@nyu.edu">ax2183@nyu.edu</a> · LinkedIn: <a href="https://www.linkedin.com/in/ao-xu/" target="_blank">/in/ao-xu</a>
+      <p class="contact-note">I’m open to roles in Data Scientist · Data Analyst · Quant Researcher.</p>
+    </div>
+    <!-- Simple contact form that opens a mailto link when submitted -->
+    <div class="contact-form card">
+      <form action="mailto:ax2183@nyu.edu" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="Email">
+        <textarea name="message" placeholder="Message" rows="4"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 Ao Xu · Dark UI version (v4).</footer>
+</body>
+</html>
