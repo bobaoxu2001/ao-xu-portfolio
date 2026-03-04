@@ -3,79 +3,233 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ao Xu · Data Science</title>
+<title>Ao Xu · AI Strategist</title>
 <meta name="color-scheme" content="dark">
 <style>
   :root {
-    --bg:#0b1220; --card:#111a2b; --muted:#99a3b4; --fg:#e7edf6; --pill:#1a2740; --pill-text:#aee6ff; --accent:#6ee7ff; --shadow:rgba(0,0,0,.35);
+    --bg:#0b1220;
+    --card:#111a2b;
+    --muted:#99a3b4;
+    --fg:#e7edf6;
+    --pill:#1a2740;
+    --pill-text:#aee6ff;
+    --accent:#6ee7ff;
+    --line:#1a2540;
+    --shadow:rgba(0,0,0,.35);
   }
+
   * { box-sizing:border-box; }
-  html,body { margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+  html, body {
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:var(--fg);
+    font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
   a { color:var(--accent); text-decoration:none; }
   a:hover { text-decoration:underline; }
-
-  header { position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background: rgba(10,15,25,.6); border-bottom: 1px solid #18223a; }
-  .wrap { max-width:1120px; margin:auto; padding:14px 18px; display:flex; align-items:center; gap:18px; }
-  .brand { font-weight:700; letter-spacing:.2px; }
-  nav { margin-left:auto; display:flex; gap:18px; }
-  nav a { color:var(--muted); font-size:14px; }
-
-  .hero { max-width:1120px; margin:0 auto; padding:48px 18px; display:grid; grid-template-columns: 1.2fr .9fr; gap:26px; align-items:center; }
-  .badge { display:inline-flex; align-items:center; gap:8px; background:#13233b; color:#b7eaff; border:1px solid #1b3655; border-radius:999px; padding:6px 12px; font-size:12px; }
-  h1 { font-size:44px; line-height:1.1; margin:12px 0 6px; }
-  .subtitle { color:var(--muted); max-width:58ch; }
-  .cta { margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
-  .btn { background:var(--accent); color:#001018; border:0; padding:12px 16px; border-radius:12px; font-weight:700; }
-  .btn.alt { background:#162238; color:var(--fg); border:1px solid #223454; }
-  .avatar { justify-self:end; width:360px; border-radius:22px; padding:16px; background:var(--card); border:1px solid #1a2540; box-shadow:0 18px 60px var(--shadow); }
-  .avatar img { width:100%; border-radius:14px; display:block; object-fit:cover; background:#fff; }
   .small { font-size:13px; color:var(--muted); margin-top:8px; }
 
+  header {
+    position:sticky;
+    top:0;
+    z-index:50;
+    backdrop-filter:blur(8px);
+    background:rgba(10,15,25,.64);
+    border-bottom:1px solid #18223a;
+  }
+  .wrap {
+    max-width:1120px;
+    margin:auto;
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+  .brand { font-weight:700; letter-spacing:.2px; }
+  nav { margin-left:auto; display:flex; gap:16px; flex-wrap:wrap; }
+  nav a { color:var(--muted); font-size:14px; }
+
   section { max-width:1120px; margin:0 auto; padding:28px 18px; }
-  h2 { font-size:28px; margin:10px 0 18px; }
+  h1 { font-size:44px; line-height:1.08; margin:12px 0 6px; }
+  h2 { font-size:28px; margin:10px 0 14px; }
+  h3 { margin:0; font-size:18px; }
+  p { line-height:1.55; }
 
-  .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:18px; }
-  .col-6 { grid-column: span 6; }
-  .col-4 { grid-column: span 4; }
+  .card {
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px;
+    box-shadow:0 14px 40px var(--shadow);
+  }
 
-  .card { background:var(--card); border:1px solid #1a2540; border-radius:16px; padding:18px; box-shadow:0 14px 40px var(--shadow); }
-  .pills { display:flex; flex-wrap:wrap; gap:8px; }
-  .pill { background:var(--pill); border:1px solid #243657; padding:6px 10px; border-radius:999px; color:var(--pill-text); font-size:12px; }
+  .hero {
+    max-width:1120px;
+    margin:0 auto;
+    padding:48px 18px 30px;
+    display:grid;
+    grid-template-columns:1.2fr .9fr;
+    gap:26px;
+    align-items:start;
+  }
+  .badge {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#13233b;
+    color:#b7eaff;
+    border:1px solid #1b3655;
+    border-radius:999px;
+    padding:6px 12px;
+    font-size:12px;
+  }
+  .subtitle { color:var(--muted); max-width:64ch; }
+  .kpi { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .kpi .item {
+    background:#cfeef7;
+    color:#0b304b;
+    padding:10px 14px;
+    border-radius:18px;
+    font-weight:700;
+    border:1px solid #b1e2f2;
+    font-size:13px;
+  }
+  .kpi .item small { color:#0f5072; font-weight:700; margin-left:6px; }
+  .cta { margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; }
+  .btn {
+    background:var(--accent);
+    color:#001018;
+    border:0;
+    padding:12px 16px;
+    border-radius:12px;
+    font-weight:700;
+    display:inline-block;
+  }
+  .btn.alt {
+    background:#162238;
+    color:var(--fg);
+    border:1px solid #223454;
+  }
+  .avatar {
+    width:100%;
+    border-radius:22px;
+    padding:16px;
+    background:var(--card);
+    border:1px solid var(--line);
+    box-shadow:0 18px 60px var(--shadow);
+  }
+  .avatar img {
+    width:100%;
+    border-radius:14px;
+    display:block;
+    object-fit:cover;
+    background:#fff;
+  }
 
-  .experience { display:grid; grid-template-columns: repeat(12,1fr); gap:18px; }
-  .exp-card { grid-column: span 6; }
-  .exp-card .title { font-weight:700; }
-  .exp-card .meta { color:var(--muted); font-size:13px; margin:2px 0 8px; }
-  .exp-card ul { margin:0; padding-left:18px; color:var(--fg); }
+  .split {
+    display:grid;
+    grid-template-columns:repeat(12, 1fr);
+    gap:18px;
+  }
+  .col-6 { grid-column:span 6; }
+  .col-12 { grid-column:span 12; }
+
+  .experience {
+    display:grid;
+    grid-template-columns:repeat(12, 1fr);
+    gap:18px;
+  }
+  .exp-card { grid-column:span 6; }
+  .company-head {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:8px;
+  }
+  .company-logo {
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    font-weight:800;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.2);
+    flex-shrink:0;
+  }
+  .telecom { background:linear-gradient(135deg, #3366ff, #0aa0ff); }
+  .spglobal { background:linear-gradient(135deg, #ff6a00, #ff2f6d); }
+  .tiktok { background:linear-gradient(135deg, #24f4ee, #fe2c55); color:#051016; }
+  .deloitte { background:linear-gradient(135deg, #6cbf00, #2f6f00); }
+  .title { font-weight:700; }
+  .meta { color:var(--muted); font-size:13px; margin-top:2px; }
+  .exp-card ul { margin:0; padding-left:18px; }
   .exp-card li { margin:8px 0; }
 
-  .kpi { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
-  .kpi .item { background:#cfeef7; color:#0b304b; padding:10px 14px; border-radius:20px; font-weight:700; border:1px solid #b1e2f2; }
-  .kpi .item small { color:#0f5072; font-weight:700; margin-left:6px; }
+  .highlight {
+    border:1px solid #2a3f68;
+    background:linear-gradient(180deg, #121f36 0%, #101a2c 100%);
+  }
+  .eyebrow {
+    color:#9fd6ff;
+    font-size:12px;
+    letter-spacing:.35px;
+    text-transform:uppercase;
+    font-weight:700;
+  }
 
-  /* Contact section styles */
+  .project-group { margin-top:10px; }
+  .group-title { margin:0 0 6px; font-size:22px; }
+  .group-subtitle { color:var(--muted); margin:0 0 14px; max-width:90ch; }
+  .projects-grid {
+    display:grid;
+    grid-template-columns:repeat(12, 1fr);
+    gap:18px;
+  }
+  .project-card { grid-column:span 6; }
+  .project-card p { margin:8px 0 12px; color:var(--muted); }
+  .project-links {
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:14px;
+  }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill {
+    background:var(--pill);
+    border:1px solid #243657;
+    padding:6px 10px;
+    border-radius:999px;
+    color:var(--pill-text);
+    font-size:12px;
+  }
+  .code {
+    margin-top:10px;
+    margin-bottom:0;
+    border-radius:12px;
+    border:1px solid #2b3e62;
+    background:#0a1324;
+    color:#bfdcff;
+    padding:10px;
+    font-size:12px;
+    overflow:auto;
+  }
+
+  .skill-card + .skill-card { margin-top:12px; }
+  .skill-title { font-weight:700; margin-bottom:10px; }
+
   .contact-container {
     display:flex;
     gap:24px;
     flex-wrap:wrap;
     align-items:flex-start;
   }
-  .contact-info {
-    flex:1 1 280px;
-  }
-  .contact-info .contact-note {
-    margin-top:12px;
-    color:var(--muted);
-    font-size:14px;
-  }
-  .contact-form {
-    flex:1 1 280px;
-  }
-  .contact-form form {
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
+  .contact-info { flex:1 1 280px; }
+  .contact-note { margin-top:12px; color:var(--muted); font-size:14px; }
+  .contact-form { flex:1 1 280px; }
+  .contact-form form { display:flex; flex-direction:column; gap:12px; }
   .contact-form input,
   .contact-form textarea {
     width:100%;
@@ -86,9 +240,7 @@
     color:var(--fg);
     font-size:14px;
   }
-  .contact-form textarea {
-    resize:vertical;
-  }
+  .contact-form textarea { resize:vertical; }
   .contact-form button {
     align-self:flex-start;
     background:var(--accent);
@@ -99,25 +251,28 @@
     font-weight:700;
     cursor:pointer;
   }
-  .contact-form button:hover {
-    background:#84e9ff;
+  .contact-form button:hover { background:#84e9ff; }
+
+  footer {
+    max-width:1120px;
+    margin:26px auto 40px;
+    padding:0 18px;
+    color:var(--muted);
+    font-size:14px;
   }
 
-  footer { max-width:1120px; margin:26px auto 40px; padding:0 18px; color:var(--muted); font-size:14px; }
-
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; }
-    .avatar { justify-self:stretch; width:auto; }
-    .col-6, .col-4 { grid-column: span 12; }
-    .exp-card { grid-column: span 12; }
+  @media (max-width: 980px) {
+    .hero { grid-template-columns:1fr; }
+    .col-6, .project-card, .exp-card { grid-column:span 12; }
   }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <div class="brand">Ao Xu · Data Science</div>
+    <div class="brand">Ao Xu · AI Strategy + Analytics</div>
     <nav>
+      <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
@@ -128,27 +283,45 @@
 
 <section class="hero">
   <div>
-    <!-- Updated tagline to reflect Ao Xu's focus areas: data science, data analytics and quantitative research -->
-    <span class="badge">💗 Data Scientist · Data Analytics · Quant Researcher</span>
-    <h1>Hello! I’m Ao Xu</h1>
+    <span class="badge">🚀 AI Strategist · Data Analyst · Builder</span>
+    <h1>Hello! I'm Ao Xu</h1>
     <div class="small">(徐奥)</div>
-    <p class="subtitle">M.S. in Data Science @ NYU · B.S. in Data Science & Applied Math @ UCSB. I build end-to-end analytics and ML systems that turn messy data into business outcomes.</p>
+    <p class="subtitle">I build LLM-powered workflows, analytics pipelines, and dashboards that turn unstructured data into executive-ready business insights - using Cursor, SQL, and advanced AI tools.</p>
     <div class="kpi">
-      <!-- Move the Kaggle badge to the end and update its description -->
-      <div class="item">📈 Seller Satisfaction Scores +3pp in 1 quarter <small>· TikTok internship</small></div>
-      <div class="item">⏱️ ART −51% in onboarding <small>· TikTok internship</small></div>
-      <div class="item">📊 Case volume 4× & ROI +5% <small>· Deloitte internship</small></div>
-      <div class="item">💡 Capstone: Bitcoin price prediction — hybrid ML (CNN‑LSTM / iTransformer), MAE −71% vs baseline <small>· S&P Global collaboration</small></div>
+      <div class="item">📊 10,000+ unstructured records classified via LLM pipeline <small>· China Telecom</small></div>
+      <div class="item">📈 48% conversion lift identified via SQL funnel analysis <small>· TikTok</small></div>
+      <div class="item">🤖 3 LLM apps deployed (Insight/Briefing/Narration) <small>· Dify platform</small></div>
+      <div class="item">🎯 71% MAE reduction <small>· S&amp;P Global × NYU Capstone</small></div>
     </div>
     <div class="cta">
       <a class="btn" href="#projects">View Projects</a>
-      <a class="btn alt" href="#contact">Get in Touch</a>
+      <a class="btn alt" href="#experience">View Experience</a>
     </div>
   </div>
-    <div class="avatar">
+  <div class="avatar">
     <img src="assets/profile.jpg" alt="Ao Xu portrait">
-    <!-- Updated location text beneath the portrait -->
-    <div class="small">New York/California/Singapore</div>
+    <div class="small">NYC-based · Bilingual (EN/CN) · Open to in-office builder roles</div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="split">
+    <div class="col-6 card">
+      <p style="margin-top:0">I am an NYU M.S. Data Science + UCSB Data Science/Applied Math dual-degree builder who works at the intersection of AI tooling and business decision-making. My hands-on experience spans TikTok, China Telecom, and S&amp;P Global collaborative capstone work.</p>
+      <p style="margin-bottom:0; color:var(--muted)">I enjoy turning raw, messy, unstructured data into clear narratives that executives can act on - quickly, accurately, and with strong ownership from analysis to delivery.</p>
+    </div>
+    <div class="col-6 card highlight" id="geo">
+      <div class="eyebrow">GEO &amp; AI Visibility</div>
+      <h3 style="margin:8px 0 10px">🔍 Generative Engine Optimization (GEO)</h3>
+      <p style="margin:0 0 12px; color:var(--muted)">Built prompt evaluation pipelines to analyze how brands surface in LLM responses across ChatGPT, Perplexity, and Claude. Connected structured data outputs to dashboards for "Share of Voice" and prompt-level visibility metrics.</p>
+      <div class="pills">
+        <span class="pill">Prompt Evaluation</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Retool/Tableau</span>
+        <span class="pill">LLM Behavior Analysis</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -156,75 +329,195 @@
   <h2>Experience</h2>
   <div class="experience">
     <div class="exp-card card">
-      <div class="title">TikTok (Bytedance) — Data Analyst Intern</div>
-      <div class="meta">Jun 2024 – Aug 2024 · NYC</div>
+      <div class="company-head">
+        <span class="company-logo telecom" aria-hidden="true">CT</span>
+        <div>
+          <div class="title">China Telecom (Digital Intelligence Division) — AI Strategy &amp; Operations Analyst</div>
+          <div class="meta">Dec 2024 - Apr 2025 · Shanghai (Remote)</div>
+        </div>
+      </div>
       <ul>
-        <li>Fixed Seller Satisfaction Score methodology; delivered weekly deep-dives by channel, skill group and site.</li>
-        <li>Onboarding funnel: identified two issues causing 84% of failures; improved documentation flow and proactive outreach, boosting <b>Seller Satisfaction Scores</b> by 3pp and reducing <b>ART</b> by 51%.</li>
-        <li>Built Tableau dashboards tracking Seller Satisfaction Scores, 72HRR and ART; established anomaly monitors and delayed-feedback logic.</li>
+        <li><b>LLM Workflow &amp; Prompt Architecture:</b> Designed and deployed 3 LLM-powered applications (Intelligent Insight, Briefing, Narration) on Dify for Shanghai's Urban Operations Center. Built multi-step prompts with intent classification, reasoning chains, and strict grounding rules.</li>
+        <li><b>Unstructured Data Clustering:</b> Classified and analyzed 10,000+ unstructured dialog logs with a 3-stage LLM pipeline (cleaning, L1/L2 categorization) using Cursor Agent and Claude Opus. Structured city operations data across 16 districts into queryable knowledge bases.</li>
+        <li><b>Executive-Level Delivery:</b> Prepared client-facing demo materials for a Fortune Global 500 UAE telecom client at WAIC 2025, translating complex AI capabilities into clear bilingual strategic narratives.</li>
+        <li><b>Platform Validation:</b> Led acceptance testing across 4 enterprise AI platforms and tracked 300+ functional validation points.</li>
       </ul>
     </div>
+
     <div class="exp-card card">
-      <div class="title">Deloitte — Risk Consulting Intern</div>
-      <div class="meta">Jun 2021 – Sep 2021 · Beijing</div>
+      <div class="company-head">
+        <span class="company-logo spglobal" aria-hidden="true">S&amp;P</span>
+        <div>
+          <div class="title">S&amp;P Global × NYU — AI Research Intern (Capstone)</div>
+          <div class="meta">Sep 2024 - Dec 2024 · New York, NY</div>
+        </div>
+      </div>
       <ul>
-        <li>Standardized bidding processes and reporting; increased monthly case volume from 40 → 160, achieving a 5% ROI uplift.</li>
-        <li>Automated contract cataloging (VBA/SQL) for 3,500+ documents; improved handover efficiency by 70%.</li>
+        <li>Led a cross-functional team with S&amp;P Global to build a multi-source financial analytics pipeline (BTC, VIX, NASDAQ, social sentiment) using Python and SQL.</li>
+        <li>Delivered an interactive forecasting dashboard that achieved 71% MAE reduction, and presented data-backed strategic recommendations to S&amp;P Global stakeholders.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card card">
+      <div class="company-head">
+        <span class="company-logo tiktok" aria-hidden="true">TT</span>
+        <div>
+          <div class="title">TikTok (ByteDance) — Data Analyst Intern</div>
+          <div class="meta">Jun 2024 - Aug 2024 · Beijing</div>
+        </div>
+      </div>
+      <ul>
+        <li><b>SQL &amp; Raw Data Extraction:</b> Queried raw seller support and onboarding logs with SQL to fix Seller Satisfaction Score methodology and produce weekly performance diagnostics by channel, skill group, and site.</li>
+        <li><b>Funnel Analysis &amp; Conversion Diagnostics:</b> Identified two bottlenecks driving 84% of onboarding failures and surfaced a 48% conversion lift opportunity through funnel redesign and proactive outreach playbooks.</li>
+        <li><b>Dashboarding &amp; Strategic Insights:</b> Built Tableau dashboards for Seller Satisfaction Scores, 72HRR, and ART with anomaly monitoring logic; contributed to a +3pp satisfaction improvement and 51% ART reduction.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card card">
+      <div class="company-head">
+        <span class="company-logo deloitte" aria-hidden="true">D</span>
+        <div>
+          <div class="title">Deloitte — Business Operations Analyst Intern</div>
+          <div class="meta">Jun 2021 - Aug 2021 · Beijing</div>
+        </div>
+      </div>
+      <ul>
+        <li>Standardized bidding operations and reporting workflows, increasing monthly case volume from 40 to 160 and delivering 5% ROI uplift.</li>
+        <li>Automated contract cataloging for 3,500+ documents with VBA + SQL; improved handover efficiency by 70% and reduced manual risk.</li>
+        <li>Built operational KPI views in Power BI to support partner-level tracking of throughput, lead time, and consultant utilization.</li>
       </ul>
     </div>
   </div>
 </section>
 
 <section id="projects">
-  <h2>Selected Projects</h2>
-  <div class="grid">
-    <div class="col-4">
-      <div class="card">
-        <b>Bitcoin Price Prediction with Deep Learning</b>
-        <p style="color:var(--muted); margin:6px 0 12px">Developed deep learning models (LSTM and neural nets) to forecast Bitcoin price using historical and social sentiment data.</p>
-        <p style="margin-top:10px"><a href="projects/Deep_Learning_for_Bitcoin_Price.pdf" target="_blank">Read full report →</a></p>
+  <h2>Projects</h2>
+
+  <div class="project-group">
+    <h3 class="group-title">🤖 AI &amp; Vibe Coding — Built with Cursor Agent &amp; Claude Code</h3>
+    <p class="group-subtitle">End-to-end applications built via rapid "vibe coding" with GPT-5.3 and Claude Opus 4.6. Designed for extreme speed, iteration, and production quality.</p>
+
+    <div class="projects-grid">
+      <div class="project-card card">
+        <h3>Meta-Style Product Analytics Pipeline ⭐⭐⭐</h3>
+        <p>Production-grade data pipeline ingesting 5.7M synthetic user events across Facebook, Instagram, Messenger, WhatsApp, and Threads. Wrote advanced SQL for DAU/MAU stickiness, retention cohorts, growth accounting, and engagement funnels; delivered dashboard-ready product insights.</p>
+        <div class="pills">
+          <span class="pill">SQL</span><span class="pill">Python</span><span class="pill">DAU/MAU</span>
+          <span class="pill">Retention</span><span class="pill">Growth Accounting</span><span class="pill">Dashboard</span>
+        </div>
+        <pre class="code">WITH daily_users AS (
+  SELECT date_key, COUNT(DISTINCT user_key) AS dau
+  FROM analytics.fct_events
+  GROUP BY date_key
+)
+SELECT date_key, dau FROM daily_users ORDER BY date_key;</pre>
+        <div class="project-links">
+          <a href="https://github.com/bobaoxu2001/DE-project-meta" target="_blank">GitHub</a>
+          <a href="https://github.com/bobaoxu2001/DE-project-meta/blob/main/meta-product-analytics-pipeline/sql/analytics_queries.sql" target="_blank">SQL Snippet</a>
+          <a href="https://github.com/bobaoxu2001/DE-project-meta#architecture" target="_blank">Pipeline Architecture</a>
+        </div>
+      </div>
+
+      <div class="project-card card">
+        <h3>Olist E-Commerce Analytics Dashboard ⭐⭐⭐</h3>
+        <p>Built an end-to-end ETL pipeline and dashboard stack for Brazilian e-commerce data. Structured fragmented raw sources with SQL/Python and surfaced conversion bottlenecks, logistics risk, and seller performance KPIs for decision-ready business recommendations.</p>
+        <div class="pills">
+          <span class="pill">ETL</span><span class="pill">SQL</span><span class="pill">Streamlit</span>
+          <span class="pill">Python</span><span class="pill">Dashboard</span><span class="pill">E-Commerce</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/bobaoxu2001/Olist-Dashboard" target="_blank">GitHub</a>
+          <a href="https://cdn.jsdelivr.net/gh/bobaoxu2001/Olist-Dashboard@main/web_dashboard_static/index.html" target="_blank">Live Demo</a>
+          <a href="https://github.com/bobaoxu2001/Olist-Dashboard/blob/main/ETL_Scripts/sql/40_dashboard_views.sql" target="_blank">Data Flow SQL</a>
+        </div>
+      </div>
+
+      <div class="project-card card">
+        <h3>Tariff Impact on Asian Banking Sector ⭐⭐</h3>
+        <p>Analyzed the macroeconomic impact of tariff escalation on Asia-exposed versus US domestic banks using event-study methods. Built concise outputs that bridge technical financial analysis and strategic stakeholder narrative.</p>
+        <div class="pills">
+          <span class="pill">Macro Analysis</span><span class="pill">SQL</span><span class="pill">Python</span>
+          <span class="pill">Financial Analytics</span><span class="pill">Strategic Narrative</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/bobaoxu2001/tariff-impact-asia-banks" target="_blank">GitHub</a>
+          <a href="https://github.com/bobaoxu2001/tariff-impact-asia-banks/blob/main/report/Tariff_Impact_Asia_Banks_Report.pdf" target="_blank">Analysis Report</a>
+          <a href="https://github.com/bobaoxu2001/tariff-impact-asia-banks/blob/main/output/figures/fig5_event_bar.png" target="_blank">Key Findings Chart</a>
+        </div>
+      </div>
+
+      <div class="project-card card">
+        <h3>Food Insecurity &amp; Youth Depression Analysis ⭐⭐</h3>
+        <p>Processed multi-cycle CDC NHANES datasets using SQL and Python, then produced evidence-based analytical reports quantifying links between food insecurity and depression risk among US youth.</p>
+        <div class="pills">
+          <span class="pill">CDC NHANES</span><span class="pill">SQL</span><span class="pill">Python</span>
+          <span class="pill">Public Health</span><span class="pill">Statistical Analysis</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/bobaoxu2001/Food-insecurity" target="_blank">GitHub</a>
+          <a href="https://github.com/bobaoxu2001/Food-insecurity/blob/main/report/Food_Insecurity_Youth_Depression_Risk_Ao_Xu_2005_2022.pdf" target="_blank">Report</a>
+          <a href="https://github.com/bobaoxu2001/Food-insecurity/blob/main/outputs/figures/adjusted_or_forest_plot.png" target="_blank">Stat Figure</a>
+        </div>
+      </div>
+
+      <div class="project-card card">
+        <h3>Quantitative Finance Trading System ⭐</h3>
+        <p>Modular hourly trading system blueprint with cloud-ready deployment templates, risk controls, and automated tests. Demonstrates end-to-end engineering execution with strong ownership across modeling, execution simulation, and governance.</p>
+        <div class="pills">
+          <span class="pill">Trading System</span><span class="pill">Python</span><span class="pill">Cloud Deploy</span>
+          <span class="pill">Automated Testing</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/bobaoxu2001/Quantitative-Finance" target="_blank">GitHub</a>
+          <a href="https://github.com/bobaoxu2001/Quantitative-Finance/blob/main/docs/PUBLIC_QUANT_COMPARISON_SOURCES.md" target="_blank">Research Notes</a>
+        </div>
+      </div>
+
+      <div class="project-card card">
+        <h3>LiveOnOnly Project (Healthcare Data Warehouse)</h3>
+        <p>Healthcare analytics warehouse demo using HRSA public data with SQL Server + SSIS + SSRS + Power BI patterns. Built auditability-first ETL with 15+ quality rules, SCD2 warehouse dimensions, and governance-ready lineage documentation.</p>
+        <div class="pills">
+          <span class="pill">SQL Server</span><span class="pill">SSIS</span><span class="pill">Power BI</span>
+          <span class="pill">Data Governance</span><span class="pill">ETL</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/bobaoxu2001/LiveOnOnly-Project" target="_blank">GitHub</a>
+          <a href="https://github.com/bobaoxu2001/LiveOnOnly-Project/blob/main/PROJECT_SUMMARY.md" target="_blank">Project Summary</a>
+          <a href="https://github.com/bobaoxu2001/LiveOnOnly-Project/blob/main/sql/kpi_queries.sql" target="_blank">KPI SQL</a>
+        </div>
+      </div>
+
+      <div class="project-card card">
+        <h3>Maverick Real Estate Analytics</h3>
+        <p>NYC commercial real-estate analytics platform integrating API-based acquisition, dbt modeling, ML valuation, segmentation, distress prediction, and Monte Carlo risk simulation for investment intelligence.</p>
+        <div class="pills">
+          <span class="pill">Real Estate</span><span class="pill">Data Analytics</span><span class="pill">Python</span>
+          <span class="pill">dbt</span><span class="pill">Forecasting</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/bobaoxu2001/Maverick-Real-Estate" target="_blank">GitHub</a>
+          <a href="https://github.com/bobaoxu2001/Maverick-Real-Estate/blob/main/run_pipeline.py" target="_blank">Pipeline Runner</a>
+          <a href="https://github.com/bobaoxu2001/Maverick-Real-Estate/tree/main/dbt_models/models" target="_blank">dbt Models</a>
+        </div>
       </div>
     </div>
-    <div class="col-4">
-      <div class="card">
-        <b>Earthquake Damage Prediction</b>
-        <p style="color:var(--muted); margin:6px 0 12px">Built models to predict earthquake damage severity on the Nepal dataset; achieved top 8% ranking on Kaggle with a log-loss of 0.431 and 75% accuracy.</p>
-        <p style="margin-top:10px"><a href="projects/Modeling_Earthquake_Damage_Project.pdf" target="_blank">Read full report →</a></p>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <b>NAIC Scenario Generator Evaluation</b>
-        <p style="color:var(--muted); margin:6px 0 12px">Generated economic scenarios under NAIC guidelines and evaluated long-term yield curves to support insurance risk assessments.</p>
-        <p style="margin-top:10px"><a href="projects/New_NAIC_Scenario.pdf" target="_blank">Read full report →</a></p>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <b>JEPA Methods & Evaluation</b>
-        <p style="color:var(--muted); margin:6px 0 12px">Implemented training and evaluation techniques for Joint Embedding Predictive Architecture (JEPA) models on sequential data.</p>
-        <p style="margin-top:10px"><a href="projects/Methods_for_Training_and_Evaluating_the_JEPA_Model.pdf" target="_blank">Read full report →</a></p>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <b>Interactive Activation Model as Bayesian Inference</b>
-        <p style="color:var(--muted); margin:6px 0 12px">Reinterpreted the Interactive Activation Model of word recognition within a Bayesian inference framework to study cognitive processing.</p>
-        <p style="margin-top:10px"><a href="projects/Interactive_Activation_Model_IAM_as_Bayesian_Inference.pdf" target="_blank">Read full report →</a></p>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <b>NLP & Large Language Models</b>
-        <p style="color:var(--muted); margin:6px 0 12px">Researched fine-tuning techniques and evaluation strategies for large language models applied to natural language processing tasks.</p>
-        <p style="margin-top:10px"><a href="projects/NLP-LLM_Project.pdf" target="_blank">Read full report →</a></p>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <b>Big Data & Movie Recsys</b>
-        <p style="color:var(--muted); margin:6px 0 12px">Built a big data pipeline and movie recommendation system using MinHash-LSH and matrix factorization to segment users and improve recommendations.</p>
-        <p style="margin-top:10px"><a href="projects/Big_Data_Project.pdf" target="_blank">Read full report →</a></p>
+  </div>
+
+  <div class="project-group" style="margin-top:28px">
+    <h3 class="group-title">Academic &amp; Research Projects</h3>
+    <p class="group-subtitle">Only the strongest project is retained to support AI strategy + analytics positioning.</p>
+    <div class="projects-grid">
+      <div class="project-card card">
+        <h3>Deep Learning for Financial Market Prediction — S&amp;P Global × NYU</h3>
+        <p>Capstone project using LSTM, iTransformer, and sentiment-informed features for Bitcoin market forecasting. Built model comparison workflow and delivered a stakeholder-facing report with strong error reduction versus baseline methods.</p>
+        <div class="pills">
+          <span class="pill">Deep Learning</span><span class="pill">LSTM</span><span class="pill">iTransformer</span>
+          <span class="pill">Sentiment Analysis</span><span class="pill">S&amp;P Global</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/bobaoxu2001/bitcoin_price_prediction" target="_blank">GitHub</a>
+          <a href="https://github.com/bobaoxu2001/bitcoin_price_prediction/blob/main/capstone1006_Group36.pdf" target="_blank">Read Full Report</a>
+        </div>
       </div>
     </div>
   </div>
@@ -232,11 +525,28 @@
 
 <section id="skills">
   <h2>Skills</h2>
-  <div class="card">
+  <div class="card skill-card">
+    <div class="skill-title">AI Strategy &amp; Tooling</div>
     <div class="pills">
-      <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">PyTorch</span>
-      <span class="pill">LightGBM</span><span class="pill">Optuna</span><span class="pill">Tableau</span>
-      <span class="pill">Spark</span><span class="pill">A/B Testing</span><span class="pill">Time Series</span><span class="pill">LLM/NLP</span>
+      <span class="pill">Cursor Agent</span><span class="pill">Claude Code</span><span class="pill">Dify</span>
+      <span class="pill">Prompt Engineering</span><span class="pill">RAG Pipelines</span>
+      <span class="pill">LLM Behavior Analysis</span><span class="pill">OpenAI API</span>
+    </div>
+  </div>
+  <div class="card skill-card">
+    <div class="skill-title">Data Analytics &amp; Visualization</div>
+    <div class="pills">
+      <span class="pill">SQL (Advanced)</span><span class="pill">Python</span><span class="pill">Retool</span>
+      <span class="pill">Tableau</span><span class="pill">Power BI</span><span class="pill">Looker</span>
+      <span class="pill">Funnel Analysis</span><span class="pill">Unstructured Data Clustering</span>
+    </div>
+  </div>
+  <div class="card skill-card">
+    <div class="skill-title">Engineering &amp; ML</div>
+    <div class="pills">
+      <span class="pill">PyTorch</span><span class="pill">TensorFlow</span><span class="pill">Spark</span>
+      <span class="pill">System Design</span><span class="pill">Vector Databases (FAISS)</span>
+      <span class="pill">A/B Testing</span><span class="pill">Time Series</span>
     </div>
   </div>
 </section>
@@ -244,12 +554,10 @@
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact-container">
-    <!-- Contact info and roles of interest -->
     <div class="contact-info card">
-      Email: <a href="mailto:ax2183@nyu.edu">ax2183@nyu.edu</a> · LinkedIn: <a href="https://www.linkedin.com/in/ao-xu/" target="_blank">/in/ao-xu</a>
-      <p class="contact-note">I’m open to roles in Data Scientist · Data Analyst · Quant Researcher.</p>
+      Email: <a href="mailto:ax2183@nyu.edu">ax2183@nyu.edu</a> · LinkedIn: <a href="https://www.linkedin.com/in/ao-xu/" target="_blank">/in/ao-xu</a> · GitHub: <a href="https://github.com/bobaoxu2001" target="_blank">@bobaoxu2001</a>
+      <p class="contact-note">I'm open to roles in AI Strategy · Data Analytics · AI Product Operations · LLM Engineering</p>
     </div>
-    <!-- Simple contact form that opens a mailto link when submitted -->
     <div class="contact-form card">
       <form action="mailto:ax2183@nyu.edu" method="post" enctype="text/plain">
         <input type="text" name="name" placeholder="Name">
@@ -261,6 +569,6 @@
   </div>
 </section>
 
-<footer>© 2025 Ao Xu · Dark UI version (v4).</footer>
+<footer>© 2026 Ao Xu · AI Strategist / Data Analyst / Builder</footer>
 </body>
 </html>
