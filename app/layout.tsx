@@ -5,8 +5,7 @@ import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
-  // TODO (pre-deploy): replace with your Vercel URL, e.g. new URL("https://ao-xu.vercel.app")
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://personal-portfolio-eight-xi-98.vercel.app"),
   title: siteConfig.seoTitle,
   description: siteConfig.seoDescription,
   openGraph: {
