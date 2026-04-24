@@ -1,0 +1,112 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Hero } from "@/components/Hero";
+import { CapabilityMap } from "@/components/CapabilityMap";
+import { FeaturedProject } from "@/components/FeaturedProject";
+import { ProjectCard } from "@/components/ProjectCard";
+import { PortfolioAssistant } from "@/components/PortfolioAssistant";
+import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { SkillsGrid } from "@/components/SkillsGrid";
+import { ContactSection } from "@/components/ContactSection";
+import { SectionHeader } from "@/components/SectionHeader";
+import { homepageProjects, experiences, skillGroups } from "@/lib/data";
+
+export default function HomePage() {
+  return (
+    <>
+      {/* 1 ── Who I am ──────────────────────────────────────────── */}
+      <Hero />
+
+      {/* 2 ── What I can solve ──────────────────────────────────── */}
+      <CapabilityMap />
+
+      {/* 3 ── Flagship case study ───────────────────────────────── */}
+      <FeaturedProject />
+
+      {/* 4 ── Selected Projects (4 curated) ─────────────────────── */}
+      <section className="py-20 bg-slate-50/60">
+        <div className="container-xl">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+            <SectionHeader
+              eyebrow="Work"
+              title="Selected Projects"
+              subtitle="Four projects that show how I connect data science, AI systems, and business operations."
+            />
+            <Link
+              href="/projects"
+              className="hidden sm:flex items-center gap-1 text-sm text-blue-600 font-semibold hover:text-blue-700 transition-colors whitespace-nowrap"
+            >
+              Full archive <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            {homepageProjects.map((p) => (
+              <ProjectCard
+                key={p.id}
+                title={p.title}
+                category={p.category}
+                description={p.description}
+                technologies={p.technologies}
+                github={p.github}
+                liveDemo={p.liveDemo}
+                highlight={p.highlight}
+              />
+            ))}
+          </div>
+
+          <div className="mt-8 text-center sm:hidden">
+            <Link href="/projects" className="btn-secondary">
+              Full archive <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 ── Experience ────────────────────────────────────────── */}
+      <section className="py-20 bg-white">
+        <div className="container-xl">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+            <SectionHeader
+              eyebrow="Background"
+              title="Experience"
+              subtitle="Industry experience across AI operations, product analytics, and research."
+            />
+            <Link
+              href="/experience"
+              className="hidden sm:flex items-center gap-1 text-sm text-blue-600 font-semibold hover:text-blue-700 transition-colors whitespace-nowrap"
+            >
+              Full timeline <ArrowRight size={14} />
+            </Link>
+          </div>
+          <ExperienceTimeline experiences={experiences.slice(0, 4)} maxBullets={4} />
+          <div className="mt-6 sm:hidden text-center">
+            <Link href="/experience" className="btn-secondary">
+              Full timeline <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 6 ── Interactive Demo ──────────────────────────────────── */}
+      <PortfolioAssistant />
+
+      {/* 7 ── Skills ────────────────────────────────────────────── */}
+      <section className="py-20 bg-slate-50/60">
+        <div className="container-xl">
+          <SectionHeader
+            eyebrow="Toolkit"
+            title="Data & AI Toolkit"
+            subtitle="Technical stack across data science, ML, LLM systems, and business intelligence."
+          />
+          <div className="mt-8">
+            <SkillsGrid groups={skillGroups} />
+          </div>
+        </div>
+      </section>
+
+      {/* 8 ── Contact CTA ───────────────────────────────────────── */}
+      <ContactSection />
+    </>
+  );
+}
