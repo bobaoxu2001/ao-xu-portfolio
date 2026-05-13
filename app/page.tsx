@@ -4,7 +4,6 @@ import { Hero } from "@/components/Hero";
 import { CapabilityMap } from "@/components/CapabilityMap";
 import { FeaturedProject } from "@/components/FeaturedProject";
 import { ProjectCard } from "@/components/ProjectCard";
-import { PortfolioAssistant } from "@/components/PortfolioAssistant";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { SkillsGrid } from "@/components/SkillsGrid";
 import { ContactSection } from "@/components/ContactSection";
@@ -14,23 +13,17 @@ import { homepageProjects, experiences, skillGroups } from "@/lib/data";
 export default function HomePage() {
   return (
     <>
-      {/* 1 ── Who I am ──────────────────────────────────────────── */}
+      {/* 1 ── Hero + KPI proof strip ─────────────────────────────── */}
       <Hero />
 
-      {/* 2 ── What I can solve ──────────────────────────────────── */}
-      <CapabilityMap />
-
-      {/* 3 ── Flagship case study ───────────────────────────────── */}
-      <FeaturedProject />
-
-      {/* 4 ── Selected Projects (4 curated) ─────────────────────── */}
+      {/* 2 ── Featured Projects (5 cards) ───────────────────────── */}
       <section className="py-20 bg-slate-50/60">
         <div className="container-xl">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
             <SectionHeader
-              eyebrow="Work"
-              title="Selected Projects"
-              subtitle="Four projects that show how I connect data science, AI systems, and business operations."
+              eyebrow="Featured Projects"
+              title="AI + Data Projects"
+              subtitle="Applied work across LLM systems, NLP pipelines, product analytics, and market intelligence."
             />
             <Link
               href="/projects"
@@ -40,7 +33,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {homepageProjects.map((p) => (
               <ProjectCard
                 key={p.id}
@@ -62,6 +55,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 3 ── Case Study Deep Dive ───────────────────────────────── */}
+      <FeaturedProject />
+
+      {/* 4 ── Capability Map ─────────────────────────────────────── */}
+      <CapabilityMap />
 
       {/* 5 ── Experience ────────────────────────────────────────── */}
       <section className="py-20 bg-white">
@@ -88,10 +87,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 ── Interactive Demo ──────────────────────────────────── */}
-      <PortfolioAssistant />
-
-      {/* 7 ── Skills ────────────────────────────────────────────── */}
+      {/* 6 ── Toolkit / Skills ──────────────────────────────────── */}
       <section className="py-20 bg-slate-50/60">
         <div className="container-xl">
           <SectionHeader
@@ -105,7 +101,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8 ── Contact CTA ───────────────────────────────────────── */}
+      {/* 7 ── Contact CTA ───────────────────────────────────────── */}
       <ContactSection />
     </>
   );

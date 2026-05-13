@@ -88,7 +88,7 @@ export default function ResumePage() {
               <div>
                 <p className="text-xs text-slate-400 font-medium">LinkedIn</p>
                 <p className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
-                  linkedin.com/in/aoxu2001
+                  linkedin.com/in/ao-xu
                 </p>
               </div>
             </a>

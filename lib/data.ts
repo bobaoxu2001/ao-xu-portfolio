@@ -46,8 +46,45 @@ export const featuredProject = {
 };
 
 // ─── Homepage Project Cards ──────────────────────────────────────────────────
+// Order matches recruiter-facing priority:
+// China Telecom → SOC Copilot → Digital Asset → Support Ticket → TikTok
 
 export const homepageProjects = [
+  {
+    id: "china-telecom-llm",
+    title: "China Telecom AI Workflow Platform",
+    category: "Applied AI / LLM Systems",
+    description:
+      "Designed enterprise LLM workflows for intent classification, prompt evaluation, structured output review, and city-operations knowledge retrieval across 20,000+ dialogue logs.",
+    technologies: ["Python", "Dify", "Prompt Engineering", "NLP", "OpenAI API"],
+    github: null,
+    liveDemo: null,
+    highlight: "20,000+ logs · 170+ intent labels",
+  },
+  {
+    id: "soc-knowledge-copilot",
+    title: "SOC Engineering Knowledge Copilot",
+    category: "Applied AI / LLM Systems",
+    description:
+      "Built a cited RAG assistant and deterministic workflow triage agent for SOC/hardware engineering teams. Combines FAISS-backed retrieval inspection, a 6-step triage pipeline for build/verification/lint logs, a FastAPI service layer, and an evaluation dashboard. High-risk topics gate to human review; runs offline with deterministic mock-LLM fallback.",
+    technologies: ["Python", "RAG", "FAISS", "FastAPI", "Streamlit", "sentence-transformers"],
+    github:
+      "https://github.com/bobaoxu2001/SOC-Engineering-Copilot-RAG-Agent-Workflow-Assistant",
+    liveDemo: "https://soc-ai-copilot.streamlit.app/",
+    highlight: "95% QA hit rate · 100% triage routing accuracy",
+  },
+  {
+    id: "digital-asset-market",
+    title: "Digital Asset Market Behavior Intelligence",
+    category: "Data Science & Market Research",
+    description:
+      "Multi-source crypto market behavior research terminal covering BTC, ETH, SOL, AVAX, and five DeFi beta assets. Fuses price, volatility, sentiment, DeFi liquidity, on-chain activity, and macro context into interpretable behavior regimes, event-reaction studies, and a 6-page Streamlit dashboard. Framed as market behavior monitoring, not trading signals.",
+    technologies: ["Python", "Streamlit", "CoinGecko", "DeFiLlama", "FRED", "Event Study"],
+    github:
+      "https://github.com/bobaoxu2001/Digital-Asset-Market-Behavior-Intelligence-Platform",
+    liveDemo: "https://crypto-market-behavior.streamlit.app/",
+    highlight: "9 assets · regime + sentiment + on-chain fusion",
+  },
   {
     id: "support-ticket-routing",
     title: "LLM-powered Support Ticket Routing",
@@ -61,17 +98,6 @@ export const homepageProjects = [
     highlight: "+21.1 pts Macro-F1 lift",
   },
   {
-    id: "china-telecom-llm",
-    title: "China Telecom LLM Workflow Platform",
-    category: "Applied AI / LLM Systems",
-    description:
-      "Designed enterprise LLM workflows for intent classification, prompt evaluation, structured output review, and city-operations knowledge retrieval.",
-    technologies: ["Python", "Dify", "Prompt Engineering", "NLP", "OpenAI API"],
-    github: null,
-    liveDemo: null,
-    highlight: "20,000+ logs classified, 170+ intent labels",
-  },
-  {
     id: "tiktok-seller-analytics",
     title: "TikTok Seller Support Analytics",
     category: "Product Analytics",
@@ -82,29 +108,35 @@ export const homepageProjects = [
     liveDemo: null,
     highlight: "48% conversion lift opportunity identified",
   },
-  {
-    id: "sp-global-forecasting",
-    title: "S&P Global × NYU Financial Forecasting",
-    category: "Data Science & Forecasting",
-    description:
-      "Built a multi-source forecasting pipeline combining social sentiment and market indices across 62,800+ hourly observations, reducing MAE by 71% over baseline.",
-    technologies: [
-      "Python",
-      "PyTorch",
-      "SOFTS",
-      "LightGBM",
-      "XGBoost",
-      "Time-Series",
-    ],
-    github: null,
-    liveDemo: null,
-    highlight: "71% MAE reduction",
-  },
 ];
 
 // ─── Archive Projects ────────────────────────────────────────────────────────
 
 export const archiveProjects = [
+  {
+    id: "sp-global-forecasting",
+    archiveCategory: "Data Science & Forecasting",
+    title: "S&P Global × NYU Financial Forecasting",
+    description:
+      "Built a multi-source forecasting pipeline combining social sentiment and market indices across 62,800+ hourly observations, reducing MAE by 71% over baseline. Benchmarked 6 architectures including SOFTS, LSTM, GRU, LightGBM, and XGBoost.",
+    technologies: ["Python", "PyTorch", "SOFTS", "LightGBM", "XGBoost", "Time-Series"],
+    github: null,
+    liveDemo: null,
+    highlight: "71% MAE reduction vs. baseline",
+  },
+  {
+    id: "alternative-investment-analytics",
+    archiveCategory: "Product Analytics & Data Platforms",
+    title: "Alternative Investment Sales Strategy Analytics",
+    description:
+      "Analytics workflow for alternative investment sales strategy built on synthetic CRM-style data. Includes funnel conversion, RM productivity benchmarking, product demand analysis, campaign ROI, and advisor priority scoring — packaged as a static dashboard with executive charts, validation scripts, and methodology documentation.",
+    technologies: ["Python", "SQL", "SQLite", "pandas", "matplotlib", "Vercel"],
+    github:
+      "https://github.com/bobaoxu2001/alternative-investment-sales-strategy-analytics",
+    liveDemo:
+      "https://alternative-investment-sales-strategy-analytics-matlvkct2.vercel.app/",
+    highlight: "Funnel · RM productivity · campaign ROI · priority scoring",
+  },
   {
     id: "nlp-hybrid-prompting",
     title: "NLP / LLM Hybrid Prompting Research",
