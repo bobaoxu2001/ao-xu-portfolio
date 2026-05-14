@@ -26,7 +26,7 @@ export function Hero() {
 
           {/* ── Text column ─────────────────────────────── */}
           <div className="flex-1 text-center lg:text-left max-w-xl">
-            <span className="eyebrow mb-3 block">Business Data Scientist</span>
+            <span className="eyebrow mb-3 block">AI + Data Analyst</span>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.08] tracking-tight mb-4">
               Ao{" "}

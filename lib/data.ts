@@ -3,15 +3,15 @@
 export const siteConfig = {
   name: "Ao (Allen) Xu",
   shortName: "Ao Xu",
-  title: "Business Data Scientist",
-  tagline: "Business Data Scientist | AI Strategy & Operations | LLM/NLP Analytics",
+  title: "AI + Data Analyst",
+  tagline: "AI + Data Analyst | Applied AI Builder | Business Data Scientist",
   positioning:
     "I build data science and AI systems that turn messy business workflows into measurable decisions — from support-ticket routing and seller operations analytics to LLM workflow evaluation and forecasting.",
   email: "ax2183@nyu.edu",
   linkedin: "https://www.linkedin.com/in/ao-xu/",
   github: "https://github.com/bobaoxu2001",
   resumeUrl: "/resume/Allen_Xu_Resume.pdf",
-  seoTitle: "Ao Xu | Business Data Scientist & AI Strategy",
+  seoTitle: "Ao Xu | AI + Data Analyst & Applied AI Builder",
   seoDescription:
     "Portfolio of Ao Xu, a business data scientist focused on ML, NLP, LLM workflows, support operations analytics, and AI strategy.",
   ogImage: "/images/ao-xu-headshot.png",
@@ -66,7 +66,7 @@ export const homepageProjects = [
     title: "SOC Engineering Knowledge Copilot",
     category: "Applied AI / LLM Systems",
     description:
-      "Built a cited RAG assistant and deterministic workflow triage agent for SOC/hardware engineering teams. Combines FAISS-backed retrieval inspection, a 6-step triage pipeline for build/verification/lint logs, a FastAPI service layer, and an evaluation dashboard. High-risk topics gate to human review; runs offline with deterministic mock-LLM fallback.",
+      "Built a cited RAG assistant and deterministic workflow triage agent for system-on-chip (SOC) hardware engineering teams. Combines FAISS-backed retrieval inspection, a 6-step triage pipeline for build/verification/lint logs, a FastAPI service layer, and an evaluation dashboard. High-risk topics gate to human review; runs offline with deterministic mock-LLM fallback.",
     technologies: ["Python", "RAG", "FAISS", "FastAPI", "Streamlit", "sentence-transformers"],
     github:
       "https://github.com/bobaoxu2001/SOC-Engineering-Copilot-RAG-Agent-Workflow-Assistant",
