@@ -1,5 +1,11 @@
 // Central content configuration — update this file to update site content.
 
+// Public site URL. Set NEXT_PUBLIC_SITE_URL in Vercel when a custom domain
+// is attached; falls back to the Vercel preview URL for local + preview builds.
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://personal-portfolio-eight-xi-98.vercel.app";
+
 export const siteConfig = {
   name: "Ao (Allen) Xu",
   shortName: "Ao Xu",
@@ -14,7 +20,6 @@ export const siteConfig = {
   seoTitle: "Ao Xu | AI + Data Analyst & Applied AI Builder",
   seoDescription:
     "Portfolio of Ao Xu, a business data scientist focused on ML, NLP, LLM workflows, support operations analytics, and AI strategy.",
-  ogImage: "/images/ao-xu-headshot.png",
 };
 
 // ─── Featured Project ───────────────────────────────────────────────────────
@@ -49,7 +54,19 @@ export const featuredProject = {
 // Order matches recruiter-facing priority:
 // China Telecom → SOC Copilot → Digital Asset → Support Ticket → TikTok
 
-export const homepageProjects = [
+export type HomepageProject = {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  technologies: string[];
+  github: string | null;
+  liveDemo: string | null;
+  caseStudy?: string;
+  highlight: string;
+};
+
+export const homepageProjects: HomepageProject[] = [
   {
     id: "china-telecom-llm",
     title: "China Telecom AI Workflow Platform",
@@ -94,7 +111,8 @@ export const homepageProjects = [
     technologies: ["Python", "NLP", "TF-IDF", "scikit-learn", "Streamlit"],
     github:
       "https://github.com/bobaoxu2001/LLM-powered-Support-Ticket-Routing-System",
-    liveDemo: "https://portfolio-site-wheat-nu.vercel.app/",
+    liveDemo: null,
+    caseStudy: "/projects/support-ticket-routing",
     highlight: "+21.1 pts Macro-F1 lift",
   },
   {

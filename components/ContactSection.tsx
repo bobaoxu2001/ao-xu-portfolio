@@ -28,7 +28,7 @@ export function ContactSection() {
             href={siteConfig.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/8 border border-white/15 hover:bg-white/15 text-slate-200 hover:text-white text-sm font-semibold rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/15 hover:bg-white/15 text-slate-200 hover:text-white text-sm font-semibold rounded-xl transition-colors"
           >
             <Linkedin size={15} /> LinkedIn
           </a>
@@ -36,7 +36,7 @@ export function ContactSection() {
             href={siteConfig.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/8 border border-white/15 hover:bg-white/15 text-slate-200 hover:text-white text-sm font-semibold rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/15 hover:bg-white/15 text-slate-200 hover:text-white text-sm font-semibold rounded-xl transition-colors"
           >
             <Github size={15} /> GitHub
           </a>
@@ -44,7 +44,7 @@ export function ContactSection() {
             href={siteConfig.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/8 border border-white/15 hover:bg-white/15 text-slate-200 hover:text-white text-sm font-semibold rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/15 hover:bg-white/15 text-slate-200 hover:text-white text-sm font-semibold rounded-xl transition-colors"
           >
             <FileText size={15} /> Resume PDF
           </a>

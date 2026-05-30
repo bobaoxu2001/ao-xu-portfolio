@@ -17,7 +17,7 @@ export default function HomePage() {
       <Hero />
 
       {/* 2 ── Featured Projects (5 cards) ───────────────────────── */}
-      <section className="py-20 bg-slate-50/60">
+      <section className="py-20 bg-slate-50/60 dark:bg-slate-900/40">
         <div className="container-xl">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
             <SectionHeader
@@ -27,7 +27,7 @@ export default function HomePage() {
             />
             <Link
               href="/projects"
-              className="hidden sm:flex items-center gap-1 text-sm text-blue-600 font-semibold hover:text-blue-700 transition-colors whitespace-nowrap"
+              className="hidden sm:flex items-center gap-1 text-sm text-blue-600 font-semibold hover:text-blue-700 transition-colors whitespace-nowrap dark:text-blue-400 dark:hover:text-blue-300"
             >
               Full archive <ArrowRight size={14} />
             </Link>
@@ -43,6 +43,7 @@ export default function HomePage() {
                 technologies={p.technologies}
                 github={p.github}
                 liveDemo={p.liveDemo}
+                caseStudy={p.caseStudy}
                 highlight={p.highlight}
               />
             ))}
@@ -63,7 +64,7 @@ export default function HomePage() {
       <CapabilityMap />
 
       {/* 5 ── Experience ────────────────────────────────────────── */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-slate-950">
         <div className="container-xl">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
             <SectionHeader
@@ -73,7 +74,7 @@ export default function HomePage() {
             />
             <Link
               href="/experience"
-              className="hidden sm:flex items-center gap-1 text-sm text-blue-600 font-semibold hover:text-blue-700 transition-colors whitespace-nowrap"
+              className="hidden sm:flex items-center gap-1 text-sm text-blue-600 font-semibold hover:text-blue-700 transition-colors whitespace-nowrap dark:text-blue-400 dark:hover:text-blue-300"
             >
               Full timeline <ArrowRight size={14} />
             </Link>
@@ -88,7 +89,7 @@ export default function HomePage() {
       </section>
 
       {/* 6 ── Toolkit / Skills ──────────────────────────────────── */}
-      <section className="py-20 bg-slate-50/60">
+      <section className="py-20 bg-slate-50/60 dark:bg-slate-900/40">
         <div className="container-xl">
           <SectionHeader
             eyebrow="Toolkit"
