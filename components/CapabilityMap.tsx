@@ -98,19 +98,19 @@ function CapabilityCard({ cap }: { cap: Capability }) {
   const Icon = cap.icon;
 
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-blue-200 hover:shadow-[0_4px_20px_rgba(59,130,246,0.08)] transition-all duration-200">
+    <div className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-blue-200 hover:shadow-[0_4px_20px_rgba(59,130,246,0.08)] transition-all duration-200 dark:bg-slate-900 dark:border-slate-800 dark:hover:border-blue-500/30 dark:hover:shadow-[0_4px_20px_rgba(59,130,246,0.15)]">
       {/* Icon + title */}
       <div className="flex items-start gap-3 mb-2.5">
-        <div className="mt-0.5 w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-          <Icon size={16} className="text-blue-600" />
+        <div className="mt-0.5 w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 dark:bg-blue-500/10 dark:border-blue-500/20">
+          <Icon size={16} className="text-blue-600 dark:text-blue-400" />
         </div>
-        <h3 className="text-[14px] font-bold text-slate-900 leading-snug pt-1">
+        <h3 className="text-[14px] font-bold text-slate-900 leading-snug pt-1 dark:text-slate-100">
           {cap.title}
         </h3>
       </div>
 
       {/* Description */}
-      <p className="text-[13px] text-slate-500 leading-relaxed mb-3 pl-11">
+      <p className="text-[13px] text-slate-500 leading-relaxed mb-3 pl-11 dark:text-slate-400">
         {cap.description}
       </p>
 
@@ -119,7 +119,7 @@ function CapabilityCard({ cap }: { cap: Capability }) {
         {cap.evidence.map((e) => (
           <span
             key={e}
-            className="px-2 py-0.5 text-[11px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-full"
+            className="px-2 py-0.5 text-[11px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-full dark:text-indigo-300 dark:bg-indigo-500/10 dark:border-indigo-500/20"
           >
             {e}
           </span>
@@ -130,7 +130,7 @@ function CapabilityCard({ cap }: { cap: Capability }) {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="pl-11 flex items-center gap-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+        className="pl-11 flex items-center gap-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded dark:text-blue-400 dark:hover:text-blue-300"
       >
         {open ? "Hide" : "Evidence"}
         <ChevronDown
@@ -141,19 +141,19 @@ function CapabilityCard({ cap }: { cap: Capability }) {
 
       {/* Evidence panel */}
       {open && (
-        <div className="mt-3 pl-11 border-t border-slate-100 pt-3">
+        <div className="mt-3 pl-11 border-t border-slate-100 pt-3 dark:border-slate-800">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider dark:text-slate-400">
               Evidence
             </span>
-            <span className="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-500 rounded-full font-semibold border border-slate-200">
+            <span className="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-500 rounded-full font-semibold border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700">
               {cap.backChip}
             </span>
           </div>
           <ul className="space-y-1.5">
             {cap.backItems.map((item, i) => (
-              <li key={i} className="flex gap-2 text-[12px] text-slate-600 leading-snug">
-                <span className="mt-[5px] w-[4px] h-[4px] rounded-full bg-blue-300 shrink-0" />
+              <li key={i} className="flex gap-2 text-[12px] text-slate-600 leading-snug dark:text-slate-300">
+                <span className="mt-[5px] w-[4px] h-[4px] rounded-full bg-blue-300 shrink-0 dark:bg-blue-400/60" />
                 {item}
               </li>
             ))}
@@ -166,7 +166,7 @@ function CapabilityCard({ cap }: { cap: Capability }) {
 
 export function CapabilityMap() {
   return (
-    <section className="py-16 bg-white border-b border-slate-100">
+    <section className="py-16 bg-white border-b border-slate-100 dark:bg-slate-950 dark:border-slate-800">
       <div className="container-xl">
         {/* Header */}
         <div className="mb-10">

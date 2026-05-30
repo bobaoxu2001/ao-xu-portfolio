@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
-
-const BASE_URL = "https://personal-portfolio-eight-xi-98.vercel.app";
+import { SITE_URL } from "@/lib/data";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: `${BASE_URL}/sitemap.xml`,
-    host: BASE_URL,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

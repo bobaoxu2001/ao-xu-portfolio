@@ -8,17 +8,24 @@
     scroll-padding-top: 4.5rem;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
   body {
-    @apply bg-white text-slate-900 antialiased;
+    @apply antialiased;
     font-feature-settings: 'cv11', 'ss01';
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight text-slate-900;
+    @apply font-semibold tracking-tight text-slate-900 dark:text-slate-100;
   }
 
   ::selection {
     @apply bg-blue-100 text-blue-900;
+  }
+  .dark ::selection {
+    @apply bg-blue-500/30 text-blue-100;
   }
 }
 
@@ -30,44 +37,55 @@
   .btn-primary {
     @apply inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg
            hover:bg-blue-700 active:bg-blue-800 transition-all duration-150 shadow-sm hover:shadow-md
-           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+           dark:focus:ring-offset-slate-950;
   }
 
   .btn-secondary {
     @apply inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 text-slate-700
            text-sm font-semibold rounded-lg hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm
-           transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2;
+           transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
+           dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200
+           dark:hover:bg-slate-800 dark:hover:border-slate-600
+           dark:focus:ring-offset-slate-950;
   }
 
   .card {
     @apply bg-white border border-slate-200 rounded-2xl p-6
            hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] hover:border-slate-300
-           transition-all duration-200;
+           transition-all duration-200
+           dark:bg-slate-900 dark:border-slate-800 dark:hover:border-slate-700
+           dark:hover:shadow-[0_4px_20px_rgba(0,0,0,0.4)];
   }
 
   .card-flat {
-    @apply bg-white border border-slate-200 rounded-2xl p-6;
+    @apply bg-white border border-slate-200 rounded-2xl p-6
+           dark:bg-slate-900 dark:border-slate-800;
   }
 
   .tag {
-    @apply inline-block px-2.5 py-0.5 text-xs font-medium bg-slate-100 text-slate-600 rounded-full;
+    @apply inline-block px-2.5 py-0.5 text-xs font-medium bg-slate-100 text-slate-600 rounded-full
+           dark:bg-slate-800 dark:text-slate-300;
   }
 
   .eyebrow {
-    @apply text-xs font-bold tracking-[0.12em] uppercase text-blue-600;
+    @apply text-xs font-bold tracking-[0.12em] uppercase text-blue-600 dark:text-blue-400;
   }
 
   .section-heading {
-    @apply text-3xl font-extrabold text-slate-900 tracking-tight;
+    @apply text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-100;
   }
 
   .section-subheading {
-    @apply text-slate-500 mt-2 text-[15px] leading-relaxed;
+    @apply text-slate-500 mt-2 text-[15px] leading-relaxed dark:text-slate-400;
   }
 }
 
-/* Dot grid for hero */
+/* Dot grid for hero — adapts to color scheme */
 .hero-grid {
   background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
   background-size: 28px 28px;
+}
+.dark .hero-grid {
+  background-image: radial-gradient(circle, #334155 1px, transparent 1px);
 }

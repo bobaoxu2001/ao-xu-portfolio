@@ -19,7 +19,7 @@ export default function AboutPage() {
         <div className="flex flex-col lg:flex-row items-start gap-12 mb-16">
           {/* Photo */}
           <div className="shrink-0 mx-auto lg:mx-0">
-            <div className="relative w-44 h-44 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+            <div className="relative w-44 h-44 rounded-2xl overflow-hidden border border-slate-200 shadow-md dark:border-slate-800">
               <Image
                 src="/images/ao-xu-headshot.png"
                 alt={`${siteConfig.name}`}
@@ -32,11 +32,11 @@ export default function AboutPage() {
           {/* Bio */}
           <div className="max-w-2xl">
             <span className="eyebrow mb-3 block">About</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-5">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-5 dark:text-slate-100">
               {siteConfig.name}
             </h1>
 
-            <div className="space-y-4 text-slate-600 text-[15px] leading-relaxed">
+            <div className="space-y-4 text-slate-600 text-[15px] leading-relaxed dark:text-slate-300">
               <p>
                 I&apos;m most interested in work where data science is close to real business
                 workflows — support operations, product analytics, AI workflow evaluation, and
@@ -87,7 +87,7 @@ export default function AboutPage() {
 
         {/* Skills */}
         <div>
-          <h2 className="text-xl font-bold text-slate-900 mb-6 pb-3 border-b border-slate-100">
+          <h2 className="text-xl font-bold text-slate-900 mb-6 pb-3 border-b border-slate-100 dark:text-slate-100 dark:border-slate-800">
             Technical Skills
           </h2>
           <SkillsGrid groups={skillGroups} />

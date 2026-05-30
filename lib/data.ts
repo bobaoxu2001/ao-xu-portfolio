@@ -1,5 +1,11 @@
 // Central content configuration — update this file to update site content.
 
+// Public site URL. Set NEXT_PUBLIC_SITE_URL in Vercel when a custom domain
+// is attached; falls back to the Vercel preview URL for local + preview builds.
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://personal-portfolio-eight-xi-98.vercel.app";
+
 export const siteConfig = {
   name: "Ao (Allen) Xu",
   shortName: "Ao Xu",

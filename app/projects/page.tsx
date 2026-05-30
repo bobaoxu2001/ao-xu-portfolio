@@ -33,7 +33,7 @@ export default function ProjectsPage() {
 
         {/* Featured projects (case studies live on the homepage). */}
         <div className="mt-12 mb-14">
-          <h2 className="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">
+          <h2 className="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200 dark:text-slate-100 dark:border-slate-800">
             Featured Projects
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
 
         {/* Archive grouped by category */}
         <div>
-          <h2 className="text-xl font-bold text-slate-900 mb-8 pb-2 border-b border-slate-200">
+          <h2 className="text-xl font-bold text-slate-900 mb-8 pb-2 border-b border-slate-200 dark:text-slate-100 dark:border-slate-800">
             Project Archive
           </h2>
           <div className="space-y-12">
