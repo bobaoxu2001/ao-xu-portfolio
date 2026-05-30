@@ -1,4 +1,4 @@
-import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { featuredProject } from "@/lib/data";
 
 export function FeaturedProject() {
