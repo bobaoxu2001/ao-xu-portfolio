@@ -14,7 +14,6 @@ export const siteConfig = {
   seoTitle: "Ao Xu | AI + Data Analyst & Applied AI Builder",
   seoDescription:
     "Portfolio of Ao Xu, a business data scientist focused on ML, NLP, LLM workflows, support operations analytics, and AI strategy.",
-  ogImage: "/images/ao-xu-headshot.png",
 };
 
 // ─── Featured Project ───────────────────────────────────────────────────────
