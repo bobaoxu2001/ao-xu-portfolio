@@ -54,7 +54,19 @@ export const featuredProject = {
 // Order matches recruiter-facing priority:
 // China Telecom → SOC Copilot → Digital Asset → Support Ticket → TikTok
 
-export const homepageProjects = [
+export type HomepageProject = {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  technologies: string[];
+  github: string | null;
+  liveDemo: string | null;
+  caseStudy?: string;
+  highlight: string;
+};
+
+export const homepageProjects: HomepageProject[] = [
   {
     id: "china-telecom-llm",
     title: "China Telecom AI Workflow Platform",
@@ -99,7 +111,8 @@ export const homepageProjects = [
     technologies: ["Python", "NLP", "TF-IDF", "scikit-learn", "Streamlit"],
     github:
       "https://github.com/bobaoxu2001/LLM-powered-Support-Ticket-Routing-System",
-    liveDemo: "https://portfolio-site-wheat-nu.vercel.app/",
+    liveDemo: null,
+    caseStudy: "/projects/support-ticket-routing",
     highlight: "+21.1 pts Macro-F1 lift",
   },
   {

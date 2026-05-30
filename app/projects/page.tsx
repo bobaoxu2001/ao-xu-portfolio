@@ -46,6 +46,7 @@ export default function ProjectsPage() {
                 technologies={p.technologies}
                 github={p.github}
                 liveDemo={p.liveDemo}
+                caseStudy={p.caseStudy}
                 highlight={p.highlight}
               />
             ))}

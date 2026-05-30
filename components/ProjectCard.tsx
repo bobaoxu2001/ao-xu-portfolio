@@ -1,4 +1,5 @@
-import { ExternalLink, Github } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -7,6 +8,7 @@ interface ProjectCardProps {
   technologies: string[];
   github?: string | null;
   liveDemo?: string | null;
+  caseStudy?: string | null;
   highlight?: string | null;
 }
 
@@ -17,6 +19,7 @@ export function ProjectCard({
   technologies,
   github,
   liveDemo,
+  caseStudy,
   highlight,
 }: ProjectCardProps) {
   return (
@@ -52,8 +55,16 @@ export function ProjectCard({
       </div>
 
       {/* Links */}
-      {(github || liveDemo) && (
+      {(github || liveDemo || caseStudy) && (
         <div className="flex gap-4 pt-3 border-t border-slate-100 mt-auto dark:border-slate-800">
+          {caseStudy && (
+            <Link
+              href={caseStudy}
+              className="flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              <ArrowRight size={13} /> Case study
+            </Link>
+          )}
           {github && (
             <a
               href={github}
@@ -71,7 +82,7 @@ export function ProjectCard({
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors dark:text-slate-400 dark:hover:text-blue-400"
             >
-              <ExternalLink size={13} /> Live Case Study
+              <ExternalLink size={13} /> Live demo
             </a>
           )}
         </div>
