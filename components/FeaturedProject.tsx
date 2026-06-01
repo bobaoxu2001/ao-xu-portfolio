@@ -1,5 +1,27 @@
-import { Github, ExternalLink } from "lucide-react";
+import {
+  Github,
+  ExternalLink,
+  FileText,
+  Database,
+  Quote,
+  ShieldCheck,
+  Gauge,
+  ChevronRight,
+  ChevronDown,
+  type LucideIcon,
+} from "lucide-react";
 import { featuredProject } from "@/lib/data";
+
+// Faithful to the system described above: engineering logs are retrieved over
+// a FAISS index, answered with citations and deterministic agent triage, then
+// gated to human review for high-risk topics — with an evaluation harness
+// scoring every stage.
+const PIPELINE: { icon: LucideIcon; label: string; sub: string }[] = [
+  { icon: FileText, label: "Engineering logs & query", sub: "build / verification / lint" },
+  { icon: Database, label: "Hybrid retrieval", sub: "FAISS · dense + sparse" },
+  { icon: Quote, label: "Cited answer + triage", sub: "deterministic routing" },
+  { icon: ShieldCheck, label: "Human-review gate", sub: "high-risk escalation" },
+];
 
 export function FeaturedProject() {
   const p = featuredProject;
@@ -101,6 +123,35 @@ export function FeaturedProject() {
               </div>
               <p className="mt-5 text-xs leading-relaxed text-slate-400">
                 Metrics are from synthetic held-out evaluation sets and should be read as portfolio validation, not production performance.
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t border-slate-200 bg-slate-50/60 px-7 py-7 sm:px-9">
+            <p className="eyebrow mb-4">System architecture</p>
+            <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:gap-0">
+              {PIPELINE.map((step, i) => (
+                <div key={step.label} className="flex flex-col sm:flex-1 sm:flex-row sm:items-center">
+                  <div className="flex-1 rounded-xl border border-slate-200 bg-white p-4 text-center sm:text-left">
+                    <span className="mb-2 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-blue-600 ring-1 ring-blue-100">
+                      <step.icon size={18} strokeWidth={2} />
+                    </span>
+                    <p className="text-[13px] font-bold leading-snug text-slate-900">{step.label}</p>
+                    <p className="mt-0.5 text-[11px] text-slate-500">{step.sub}</p>
+                  </div>
+                  {i < PIPELINE.length - 1 && (
+                    <div className="flex items-center justify-center text-slate-300 sm:px-1.5">
+                      <ChevronDown className="my-1 sm:hidden" size={18} />
+                      <ChevronRight className="hidden sm:block" size={18} />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 flex items-center gap-2 rounded-xl border border-dashed border-slate-300 bg-white/70 px-4 py-2.5">
+              <Gauge size={15} className="shrink-0 text-slate-400" />
+              <p className="text-[11px] font-medium leading-relaxed text-slate-500">
+                Evaluation harness scores retrieval hit, answer grounding, and out-of-scope safety across every stage.
               </p>
             </div>
           </div>
