@@ -1,95 +1,96 @@
 "use client";
 
 import { useState } from "react";
-import { Target, TrendingUp, Cpu, Users, BarChart2, Zap, ChevronDown } from "lucide-react";
+import {
+  BarChart2,
+  Bot,
+  BrainCircuit,
+  ChevronDown,
+  LineChart,
+  Rocket,
+  Workflow,
+} from "lucide-react";
 
 interface Capability {
   icon: React.ElementType;
   title: string;
   description: string;
   evidence: string[];
-  backItems: string[];
-  backChip: string;
+  examples: string[];
 }
 
 const capabilities: Capability[] = [
   {
-    icon: Target,
-    title: "Business Problem Framing",
+    icon: Workflow,
+    title: "AI Workflow Design",
     description:
-      "Turn ambiguous operational problems into measurable data science questions, metrics, and decision frameworks.",
-    evidence: ["TikTok Seller Analytics", "Support Routing"],
-    backItems: [
-      "Mapped TikTok seller onboarding funnel → pinpointed 48% conversion lift opportunity",
-      "Framed support routing as a 4-stage coverage + confidence problem",
-      "Translated LLM output quality into A/B hypothesis tests",
+      "Design LLM workflows, structured output pipelines, human review gates, and QA loops for operational decision systems.",
+    evidence: ["China Telecom", "Support Routing", "Forward-Deployed AI"],
+    examples: [
+      "Mapped dialogue logs into structured intent taxonomies and review loops.",
+      "Designed rule + ML + LLM + human routing policies for support workflows.",
+      "Built evidence-backed extraction flows with validation and review gates.",
     ],
-    backChip: "Product & Ops",
   },
   {
-    icon: TrendingUp,
-    title: "ML / Statistical Modeling",
+    icon: BrainCircuit,
+    title: "LLM / NLP Evaluation",
     description:
-      "Build and evaluate classification, forecasting, and experimentation workflows with Python, SQL, and model benchmarks.",
-    evidence: ["S&P Forecasting", "A/B Testing"],
-    backItems: [
-      "71% MAE reduction — SOFTS model over naive baseline on 62,800 hourly obs.",
-      "Benchmarked 6 architectures: LSTM, GRU, Transformer, LightGBM, XGBoost, SOFTS",
-      "+21.1 pts Macro-F1 lift on support ticket routing",
+      "Evaluate LLM and NLP systems through retrieval checks, prompt tests, groundedness metrics, classification benchmarks, and failure-mode review.",
+    evidence: ["SOC Copilot", "LLM Routing", "Prompt QA"],
+    examples: [
+      "Compared dense and hybrid retrieval with hit rate, MRR, and citation coverage.",
+      "Used prompt A/B tests and structured-output QA for workflow reliability.",
+      "Benchmarked ML/NLP routing against keyword and supervised baselines.",
     ],
-    backChip: "Python · scikit-learn · PyTorch",
-  },
-  {
-    icon: Cpu,
-    title: "LLM / NLP Systems",
-    description:
-      "Design LLM workflows for intent classification, structured extraction, prompt evaluation, and selective automation.",
-    evidence: ["China Telecom LLM", "NLP Routing"],
-    backItems: [
-      "Classified 20,000+ dialog logs into 170+ intent labels on Dify",
-      "Built deterministic → ML → LLM → human routing cascade",
-      "Prompt A/B experiments with statistical hypothesis testing",
-    ],
-    backChip: "OpenAI API · Claude API · Dify",
-  },
-  {
-    icon: Users,
-    title: "Support & Product Analytics",
-    description:
-      "Analyze support tickets, onboarding funnels, satisfaction signals, and operational bottlenecks to improve customer-facing workflows.",
-    evidence: ["TikTok Seller Ops", "Support Ops Automation"],
-    backItems: [
-      "Identified 10% MoM decline in onboarding satisfaction — surfaced root cause",
-      "Built chain-logic funnel map across all seller support touchpoints",
-      "Surfaced KPI distortion from duplicate ticket inflation",
-    ],
-    backChip: "SQL · Tableau · A/B Testing",
   },
   {
     icon: BarChart2,
-    title: "Data Storytelling",
+    title: "Data Analytics & BI",
     description:
-      "Turn model tradeoffs and messy analyses into executive-ready recommendations, dashboards, and decision memos.",
-    evidence: ["Executive Memo", "Tableau Readouts"],
-    backItems: [
-      "Executive demo decks for international AI platform stakeholders",
-      "Tableau dashboards summarizing seller satisfaction KPIs",
-      "Written decision memos translating ML tradeoffs into business terms",
+      "Turn SQL/Python analysis into dashboards, KPI diagnosis, funnel readouts, and stakeholder-ready recommendations.",
+    evidence: ["TikTok", "Deloitte", "Investment Analytics"],
+    examples: [
+      "Diagnosed seller onboarding satisfaction and support-ticket KPI distortion.",
+      "Built Power BI and Tableau-style reporting for risk and operations monitoring.",
+      "Translated synthetic CRM-style data into executive sales strategy dashboards.",
     ],
-    backChip: "Tableau · Power BI · Streamlit",
   },
   {
-    icon: Zap,
-    title: "Execution & Prototyping",
+    icon: LineChart,
+    title: "Forecasting & Modeling",
     description:
-      "Move from analysis to working prototypes, dashboards, and case studies with Streamlit, Next.js, Retool, and AI tooling.",
-    evidence: ["Streamlit", "Next.js", "Retool"],
-    backItems: [
-      "10-page Streamlit dashboard for forward-deployed AI simulation",
-      "This portfolio site — Next.js 14 App Router, Tailwind, TypeScript",
-      "YouTube creator pipeline covering 200 creators and ~1,400 videos",
+      "Benchmark forecasting and classification models with honest evaluation, feature engineering, and clear limits around what the model can support.",
+    evidence: ["S&P x NYU", "Digital Assets", "Support Routing"],
+    examples: [
+      "Benchmarked six forecasting architectures across 62K+ hourly observations.",
+      "Built market regime and event-study features instead of overclaiming price prediction.",
+      "Evaluated model tradeoffs using accuracy, F1, MAE, and policy constraints.",
     ],
-    backChip: "Streamlit · Next.js · Python",
+  },
+  {
+    icon: Bot,
+    title: "Product / Operations Analytics",
+    description:
+      "Frame messy workflow problems as measurable operating questions across support, seller activation, customer experience, and AI adoption.",
+    evidence: ["TikTok Seller Ops", "China Telecom", "Support Ops"],
+    examples: [
+      "Mapped onboarding funnels and support touchpoints into decision-ready analysis.",
+      "Connected AI workflow quality to expected ops load and review effort.",
+      "Built recommendation narratives for PM, operations, and executive audiences.",
+    ],
+  },
+  {
+    icon: Rocket,
+    title: "Deployment & Prototyping",
+    description:
+      "Move from analysis to working artifacts with Streamlit, Next.js, FastAPI, Vercel, GitHub Actions, and deployment-aware documentation.",
+    evidence: ["Streamlit", "Next.js", "FastAPI"],
+    examples: [
+      "Deployed Streamlit demos for RAG, digital asset research, and analytics dashboards.",
+      "Built this portfolio with Next.js App Router, TypeScript, and Tailwind.",
+      "Exposed AI workflow logic through FastAPI endpoints and CI-tested modules.",
+    ],
   },
 ];
 
@@ -98,67 +99,53 @@ function CapabilityCard({ cap }: { cap: Capability }) {
   const Icon = cap.icon;
 
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-blue-200 hover:shadow-[0_4px_20px_rgba(59,130,246,0.08)] transition-all duration-200">
-      {/* Icon + title */}
-      <div className="flex items-start gap-3 mb-2.5">
-        <div className="mt-0.5 w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-          <Icon size={16} className="text-blue-600" />
+    <div className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-blue-200 hover:shadow-[0_8px_28px_rgba(37,99,235,0.08)] transition-all duration-200">
+      <div className="flex items-start gap-3 mb-3">
+        <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-blue-50">
+          <Icon size={17} className="text-blue-600" />
         </div>
-        <h3 className="text-[14px] font-bold text-slate-900 leading-snug pt-1">
-          {cap.title}
-        </h3>
+        <div>
+          <h3 className="text-[15px] font-extrabold text-slate-900 leading-snug">
+            {cap.title}
+          </h3>
+          <p className="mt-1 text-[13px] text-slate-500 leading-relaxed">
+            {cap.description}
+          </p>
+        </div>
       </div>
 
-      {/* Description */}
-      <p className="text-[13px] text-slate-500 leading-relaxed mb-3 pl-11">
-        {cap.description}
-      </p>
-
-      {/* Evidence chips */}
-      <div className="flex flex-wrap gap-1.5 pl-11 mb-3">
+      <div className="mb-3 flex flex-wrap gap-1.5 pl-12">
         {cap.evidence.map((e) => (
           <span
             key={e}
-            className="px-2 py-0.5 text-[11px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-full"
+            className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-semibold text-slate-600"
           >
             {e}
           </span>
         ))}
       </div>
 
-      {/* Toggle button */}
       <button
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="pl-11 flex items-center gap-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+        className="ml-12 flex items-center gap-1 rounded text-[11px] font-semibold text-blue-600 transition-colors hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
       >
-        {open ? "Hide" : "Evidence"}
+        {open ? "Hide evidence" : "Show evidence"}
         <ChevronDown
           size={12}
           className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         />
       </button>
 
-      {/* Evidence panel */}
       {open && (
-        <div className="mt-3 pl-11 border-t border-slate-100 pt-3">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-              Evidence
-            </span>
-            <span className="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-500 rounded-full font-semibold border border-slate-200">
-              {cap.backChip}
-            </span>
-          </div>
-          <ul className="space-y-1.5">
-            {cap.backItems.map((item, i) => (
-              <li key={i} className="flex gap-2 text-[12px] text-slate-600 leading-snug">
-                <span className="mt-[5px] w-[4px] h-[4px] rounded-full bg-blue-300 shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="mt-3 space-y-2 border-t border-slate-100 pt-3 pl-12">
+          {cap.examples.map((item) => (
+            <li key={item} className="flex gap-2 text-[12px] leading-snug text-slate-600">
+              <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />
+              {item}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
@@ -166,19 +153,17 @@ function CapabilityCard({ cap }: { cap: Capability }) {
 
 export function CapabilityMap() {
   return (
-    <section className="py-16 bg-white border-b border-slate-100">
+    <section className="py-20 bg-slate-50/70">
       <div className="container-xl">
-        {/* Header */}
         <div className="mb-10">
-          <span className="eyebrow mb-2 block">Operating Range</span>
-          <h2 className="section-heading">Capability Map</h2>
-          <p className="section-subheading max-w-xl">
-            Six ways I connect data science, AI systems, and business operations.
+          <span className="eyebrow mb-2 block">Capability Map</span>
+          <h2 className="section-heading">How I Turn Messy Workflows Into Decisions</h2>
+          <p className="section-subheading max-w-2xl">
+            Six business capabilities that connect the technical stack to real AI/data work.
           </p>
         </div>
 
-        {/* 2×3 grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.map((cap) => (
             <CapabilityCard key={cap.title} cap={cap} />
           ))}

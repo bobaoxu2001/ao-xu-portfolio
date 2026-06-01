@@ -1,118 +1,83 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Github, Linkedin, FileText, ArrowRight } from "lucide-react";
+import { Github, Linkedin, FileText, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/data";
-
-const chips = [
-  { value: "20K+",      label: "Dialog Logs Structured" },
-  { value: "170+",      label: "Intent Labels" },
-  { value: "+21.1 pts", label: "Macro-F1 Lift" },
-  { value: "71%",       label: "Forecasting MAE Reduction" },
-];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white pt-20 pb-20 sm:pt-28 sm:pb-24">
-      {/* Dot grid — fades out at bottom */}
-      <div
-        className="hero-grid pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{ maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 65%)" }}
-      />
-      {/* Soft radial glow */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full bg-blue-100/30 blur-3xl" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 pt-20 pb-10 sm:pt-24 sm:pb-12">
+      <div className="hero-grid pointer-events-none absolute inset-0 opacity-[0.16]" />
+      <div className="pointer-events-none absolute -top-48 left-1/2 h-[520px] w-[760px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl" />
 
       <div className="container-xl relative">
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-[1fr_300px] items-center gap-10 lg:gap-16">
+          <div className="max-w-4xl">
+            <div className="mb-5 flex flex-wrap items-center gap-2">
+              <span className="inline-flex rounded-full border border-blue-300/25 bg-blue-400/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-blue-200">
+                {siteConfig.tagline}
+              </span>
+              <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-300">
+                NYU M.S. Data Science
+              </span>
+            </div>
 
-          {/* ── Text column ─────────────────────────────── */}
-          <div className="flex-1 text-center lg:text-left max-w-xl">
-            <span className="eyebrow mb-3 block">Business Data Scientist</span>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.08] tracking-tight mb-4">
-              Ao{" "}
-              <span className="text-blue-600">(Allen)</span>{" "}
-              Xu
+            <h1 className="mb-5 max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              {siteConfig.headline}
             </h1>
 
-            <p className="text-slate-500 text-[15px] sm:text-base font-medium mb-3 tracking-wide">
-              AI Strategy &amp; Operations · LLM/NLP Analytics
-            </p>
-
-            <p className="text-slate-600 text-[15px] leading-relaxed mb-7">
+            <p className="mb-8 max-w-3xl text-[15px] leading-relaxed text-slate-300 sm:text-lg">
               {siteConfig.positioning}
             </p>
 
-            {/* CTA row */}
-            <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start mb-7">
+            <div className="mb-8 flex flex-wrap gap-3">
               <Link href="/projects" className="btn-primary">
-                View Projects <ArrowRight size={14} />
+                View AI Projects <ArrowRight size={14} />
               </Link>
               <a
                 href={siteConfig.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 focus:ring-offset-slate-900"
               >
                 <FileText size={14} />
-                View Resume
-              </a>
-              <a href={`mailto:${siteConfig.email}`} className="btn-secondary">
-                <Mail size={14} />
-                Contact
-              </a>
-            </div>
-
-            {/* Credibility chips — glassy, subtle */}
-            <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
-              {chips.map((c) => (
-                <div
-                  key={c.label}
-                  className="flex items-baseline gap-1.5 px-3 py-1.5 bg-white/80 border border-slate-200 rounded-lg shadow-sm backdrop-blur-sm"
-                >
-                  <span className="text-[13px] font-extrabold text-blue-600 leading-none">{c.value}</span>
-                  <span className="text-[11px] text-slate-500 font-medium leading-none">{c.label}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Social links */}
-            <div className="flex gap-5 justify-center lg:justify-start">
-              <a
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[13px] text-slate-400 hover:text-blue-600 transition-colors font-medium"
-              >
-                <Linkedin size={14} /> LinkedIn
+                Download Resume
               </a>
               <a
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[13px] text-slate-400 hover:text-slate-800 transition-colors font-medium"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-slate-200 transition-all duration-150 hover:bg-white/10 hover:text-white"
               >
-                <Github size={14} /> GitHub
+                <Github size={14} />
+                GitHub
+              </a>
+              <a
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-slate-200 transition-all duration-150 hover:bg-white/10 hover:text-white"
+              >
+                <Linkedin size={14} />
+                LinkedIn
               </a>
             </div>
           </div>
 
-          {/* ── Photo column ────────────────────────────── */}
-          <div className="shrink-0 flex justify-center">
-            <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-200/60 to-indigo-200/60 blur-2xl scale-125" />
-              <div className="relative w-full h-full rounded-full overflow-hidden ring-[3px] ring-white shadow-2xl border border-slate-100/80">
+          <div className="hidden lg:flex justify-end">
+            <div className="relative h-64 w-64">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-400/30 to-cyan-300/20 blur-2xl" />
+              <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-2xl">
                 <Image
                   src="/images/ao-xu-headshot.png"
                   alt="Ao (Allen) Xu"
                   width={288}
                   height={288}
-                  className="w-full h-full object-cover object-top"
+                  className="h-full w-full object-cover object-top"
                   priority
                 />
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

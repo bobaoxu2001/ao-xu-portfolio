@@ -13,11 +13,12 @@ const colorMap: Record<string, { accent: string; dot: string }> = {
   violet: { accent: "text-violet-600", dot: "bg-violet-400" },
   indigo: { accent: "text-indigo-600", dot: "bg-indigo-400" },
   sky:    { accent: "text-sky-600",    dot: "bg-sky-400" },
+  emerald:{ accent: "text-emerald-600", dot: "bg-emerald-400" },
 };
 
 export function SkillsGrid({ groups }: SkillsGridProps) {
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
       {groups.map((group) => {
         const c = colorMap[group.color] ?? colorMap.blue;
         return (

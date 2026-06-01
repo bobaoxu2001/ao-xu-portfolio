@@ -8,7 +8,7 @@ import { SkillsGrid } from "@/components/SkillsGrid";
 export const metadata: Metadata = {
   title: "About | Ao Xu",
   description:
-    "About Ao (Allen) Xu — business data scientist at the intersection of AI, LLM systems, and business operations.",
+    "About Ao (Allen) Xu - AI + Data Analyst focused on LLM workflows, RAG, product analytics, forecasting, and operational decision systems.",
 };
 
 export default function AboutPage() {
@@ -38,31 +38,29 @@ export default function AboutPage() {
 
             <div className="space-y-4 text-slate-600 text-[15px] leading-relaxed">
               <p>
-                I&apos;m most interested in work where data science is close to real business
-                workflows — support operations, product analytics, AI workflow evaluation, and
-                decision systems. I like taking ambiguous operational problems, structuring them
-                into measurable questions, and building prototypes or analyses that stakeholders
-                can actually use.
+                I work at the intersection of AI workflows, data analytics, and business
+                operations. The through-line in my work is turning messy inputs - support
+                tickets, dialogue logs, seller funnels, market signals, and internal knowledge -
+                into systems that help people make clearer decisions.
               </p>
               <p>
-                What I bring that goes beyond typical data science: I work at the intersection of
-                ML modeling, LLM workflow design, and business communication. I can evaluate a
-                classification threshold in terms of automation cost, or translate a prompt
-                engineering decision into expected ops load — and then write the memo that explains
-                the tradeoff to a non-technical stakeholder.
+                My strongest projects combine practical build work with evaluation discipline:
+                LLM workflow QA, RAG retrieval inspection, NLP classification benchmarks,
+                Streamlit dashboards, forecasting comparisons, and stakeholder-ready narratives.
+                I care less about flashy demos and more about whether a system is measurable,
+                reviewable, and useful in an operating workflow.
               </p>
               <p>
-                My background includes AI strategy and LLM workflows at China Telecom&apos;s AI
-                Center, seller operations analytics at TikTok/ByteDance, and a research capstone
-                with S&P Global benchmarking time-series forecasting architectures. Academically,
-                I hold an M.S. in Data Science from NYU (GPA 3.5) and a B.S. in Data Science
-                &amp; Applied Mathematics from UC Santa Barbara (GPA 3.81).
+                My background includes AI workflow and digital-human product work at China
+                Telecom&apos;s AI Center, seller support analytics at TikTok/ByteDance, forecasting
+                research with S&amp;P Global x NYU, and reporting automation at Deloitte.
+                Academically, I hold an M.S. in Data Science from NYU and a B.S. in Data Science
+                &amp; Applied Mathematics from UC Santa Barbara.
               </p>
               <p>
-                Roles I&apos;m targeting: Business Data Scientist, AI Strategy Analyst, Product
-                Analyst, Data Analyst, and adjacent roles at companies where operational AI and
-                analytics work closely together. I&apos;m especially drawn to teams working on
-                support operations, seller/partner analytics, or LLM-powered business intelligence.
+                I&apos;m targeting AI/Data Analyst, Applied AI Analyst, Business Data Scientist,
+                LLM/NLP Analytics, AI Operations, and AI Product / Strategy roles where analytics
+                and AI systems are close to real business workflows.
               </p>
             </div>
 

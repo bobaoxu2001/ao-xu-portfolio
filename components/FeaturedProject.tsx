@@ -1,90 +1,107 @@
-import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { featuredProject } from "@/lib/data";
 
 export function FeaturedProject() {
   const p = featuredProject;
+
   return (
     <section className="py-20 bg-white">
       <div className="container-xl">
-        {/* Section eyebrow */}
         <div className="mb-8">
-          <span className="eyebrow">Case Study Spotlight</span>
+          <span className="eyebrow">Selected Deep Dive</span>
+          <h2 className="section-heading mt-2">How I Build AI Decision Systems</h2>
+          <p className="section-subheading max-w-2xl">
+            One project, expanded: problem framing, system design, evaluation, and product judgment in a practical RAG workflow.
+          </p>
         </div>
 
-        {/* Main card */}
-        <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
-          {/* Top accent stripe */}
-          <div className="h-1.5 w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600" />
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_44px_rgba(15,23,42,0.08)]">
+          <div className="h-1.5 bg-gradient-to-r from-slate-900 via-blue-600 to-cyan-500" />
 
-          <div className="grid lg:grid-cols-5 gap-0">
-            {/* ── Left panel ── */}
-            <div className="lg:col-span-3 bg-white p-8 sm:p-10 border-r border-slate-100">
-              {/* Badge */}
-              <span className="inline-block mb-4 px-3 py-1 text-xs font-bold tracking-wide text-blue-700 bg-blue-50 border border-blue-100 rounded-full">
+          <div className="grid lg:grid-cols-[1.35fr_0.9fr]">
+            <div className="p-7 sm:p-9">
+              <span className="mb-4 inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">
                 {p.badge}
               </span>
 
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight mb-4 tracking-tight">
+              <h3 className="mb-2 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
                 {p.title}
-              </h2>
+              </h3>
+              <p className="mb-6 text-sm font-semibold text-slate-500">
+                {p.subtitle}
+              </p>
 
-              <p className="text-slate-600 text-[15px] leading-relaxed mb-7">
+              <p className="mb-7 max-w-2xl text-[15px] leading-relaxed text-slate-600">
                 {p.description}
               </p>
 
-              {/* Tech tags */}
-              <div className="flex flex-wrap gap-2 mb-8">
+              <div className="grid gap-4 sm:grid-cols-3 mb-7">
+                {[
+                  ["Problem", p.problem],
+                  ["Approach", p.approach],
+                  ["Outcome", p.outcome],
+                ].map(([label, text]) => (
+                  <div key={label} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                      {label}
+                    </p>
+                    <p className="text-[13px] leading-relaxed text-slate-700">
+                      {text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mb-7 flex flex-wrap gap-2">
                 {p.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2.5 py-0.5 text-xs font-semibold bg-slate-100 text-slate-600 rounded-full border border-slate-200"
-                  >
+                  <span key={tech} className="tag">
                     {tech}
                   </span>
                 ))}
               </div>
 
-              {/* Buttons */}
               <div className="flex flex-wrap gap-3">
                 <a
-                  href={p.github}
+                  href={p.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
                 >
-                  <Github size={15} /> View on GitHub
+                  <ExternalLink size={15} /> Open Live Demo
                 </a>
-                {p.liveDemo && (
-                  <a
-                    href={p.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary"
-                  >
-                    <ExternalLink size={15} /> Live Case Study
-                  </a>
-                )}
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                >
+                  <Github size={15} /> View GitHub
+                </a>
               </div>
             </div>
 
-            {/* ── Right panel: metrics ── */}
-            <div className="lg:col-span-2 bg-gradient-to-br from-slate-50 to-blue-50/60 p-8 sm:p-10">
-              <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-5">
-                Key Metrics
+            <div className="border-t border-slate-200 bg-gradient-to-br from-slate-950 to-slate-800 p-7 sm:p-9 lg:border-l lg:border-t-0">
+              <p className="mb-5 text-xs font-bold uppercase tracking-[0.16em] text-blue-200">
+                Proof points
               </p>
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid gap-4">
                 {p.metrics.map((m) => (
                   <div
                     key={m.label}
-                    className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                    className="rounded-xl border border-white/10 bg-white/[0.06] p-4"
                   >
-                    <div className="text-2xl font-extrabold text-blue-600 tracking-tight mb-0.5">
+                    <div className="mb-1 text-2xl font-extrabold tracking-tight text-white">
                       {m.value}
                     </div>
-                    <div className="text-slate-600 text-sm leading-snug">{m.label}</div>
+                    <div className="text-sm leading-snug text-slate-300">
+                      {m.label}
+                    </div>
                   </div>
                 ))}
               </div>
+              <p className="mt-5 text-xs leading-relaxed text-slate-400">
+                Metrics are from synthetic held-out evaluation sets and should be read as portfolio validation, not production performance.
+              </p>
             </div>
           </div>
         </div>

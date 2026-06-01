@@ -10,11 +10,11 @@ export function ContactSection() {
       <div className="container-xl relative text-center">
         <span className="eyebrow text-blue-400 mb-4 block">Get in Touch</span>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
-          Let&apos;s Connect
+          Let&apos;s Build Useful AI + Data Systems
         </h2>
         <p className="text-slate-400 text-[15px] max-w-lg mx-auto mb-10 leading-relaxed">
-          Open to full-time roles in business data science, AI strategy &amp; operations,
-          and LLM/NLP analytics. Reach out anytime.
+          Open to AI/Data Analyst, Applied AI, Business Data Scientist, LLM/NLP Analytics,
+          AI Operations, and AI Product / Strategy roles in NYC, California, or remote teams.
         </p>
 
         <div className="flex flex-wrap gap-3 justify-center">

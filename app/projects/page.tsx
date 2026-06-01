@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ProjectCard } from "@/components/ProjectCard";
 import { FeaturedProject } from "@/components/FeaturedProject";
-import { homepageProjects, archiveProjects } from "@/lib/data";
+import { archiveProjects, capstoneGroups, homepageProjects, secondaryProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Projects | Ao Xu",
-  description: "Data science, AI systems, and analytics projects by Ao (Allen) Xu.",
+  description:
+    "AI + Data projects by Ao (Allen) Xu, including LLM workflows, RAG systems, analytics dashboards, forecasting, and operations analytics.",
 };
 
-// Group archive projects by category
 function groupByCategory(projects: typeof archiveProjects) {
   return projects.reduce<Record<string, typeof archiveProjects>>((acc, p) => {
     const cat = p.archiveCategory;
@@ -20,40 +20,55 @@ function groupByCategory(projects: typeof archiveProjects) {
 }
 
 export default function ProjectsPage() {
-  // Exclude the featured project ID from the homepage list to avoid duplicate
-  const additionalProjects = homepageProjects.filter(
-    (p) => p.id !== "support-ticket-routing"
-  );
-
-  // Archive: deprioritize creative AI
-  const priorityArchive = archiveProjects.filter((p) => p.id !== "creative-ai");
-  const creativeArchive = archiveProjects.filter((p) => p.id === "creative-ai");
-  const sortedArchive = [...priorityArchive, ...creativeArchive];
-  const grouped = groupByCategory(sortedArchive);
+  const groupedArchive = groupByCategory(archiveProjects);
 
   return (
     <div className="py-16">
       <div className="container-xl">
-        {/* Intro */}
         <SectionHeader
-          title="Projects"
-          subtitle="A selection of applied data science and AI projects — from LLM routing systems to financial forecasting and product analytics."
+          eyebrow="Project Portfolio"
+          title="AI + Data Systems, Dashboards, and Research"
+          subtitle="A curated view of the strongest work first, followed by secondary and archived projects that add context without diluting the main AI/Data positioning."
         />
       </div>
 
-      {/* Featured project banner */}
-      <FeaturedProject />
-
-      <div className="container-xl py-16">
-        {/* Selected Projects */}
-        <div className="mb-14">
-          <h2 className="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">
-            Additional Projects
+      <section className="py-14">
+        <div className="container-xl">
+          <h2 className="mb-6 border-b border-slate-200 pb-2 text-xl font-bold text-slate-900">
+            Featured AI/Data Projects
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {additionalProjects.map((p) => (
+          <div className="grid gap-6 lg:grid-cols-2">
+            {homepageProjects.map((p) => (
               <ProjectCard
                 key={p.id}
+                title={p.title}
+                category={p.category}
+                problem={p.problem}
+                built={p.built}
+                impact={p.impact}
+                technologies={p.technologies}
+                tags={p.tags}
+                github={p.github}
+                liveDemo={p.liveDemo}
+                highlight={p.highlight}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FeaturedProject />
+
+      <section className="py-16 bg-slate-50/70">
+        <div className="container-xl">
+          <h2 className="mb-6 border-b border-slate-200 pb-2 text-xl font-bold text-slate-900">
+            Secondary Projects
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {secondaryProjects.map((p) => (
+              <ProjectCard
+                key={p.id}
+                compact
                 title={p.title}
                 category={p.category}
                 description={p.description}
@@ -65,22 +80,58 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Archive grouped by category */}
-        <div>
-          <h2 className="text-xl font-bold text-slate-900 mb-8 pb-2 border-b border-slate-200">
+      <section className="py-16">
+        <div className="container-xl">
+          <SectionHeader
+            eyebrow="Capstone Projects"
+            title="Capstone Projects"
+            subtitle="Academic research and applied data science projects from my undergraduate and graduate programs."
+          />
+          <div className="mt-10 space-y-12">
+            {capstoneGroups.map((group) => (
+              <div key={group.group}>
+                <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-blue-600">
+                  {group.group}
+                </h3>
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.projects.map((p) => (
+                    <ProjectCard
+                      key={p.id}
+                      compact
+                      title={p.title}
+                      category={p.category}
+                      description={p.description}
+                      technologies={p.technologies}
+                      github={p.github}
+                      liveDemo={p.liveDemo}
+                      highlight={p.highlight}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container-xl">
+          <h2 className="mb-8 border-b border-slate-200 pb-2 text-xl font-bold text-slate-900">
             Project Archive
           </h2>
           <div className="space-y-12">
-            {Object.entries(grouped).map(([category, projects]) => (
+            {Object.entries(groupedArchive).map(([category, projects]) => (
               <div key={category}>
-                <h3 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">
+                <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-blue-600">
                   {category}
                 </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {projects.map((p) => (
                     <ProjectCard
                       key={p.id}
+                      compact
                       title={p.title}
                       category={p.archiveCategory}
                       description={p.description}
@@ -95,7 +146,7 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

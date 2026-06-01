@@ -4,50 +4,83 @@ import { Hero } from "@/components/Hero";
 import { CapabilityMap } from "@/components/CapabilityMap";
 import { FeaturedProject } from "@/components/FeaturedProject";
 import { ProjectCard } from "@/components/ProjectCard";
-import { PortfolioAssistant } from "@/components/PortfolioAssistant";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { SkillsGrid } from "@/components/SkillsGrid";
 import { ContactSection } from "@/components/ContactSection";
 import { SectionHeader } from "@/components/SectionHeader";
-import { homepageProjects, experiences, skillGroups } from "@/lib/data";
+import { experiences, heroMetrics, homepageProjects, skillGroups } from "@/lib/data";
 
 export default function HomePage() {
+  const largeProjects = homepageProjects.slice(0, 3);
+  const compactProjects = homepageProjects.slice(3);
+
   return (
     <>
-      {/* 1 ── Who I am ──────────────────────────────────────────── */}
       <Hero />
 
-      {/* 2 ── What I can solve ──────────────────────────────────── */}
-      <CapabilityMap />
+      <section className="border-y border-slate-200 bg-white">
+        <div className="container-xl py-5">
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+            {heroMetrics.map((metric) => (
+              <div key={metric.label} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                <div className="text-lg font-extrabold tracking-tight text-slate-900">
+                  {metric.value}
+                </div>
+                <div className="text-xs font-semibold leading-snug text-slate-500">
+                  {metric.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* 3 ── Flagship case study ───────────────────────────────── */}
-      <FeaturedProject />
-
-      {/* 4 ── Selected Projects (4 curated) ─────────────────────── */}
-      <section className="py-20 bg-slate-50/60">
+      <section className="py-20 bg-slate-50/70">
         <div className="container-xl">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeader
-              eyebrow="Work"
-              title="Selected Projects"
-              subtitle="Four projects that show how I connect data science, AI systems, and business operations."
+              eyebrow="Featured AI/Data Projects"
+              title="Practical AI + Data Systems"
+              subtitle="Five selected projects that show problem framing, build quality, evaluation discipline, and business-facing outcomes."
             />
             <Link
               href="/projects"
-              className="hidden sm:flex items-center gap-1 text-sm text-blue-600 font-semibold hover:text-blue-700 transition-colors whitespace-nowrap"
+              className="hidden items-center gap-1 text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700 sm:flex"
             >
-              Full archive <ArrowRight size={14} />
+              View full project archive <ArrowRight size={14} />
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
-            {homepageProjects.map((p) => (
+          <div className="grid gap-5 lg:grid-cols-3">
+            {largeProjects.map((p) => (
               <ProjectCard
                 key={p.id}
                 title={p.title}
                 category={p.category}
-                description={p.description}
+                problem={p.problem}
+                built={p.built}
+                impact={p.impact}
                 technologies={p.technologies}
+                tags={p.tags}
+                github={p.github}
+                liveDemo={p.liveDemo}
+                highlight={p.highlight}
+              />
+            ))}
+          </div>
+
+          <div className="mt-5 grid gap-5 lg:grid-cols-2">
+            {compactProjects.map((p) => (
+              <ProjectCard
+                key={p.id}
+                compact
+                title={p.title}
+                category={p.category}
+                problem={p.problem}
+                built={p.built}
+                impact={p.impact}
+                technologies={p.technologies}
+                tags={p.tags}
                 github={p.github}
                 liveDemo={p.liveDemo}
                 highlight={p.highlight}
@@ -63,24 +96,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5 ── Experience ────────────────────────────────────────── */}
+      <FeaturedProject />
+
+      <CapabilityMap />
+
       <section className="py-20 bg-white">
         <div className="container-xl">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeader
-              eyebrow="Background"
-              title="Experience"
-              subtitle="Industry experience across AI operations, product analytics, and research."
+              eyebrow="Experience"
+              title="AI, Analytics, and Business Workflow Background"
+              subtitle="Industry work across LLM workflows, seller operations analytics, forecasting research, and risk reporting automation."
             />
             <Link
               href="/experience"
-              className="hidden sm:flex items-center gap-1 text-sm text-blue-600 font-semibold hover:text-blue-700 transition-colors whitespace-nowrap"
+              className="hidden items-center gap-1 text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700 sm:flex"
             >
               Full timeline <ArrowRight size={14} />
             </Link>
           </div>
           <ExperienceTimeline experiences={experiences.slice(0, 4)} maxBullets={4} />
-          <div className="mt-6 sm:hidden text-center">
+          <div className="mt-6 text-center sm:hidden">
             <Link href="/experience" className="btn-secondary">
               Full timeline <ArrowRight size={14} />
             </Link>
@@ -88,16 +124,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 ── Interactive Demo ──────────────────────────────────── */}
-      <PortfolioAssistant />
-
-      {/* 7 ── Skills ────────────────────────────────────────────── */}
-      <section className="py-20 bg-slate-50/60">
+      <section className="py-20 bg-slate-50/70">
         <div className="container-xl">
           <SectionHeader
             eyebrow="Toolkit"
-            title="Data & AI Toolkit"
-            subtitle="Technical stack across data science, ML, LLM systems, and business intelligence."
+            title="Working Stack for AI + Data Delivery"
+            subtitle="Grouped by the capabilities I use to move from messy input to decision-ready output."
           />
           <div className="mt-8">
             <SkillsGrid groups={skillGroups} />
@@ -105,7 +137,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8 ── Contact CTA ───────────────────────────────────────── */}
       <ContactSection />
     </>
   );

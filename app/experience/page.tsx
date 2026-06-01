@@ -6,7 +6,7 @@ import { experiences, education } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Experience | Ao Xu",
-  description: "Work experience and education of Ao (Allen) Xu — AI, data science, product analytics.",
+  description: "Work experience and education of Ao (Allen) Xu - AI workflows, data analytics, forecasting, and business operations.",
 };
 
 export default function ExperiencePage() {
@@ -16,7 +16,7 @@ export default function ExperiencePage() {
         {/* Header */}
         <SectionHeader
           title="Experience & Education"
-          subtitle="Industry experience across AI strategy, data analytics, and research — combined with an academic background in data science and applied mathematics."
+          subtitle="Industry experience across LLM workflows, seller support analytics, forecasting research, risk reporting automation, and an academic background in data science and applied mathematics."
         />
 
         {/* Work experience */}

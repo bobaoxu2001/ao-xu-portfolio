@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Resume | Ao Xu",
-  description: "Resume and contact information for Ao (Allen) Xu, business data scientist.",
+  description: "Resume and contact information for Ao (Allen) Xu, AI + Data Analyst.",
 };
 
 export default function ResumePage() {
@@ -22,6 +22,9 @@ export default function ResumePage() {
           </h1>
           <p className="text-slate-500 text-base">
             {siteConfig.tagline}
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-slate-500">
+            Open to AI/Data Analyst, Applied AI, Business Data Scientist, LLM/NLP Analytics, and AI Product/Ops roles.
           </p>
         </div>
 
@@ -88,7 +91,7 @@ export default function ResumePage() {
               <div>
                 <p className="text-xs text-slate-400 font-medium">LinkedIn</p>
                 <p className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
-                  linkedin.com/in/aoxu2001
+                  linkedin.com/in/ao-xu
                 </p>
               </div>
             </a>
