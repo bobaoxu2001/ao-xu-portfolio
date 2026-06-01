@@ -26,39 +26,26 @@ export const heroMetrics = [
   { value: "SQL / Python / LLM / RAG / Streamlit", label: "working toolkit" },
 ];
 
+// Flagship-first ordering. The SOC Copilot leads (it also gets the deep-dive
+// section below), followed by the two other clickable demos, then the China
+// Telecom enterprise work. Tags are kept specific per card to avoid repetition.
 export const homepageProjects = [
-  {
-    id: "china-telecom-ai-workflow",
-    title: "China Telecom AI Workflow Platform",
-    category: "AI Operations / LLM Workflow",
-    problem:
-      "Enterprise AI teams needed structured workflows for messy dialogue logs, intent labels, prompt output review, and digital-human operations.",
-    built:
-      "Designed LLM/NLP workflows for intent classification, structured output review, prompt evaluation, and digital-human product operations.",
-    impact:
-      "Mapped 20K+ dialogue logs into 170+ intent labels and built QA loops for improving workflow reliability.",
-    technologies: ["LLM Workflow", "NLP", "Dify", "Prompt Evaluation", "AI Operations"],
-    tags: ["LLM Workflow", "NLP", "AI Operations", "Decision Systems"],
-    github: null,
-    liveDemo: null,
-    highlight: "20K+ logs / 170+ intent labels",
-  },
   {
     id: "soc-engineering-copilot",
     title: "SOC Engineering Knowledge Copilot",
-    category: "RAG / Agent Workflow",
+    category: "Flagship · RAG / Agent Workflow",
     problem:
       "Engineering teams need cited answers, auditable retrieval, and reliable first-pass triage for build, verification, and workflow failures.",
     built:
       "Built a RAG + agent workflow assistant with cited answers, dense/hybrid retrieval inspection, deterministic workflow routing, human-review gates, and evaluation dashboards.",
     impact:
-      "Reports 95% retrieval hit rate, 90% grounded-answer rate, and 100% safety handling on synthetic held-out eval sets.",
+      "On synthetic held-out eval sets: 95% retrieval hit rate, 90% grounded-answer rate, and 100% out-of-scope safety handling.",
     technologies: ["RAG", "Python", "Streamlit", "FastAPI", "FAISS", "Evaluation"],
-    tags: ["RAG", "LLM Evaluation", "Agent Workflow", "FastAPI"],
+    tags: ["RAG", "FAISS", "FastAPI", "LLM Evaluation"],
     github:
       "https://github.com/bobaoxu2001/SOC-Engineering-Copilot-RAG-Agent-Workflow-Assistant",
     liveDemo: "https://soc-ai-copilot.streamlit.app/",
-    highlight: "95% retrieval hit rate",
+    highlight: "Live demo · cited RAG + eval",
   },
   {
     id: "digital-asset-market-behavior",
@@ -71,11 +58,11 @@ export const homepageProjects = [
     impact:
       "Produced analyst-ready strategy readouts across nine assets with sample-mode disclosure and reproducible dashboard outputs.",
     technologies: ["Python", "Streamlit", "Plotly", "Event Study", "Market Data"],
-    tags: ["Python", "Streamlit", "Market Analytics", "Decision Systems"],
+    tags: ["Python", "Streamlit", "Event Study", "Market Regimes"],
     github:
       "https://github.com/bobaoxu2001/Digital-Asset-Market-Behavior-Intelligence-Platform",
     liveDemo: "https://crypto-market-behavior.streamlit.app/",
-    highlight: "9 assets / regime + event study",
+    highlight: "Live demo · 9 assets",
   },
   {
     id: "support-ticket-routing",
@@ -88,27 +75,27 @@ export const homepageProjects = [
     impact:
       "Benchmarked 8,325 deduplicated support-ticket records and evaluated routing confidence, automation coverage, manual review load, and estimated LLM cost.",
     technologies: ["Python", "NLP", "scikit-learn", "Streamlit", "LLM Fallback"],
-    tags: ["NLP", "Python", "AI Operations", "Decision Systems"],
+    tags: ["NLP", "scikit-learn", "LLM Fallback", "Cost Modeling"],
     github:
       "https://github.com/bobaoxu2001/LLM-powered-Support-Ticket-Routing-System",
     liveDemo: "https://portfolio-site-wheat-nu.vercel.app/",
-    highlight: "8K+ support tickets benchmarked",
+    highlight: "Live demo · 8,325 tickets",
   },
   {
-    id: "tiktok-seller-analytics",
-    title: "TikTok Seller Support Analytics",
-    category: "Product / Operations Analytics",
+    id: "china-telecom-ai-workflow",
+    title: "China Telecom AI Workflow Platform",
+    category: "Enterprise · LLM Workflow",
     problem:
-      "Seller operations teams needed clearer diagnosis of onboarding friction, support-ticket distortion, and satisfaction movement.",
+      "Enterprise AI teams needed structured workflows for messy dialogue logs, intent labels, prompt output review, and digital-human operations.",
     built:
-      "Analyzed seller onboarding and support workflows using SQL, Python, Tableau, funnel mapping, and KPI governance logic.",
+      "Designed LLM/NLP workflows for intent classification, structured output review, prompt evaluation, and digital-human product operations.",
     impact:
-      "Identified duplicate-ticket KPI distortion, a 10% MoM satisfaction decline, and a 48% conversion-lift opportunity across seller activation paths.",
-    technologies: ["SQL", "Python", "Tableau", "Product Analytics", "KPI Diagnosis"],
-    tags: ["SQL", "Python", "Tableau", "Product Analytics"],
+      "Mapped 20K+ dialogue logs into 170+ intent labels and built QA loops for improving workflow reliability.",
+    technologies: ["LLM Workflow", "NLP", "Dify", "Prompt Evaluation", "AI Operations"],
+    tags: ["LLM Workflow", "Intent Classification", "Prompt Eval", "Digital Human"],
     github: null,
     liveDemo: null,
-    highlight: "48% conversion-lift opportunity",
+    highlight: "20K+ logs / 170+ intent labels",
   },
 ];
 
@@ -138,28 +125,6 @@ export const featuredProject = {
 
 export const secondaryProjects = [
   {
-    id: "sp-global-forecasting",
-    title: "S&P / NYU Bitcoin Forecasting",
-    category: "Forecasting & Model Benchmarking",
-    description:
-      "Benchmarked classical, tree-based, and deep-learning forecasting models on hourly Bitcoin data with macro-market and sentiment features, emphasizing model limits as much as headline error reduction.",
-    technologies: ["Python", "LightGBM", "XGBoost", "SOFTS", "Forecasting"],
-    github: null,
-    liveDemo: null,
-    highlight: "71% MAE reduction",
-  },
-  {
-    id: "forward-deployed-ai",
-    title: "Forward-Deployed AI Simulation",
-    category: "AI Deployment / Workflow Automation",
-    description:
-      "Built a Streamlit simulation of a forward-deployed AI engagement for enterprise support data, with structured extraction, evidence quotes, JSON validation, human review gates, and ROI modeling.",
-    technologies: ["Python", "Claude API", "Streamlit", "SQLite", "JSON Schema"],
-    github: null,
-    liveDemo: null,
-    highlight: "97.3% evidence grounding",
-  },
-  {
     id: "alternative-investment-sales",
     title: "Alternative Investment Sales Strategy Analytics",
     category: "Business Analytics / Executive Dashboard",
@@ -170,7 +135,29 @@ export const secondaryProjects = [
       "https://github.com/bobaoxu2001/alternative-investment-sales-strategy-analytics",
     liveDemo:
       "https://alternative-investment-sales-strategy-analytics-matlvkct2.vercel.app/",
-    highlight: "Executive dashboard case study",
+    highlight: "Live dashboard demo",
+  },
+  {
+    id: "tiktok-seller-analytics",
+    title: "TikTok Seller Support Analytics",
+    category: "Product / Operations Analytics",
+    description:
+      "Diagnosed U.S. seller onboarding friction and support-ticket KPI distortion with SQL, Python, and Tableau — surfacing a 10% MoM satisfaction decline and a 48% conversion-lift opportunity across activation paths.",
+    technologies: ["SQL", "Python", "Tableau", "Funnel Analysis"],
+    github: null,
+    liveDemo: null,
+    highlight: "48% conversion-lift opportunity",
+  },
+  {
+    id: "forward-deployed-ai",
+    title: "Forward-Deployed AI Simulation",
+    category: "AI Deployment / Workflow Automation",
+    description:
+      "Built a Streamlit simulation of a forward-deployed AI engagement for enterprise support data, with structured extraction, evidence quotes, JSON validation, human review gates, and ROI modeling.",
+    technologies: ["Python", "Claude API", "Streamlit", "SQLite", "JSON Schema"],
+    github: null,
+    liveDemo: null,
+    highlight: "Synthetic FDE simulation",
   },
 ];
 
@@ -187,17 +174,6 @@ export const archiveProjects = [
     highlight: "200 creators, ~1,400 videos",
   },
   {
-    id: "influencer-analytics",
-    title: "Influencer Campaign Analytics",
-    archiveCategory: "Marketing / Partnerships Analytics",
-    description:
-      "Earlier creator marketing analytics prototype using sampled public influencer data for sponsored-vs-organic benchmarking, creator scoring, and shortlist recommendations.",
-    technologies: ["Python", "SQL", "Pandas", "Jupyter", "Streamlit"],
-    github: "https://github.com/bobaoxu2001/influencer-campaign-analytics",
-    liveDemo: null,
-    highlight: "500 creators, 25K posts",
-  },
-  {
     id: "nhanes-biomarkers",
     title: "NHANES Biomarker Analysis",
     archiveCategory: "Statistical Analysis",
@@ -207,17 +183,6 @@ export const archiveProjects = [
     github: "https://github.com/bobaoxu2001/nhanes-metal-nutrition-biomarkers",
     liveDemo: null,
     highlight: "5,014 adult analytic sample",
-  },
-  {
-    id: "bitcoin-price-prediction",
-    title: "Bitcoin Price Prediction Study",
-    archiveCategory: "Forecasting & Market Research",
-    description:
-      "Earlier NYU capstone model-comparison study for hourly Bitcoin forecasting with macro and social-sentiment features; best treated as background for the newer market-behavior platform.",
-    technologies: ["Python", "LightGBM", "XGBoost", "SOFTS", "Time Series"],
-    github: null,
-    liveDemo: null,
-    highlight: "8-model benchmark",
   },
   {
     id: "ai-sitcom-studio",
@@ -284,14 +249,14 @@ export const capstoneGroups = [
         title: "Bitcoin Price Prediction with Deep Learning and Market Sentiment",
         category: "NYU · M.S. Data Science Capstone",
         description:
-          "Forecasted Bitcoin price movements by combining market indicators and social-media sentiment with deep-learning time-series models; SOFTS achieved the strongest performance.",
+          "Capstone with S&P Global × NYU: benchmarked classical, tree-based, and deep-learning models on hourly Bitcoin data with macro-market and social-sentiment features. SOFTS achieved the strongest performance (71% MAE reduction vs. baseline), with emphasis on model limits and regime sensitivity over headline error.",
         technologies: [
           "Python",
-          "Deep Learning",
           "Time-Series Forecasting",
           "CNN-LSTM",
           "iTransformer",
           "SOFTS",
+          "LightGBM",
           "Sentiment Analysis",
           "Feature Engineering",
         ],

@@ -11,9 +11,6 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { experiences, heroMetrics, homepageProjects, skillGroups } from "@/lib/data";
 
 export default function HomePage() {
-  const largeProjects = homepageProjects.slice(0, 3);
-  const compactProjects = homepageProjects.slice(3);
-
   return (
     <>
       <Hero />
@@ -41,7 +38,7 @@ export default function HomePage() {
             <SectionHeader
               eyebrow="Featured AI/Data Projects"
               title="Practical AI + Data Systems"
-              subtitle="Five selected projects that show problem framing, build quality, evaluation discipline, and business-facing outcomes."
+              subtitle="A focused set of projects that show problem framing, build quality, evaluation discipline, and business-facing outcomes."
             />
             <Link
               href="/projects"
@@ -51,29 +48,10 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-3">
-            {largeProjects.map((p) => (
+          <div className="grid gap-5 lg:grid-cols-2">
+            {homepageProjects.map((p) => (
               <ProjectCard
                 key={p.id}
-                title={p.title}
-                category={p.category}
-                problem={p.problem}
-                built={p.built}
-                impact={p.impact}
-                technologies={p.technologies}
-                tags={p.tags}
-                github={p.github}
-                liveDemo={p.liveDemo}
-                highlight={p.highlight}
-              />
-            ))}
-          </div>
-
-          <div className="mt-5 grid gap-5 lg:grid-cols-2">
-            {compactProjects.map((p) => (
-              <ProjectCard
-                key={p.id}
-                compact
                 title={p.title}
                 category={p.category}
                 problem={p.problem}
