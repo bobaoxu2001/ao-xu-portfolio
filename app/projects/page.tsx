@@ -1,22 +1,16 @@
 import type { Metadata } from "next";
-import { Bot, LineChart, BarChart3, type LucideIcon } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ProjectCard } from "@/components/ProjectCard";
 import { FeaturedProject } from "@/components/FeaturedProject";
 import { archiveProjects, capstoneGroups, projectTracks } from "@/lib/data";
+import { TRACK_STYLE, FALLBACK_TRACK_STYLE } from "@/lib/trackStyle";
 
 export const metadata: Metadata = {
   title: "Projects | Ao Xu",
   description:
     "AI + Data projects by Ao (Allen) Xu, organized into AI + Knowledge, AI + Markets, and AI + Data & Operations tracks, plus academic capstones.",
-};
-
-// Circular emblem icon + accent ring per thematic track. Class strings are
-// written in full so Tailwind's JIT picks them up.
-const TRACK_STYLE: Record<string, { Icon: LucideIcon; ring: string }> = {
-  "ai-knowledge": { Icon: Bot, ring: "bg-indigo-50 text-indigo-600 ring-indigo-100" },
-  "ai-markets": { Icon: LineChart, ring: "bg-emerald-50 text-emerald-600 ring-emerald-100" },
-  "ai-data-ops": { Icon: BarChart3, ring: "bg-violet-50 text-violet-600 ring-violet-100" },
 };
 
 function groupByCategory(projects: typeof archiveProjects) {
@@ -36,55 +30,42 @@ export default function ProjectsPage() {
       <div className="container-xl">
         <SectionHeader
           eyebrow="Project Portfolio"
-          title="AI + Data Systems, Dashboards, and Research"
-          subtitle="Projects grouped into the domains I build in — AI + Knowledge, AI + Markets, and AI + Data & Operations — followed by academic capstones and an archive."
+          title="Explore my work by AI track"
+          subtitle="Pick a domain to dive in — each track opens to the projects I've built in that area. Academic capstones and an archive follow below."
         />
       </div>
 
       <section className="py-14">
-        <div className="container-xl space-y-16">
-          {projectTracks.map((track) => {
-            const style = TRACK_STYLE[track.id] ?? TRACK_STYLE["ai-knowledge"];
-            const Icon = style.Icon;
-            return (
-              <div key={track.id}>
-                <div className="mb-6 flex items-center gap-4">
+        <div className="container-xl">
+          <div className="grid gap-6 md:grid-cols-3">
+            {projectTracks.map((track) => {
+              const style = TRACK_STYLE[track.id] ?? FALLBACK_TRACK_STYLE;
+              const Icon = style.Icon;
+              return (
+                <Link
+                  key={track.id}
+                  href={`/projects/${track.id}`}
+                  className={`group flex flex-col items-center rounded-3xl border border-slate-200 bg-white p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(15,23,42,0.10)] ${style.hover}`}
+                >
                   <span
-                    className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ring-1 ${style.ring}`}
+                    className={`mb-6 flex h-28 w-28 items-center justify-center rounded-full ring-1 ${style.ring}`}
                   >
-                    <Icon size={26} strokeWidth={2} />
+                    <Icon size={52} strokeWidth={1.75} />
                   </span>
-                  <div>
-                    <h2 className="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">
-                      {track.label}
-                    </h2>
-                    <p className="mt-0.5 max-w-2xl text-sm leading-relaxed text-slate-500">
-                      {track.tagline}
-                    </p>
-                  </div>
-                </div>
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {track.projects.map((p) => (
-                    <ProjectCard
-                      key={p.id}
-                      compact
-                      title={p.title}
-                      category={p.category}
-                      problem={p.problem}
-                      built={p.built}
-                      impact={p.impact}
-                      description={p.description}
-                      technologies={p.technologies}
-                      tags={p.tags}
-                      github={p.github}
-                      liveDemo={p.liveDemo}
-                      highlight={p.highlight}
-                    />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+                  <h2 className="text-lg font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-blue-700">
+                    {track.label}
+                  </h2>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500">
+                    {track.tagline}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
+                    View {track.projects.length} project{track.projects.length > 1 ? "s" : ""}
+                    <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
