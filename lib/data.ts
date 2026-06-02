@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Ao (Allen) Xu",
   shortName: "Ao Xu",
   title: "AI + Data Analyst",
-  tagline: "AI + Data Analyst | Applied AI Builder | Business Data Scientist",
+  tagline: "Applied AI Builder · Data Analyst",
   headline: "AI + Data Analyst Building Decision Systems from Messy Business Data",
   positioning:
     "I turn support tickets, dialogue logs, market signals, and operational workflows into AI-powered systems, dashboards, and decision-ready insights using Python, SQL, LLM workflows, RAG, NLP evaluation, and BI tools.",
@@ -34,6 +34,7 @@ export type Project = {
   id: string;
   title: string;
   category: string;
+  summary?: string;
   problem?: string;
   built?: string;
   impact?: string;
@@ -58,6 +59,8 @@ const socCopilot = {
   id: "soc-engineering-copilot",
   title: "SOC Engineering Knowledge Copilot",
   category: "Flagship · RAG / Agent Workflow",
+  summary:
+    "RAG assistant with agent triage, human-review gates, and a built-in evaluation harness.",
   problem:
     "Engineering teams need cited answers, auditable retrieval, and reliable first-pass triage for build, verification, and workflow failures.",
   built:
@@ -76,6 +79,8 @@ const chinaTelecom = {
   id: "china-telecom-ai-workflow",
   title: "China Telecom AI Workflow Platform",
   category: "Enterprise · LLM Workflow",
+  summary:
+    "Enterprise LLM workflows for intent classification, output review, and digital-human operations.",
   problem:
     "Enterprise AI teams needed structured workflows for messy dialogue logs, intent labels, prompt output review, and digital-human operations.",
   built:
@@ -93,6 +98,8 @@ const forwardDeployed = {
   id: "forward-deployed-ai",
   title: "Forward-Deployed AI Simulation",
   category: "AI Deployment / Workflow Automation",
+  summary:
+    "Simulated forward-deployed AI for support data — structured extraction, evidence quotes, ROI modeling.",
   description:
     "Built a Streamlit simulation of a forward-deployed AI engagement for enterprise support data, with structured extraction, evidence quotes, JSON validation, human review gates, and ROI modeling.",
   technologies: ["Python", "Claude API", "Streamlit", "SQLite", "JSON Schema"],
@@ -105,6 +112,8 @@ const digitalAsset = {
   id: "digital-asset-market-behavior",
   title: "Digital Asset Market Behavior Intelligence Platform",
   category: "Market Data / Research Terminal",
+  summary:
+    "Crypto research terminal fusing price, sentiment, DeFi, on-chain, and macro into regimes + event studies.",
   problem:
     "Crypto research workflows need more than price prediction: analysts need regimes, event reactions, breadth, liquidity stress, and clear caveats.",
   built:
@@ -123,6 +132,8 @@ const altInvestment = {
   id: "alternative-investment-sales",
   title: "Alternative Investment Sales Strategy Analytics",
   category: "Business Analytics / Executive Dashboard",
+  summary:
+    "Analytics platform for funnel conversion, campaign ROI, and advisor prioritization.",
   description:
     "Built a reproducible analytics platform using synthetic CRM-style data to diagnose funnel conversion, product demand, campaign ROI, and advisor prioritization for investment-sales strategy.",
   technologies: ["Python", "SQL", "SQLite", "Vercel", "Dashboard"],
@@ -137,6 +148,8 @@ const supportTicket = {
   id: "support-ticket-routing",
   title: "LLM-powered Support Ticket Routing System",
   category: "Support Ops / Decision System",
+  summary:
+    "Routing decision system: rules, calibrated ML, selective LLM fallback, and human triage.",
   problem:
     "Support teams need to route cases accurately while balancing automation coverage, human review load, and LLM cost.",
   built:
@@ -155,6 +168,8 @@ const tiktokSeller = {
   id: "tiktok-seller-analytics",
   title: "TikTok Seller Support Analytics",
   category: "Product / Operations Analytics",
+  summary:
+    "Seller onboarding and support-KPI diagnosis in SQL, Python, and Tableau.",
   description:
     "Diagnosed U.S. seller onboarding friction and support-ticket KPI distortion with SQL, Python, and Tableau — surfacing a 10% MoM satisfaction decline and a 48% conversion-lift opportunity across activation paths.",
   technologies: ["SQL", "Python", "Tableau", "Funnel Analysis"],
@@ -167,6 +182,8 @@ const youtubePipeline = {
   id: "youtube-pipeline",
   title: "YouTube Creator Data Pipeline",
   category: "Product Analytics / Data Platform",
+  summary:
+    "Creator-metrics pipeline and dashboard for cohort benchmarking and shortlisting.",
   description:
     "Collected real YouTube creator and video metrics via the YouTube Data API and built a Streamlit dashboard for cohort benchmarking, awareness-vs-engagement analysis, and creator shortlisting.",
   technologies: ["Python", "YouTube API", "Pandas", "Streamlit", "Feature Engineering"],

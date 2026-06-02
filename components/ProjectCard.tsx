@@ -50,10 +50,8 @@ function getVisual(haystack: string) {
 interface ProjectCardProps {
   title: string;
   category: string;
+  summary?: string;
   description?: string;
-  problem?: string;
-  built?: string;
-  impact?: string;
   technologies: string[];
   tags?: string[];
   github?: string | null;
@@ -62,25 +60,11 @@ interface ProjectCardProps {
   compact?: boolean;
 }
 
-function DetailRow({ label, text }: { label: string; text?: string }) {
-  if (!text) return null;
-  return (
-    <div>
-      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400 mb-1">
-        {label}
-      </p>
-      <p className="text-[13px] leading-relaxed text-slate-600">{text}</p>
-    </div>
-  );
-}
-
 export function ProjectCard({
   title,
   category,
+  summary,
   description,
-  problem,
-  built,
-  impact,
   technologies,
   tags,
   github,
@@ -119,17 +103,9 @@ export function ProjectCard({
         </div>
       </div>
 
-      {problem || built || impact ? (
-        <div className={`grid gap-3 ${compact ? "mb-4" : "mb-5"} flex-1`}>
-          <DetailRow label="Problem" text={problem} />
-          <DetailRow label="Built" text={built} />
-          <DetailRow label="Impact" text={impact} />
-        </div>
-      ) : (
-        <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-4">
-          {description}
-        </p>
-      )}
+      <p className="mb-4 flex-1 text-[13px] leading-relaxed text-slate-600 line-clamp-2">
+        {summary ?? description}
+      </p>
 
       <div className="flex flex-wrap gap-1.5 mb-4">
         {visibleTags.slice(0, compact ? 4 : 6).map((t) => (

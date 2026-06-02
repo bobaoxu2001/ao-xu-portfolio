@@ -55,9 +55,7 @@ export default function HomePage() {
                 key={p.id}
                 title={p.title}
                 category={p.category}
-                problem={p.problem}
-                built={p.built}
-                impact={p.impact}
+                summary={p.summary}
                 technologies={p.technologies}
                 tags={p.tags}
                 github={p.github}

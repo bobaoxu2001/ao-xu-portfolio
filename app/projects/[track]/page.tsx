@@ -93,9 +93,7 @@ export default function TrackPage({ params }: { params: { track: string } }) {
               compact
               title={p.title}
               category={p.category}
-              problem={p.problem}
-              built={p.built}
-              impact={p.impact}
+              summary={p.summary}
               description={p.description}
               technologies={p.technologies}
               tags={p.tags}
