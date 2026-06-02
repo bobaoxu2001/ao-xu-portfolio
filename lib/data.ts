@@ -26,78 +26,184 @@ export const heroMetrics = [
   { value: "SQL / Python / LLM / RAG / Streamlit", label: "working toolkit" },
 ];
 
-// Flagship-first ordering. The SOC Copilot leads (it also gets the deep-dive
-// section below), followed by the two other clickable demos, then the China
-// Telecom enterprise work. Tags are kept specific per card to avoid repetition.
-export const homepageProjects = [
+// ─── Projects, grouped into "AI + X" thematic tracks ─────────────────────────
+// Each project is defined once here, then composed into thematic tracks (for
+// the Projects page) and a flagship-first featured list (for the homepage).
+
+export type Project = {
+  id: string;
+  title: string;
+  category: string;
+  problem?: string;
+  built?: string;
+  impact?: string;
+  description?: string;
+  technologies: string[];
+  tags?: string[];
+  github: string | null;
+  liveDemo: string | null;
+  highlight: string;
+};
+
+export type ProjectTrack = {
+  id: string;
+  label: string;
+  tagline: string;
+  accent: string;
+  projects: Project[];
+};
+
+const socCopilot = {
+  id: "soc-engineering-copilot",
+  title: "SOC Engineering Knowledge Copilot",
+  category: "Flagship · RAG / Agent Workflow",
+  problem:
+    "Engineering teams need cited answers, auditable retrieval, and reliable first-pass triage for build, verification, and workflow failures.",
+  built:
+    "Built a RAG + agent workflow assistant with cited answers, dense/hybrid retrieval inspection, deterministic workflow routing, human-review gates, and evaluation dashboards.",
+  impact:
+    "On synthetic held-out eval sets: 95% retrieval hit rate, 90% grounded-answer rate, and 100% out-of-scope safety handling.",
+  technologies: ["RAG", "Python", "Streamlit", "FastAPI", "FAISS", "Evaluation"],
+  tags: ["RAG", "FAISS", "FastAPI", "LLM Evaluation"],
+  github:
+    "https://github.com/bobaoxu2001/SOC-Engineering-Copilot-RAG-Agent-Workflow-Assistant",
+  liveDemo: "https://soc-ai-copilot.streamlit.app/",
+  highlight: "Live demo · cited RAG + eval",
+};
+
+const chinaTelecom = {
+  id: "china-telecom-ai-workflow",
+  title: "China Telecom AI Workflow Platform",
+  category: "Enterprise · LLM Workflow",
+  problem:
+    "Enterprise AI teams needed structured workflows for messy dialogue logs, intent labels, prompt output review, and digital-human operations.",
+  built:
+    "Designed LLM/NLP workflows for intent classification, structured output review, prompt evaluation, and digital-human product operations.",
+  impact:
+    "Mapped 20K+ dialogue logs into 170+ intent labels and built QA loops for improving workflow reliability.",
+  technologies: ["LLM Workflow", "NLP", "Dify", "Prompt Evaluation", "AI Operations"],
+  tags: ["LLM Workflow", "Intent Classification", "Prompt Eval", "Digital Human"],
+  github: null,
+  liveDemo: null,
+  highlight: "20K+ logs / 170+ intent labels",
+};
+
+const forwardDeployed = {
+  id: "forward-deployed-ai",
+  title: "Forward-Deployed AI Simulation",
+  category: "AI Deployment / Workflow Automation",
+  description:
+    "Built a Streamlit simulation of a forward-deployed AI engagement for enterprise support data, with structured extraction, evidence quotes, JSON validation, human review gates, and ROI modeling.",
+  technologies: ["Python", "Claude API", "Streamlit", "SQLite", "JSON Schema"],
+  github: null,
+  liveDemo: null,
+  highlight: "Synthetic FDE simulation",
+};
+
+const digitalAsset = {
+  id: "digital-asset-market-behavior",
+  title: "Digital Asset Market Behavior Intelligence Platform",
+  category: "Market Data / Research Terminal",
+  problem:
+    "Crypto research workflows need more than price prediction: analysts need regimes, event reactions, breadth, liquidity stress, and clear caveats.",
+  built:
+    "Built a Streamlit research terminal combining crypto price, sentiment, DeFi liquidity, on-chain proxies, macro data, and curated events into regime labels and event studies.",
+  impact:
+    "Produced analyst-ready strategy readouts across nine assets with sample-mode disclosure and reproducible dashboard outputs.",
+  technologies: ["Python", "Streamlit", "Plotly", "Event Study", "Market Data"],
+  tags: ["Python", "Streamlit", "Event Study", "Market Regimes"],
+  github:
+    "https://github.com/bobaoxu2001/Digital-Asset-Market-Behavior-Intelligence-Platform",
+  liveDemo: "https://crypto-market-behavior.streamlit.app/",
+  highlight: "Live demo · 9 assets",
+};
+
+const altInvestment = {
+  id: "alternative-investment-sales",
+  title: "Alternative Investment Sales Strategy Analytics",
+  category: "Business Analytics / Executive Dashboard",
+  description:
+    "Built a reproducible analytics platform using synthetic CRM-style data to diagnose funnel conversion, product demand, campaign ROI, and advisor prioritization for investment-sales strategy.",
+  technologies: ["Python", "SQL", "SQLite", "Vercel", "Dashboard"],
+  github:
+    "https://github.com/bobaoxu2001/alternative-investment-sales-strategy-analytics",
+  liveDemo:
+    "https://alternative-investment-sales-strategy-analytics-matlvkct2.vercel.app/",
+  highlight: "Live dashboard demo",
+};
+
+const supportTicket = {
+  id: "support-ticket-routing",
+  title: "LLM-powered Support Ticket Routing System",
+  category: "Support Ops / Decision System",
+  problem:
+    "Support teams need to route cases accurately while balancing automation coverage, human review load, and LLM cost.",
+  built:
+    "Built a support-routing decision system combining rules, calibrated ML, selective LLM fallback, and human triage.",
+  impact:
+    "Benchmarked 8,325 deduplicated support-ticket records and evaluated routing confidence, automation coverage, manual review load, and estimated LLM cost.",
+  technologies: ["Python", "NLP", "scikit-learn", "Streamlit", "LLM Fallback"],
+  tags: ["NLP", "scikit-learn", "LLM Fallback", "Cost Modeling"],
+  github:
+    "https://github.com/bobaoxu2001/LLM-powered-Support-Ticket-Routing-System",
+  liveDemo: "https://portfolio-site-wheat-nu.vercel.app/",
+  highlight: "Live demo · 8,325 tickets",
+};
+
+const tiktokSeller = {
+  id: "tiktok-seller-analytics",
+  title: "TikTok Seller Support Analytics",
+  category: "Product / Operations Analytics",
+  description:
+    "Diagnosed U.S. seller onboarding friction and support-ticket KPI distortion with SQL, Python, and Tableau — surfacing a 10% MoM satisfaction decline and a 48% conversion-lift opportunity across activation paths.",
+  technologies: ["SQL", "Python", "Tableau", "Funnel Analysis"],
+  github: null,
+  liveDemo: null,
+  highlight: "48% conversion-lift opportunity",
+};
+
+const youtubePipeline = {
+  id: "youtube-pipeline",
+  title: "YouTube Creator Data Pipeline",
+  category: "Product Analytics / Data Platform",
+  description:
+    "Collected real YouTube creator and video metrics via the YouTube Data API and built a Streamlit dashboard for cohort benchmarking, awareness-vs-engagement analysis, and creator shortlisting.",
+  technologies: ["Python", "YouTube API", "Pandas", "Streamlit", "Feature Engineering"],
+  github: "https://github.com/bobaoxu2001/youtube_creator_data_pipeline",
+  liveDemo: null,
+  highlight: "200 creators, ~1,400 videos",
+};
+
+export const projectTracks: ProjectTrack[] = [
   {
-    id: "soc-engineering-copilot",
-    title: "SOC Engineering Knowledge Copilot",
-    category: "Flagship · RAG / Agent Workflow",
-    problem:
-      "Engineering teams need cited answers, auditable retrieval, and reliable first-pass triage for build, verification, and workflow failures.",
-    built:
-      "Built a RAG + agent workflow assistant with cited answers, dense/hybrid retrieval inspection, deterministic workflow routing, human-review gates, and evaluation dashboards.",
-    impact:
-      "On synthetic held-out eval sets: 95% retrieval hit rate, 90% grounded-answer rate, and 100% out-of-scope safety handling.",
-    technologies: ["RAG", "Python", "Streamlit", "FastAPI", "FAISS", "Evaluation"],
-    tags: ["RAG", "FAISS", "FastAPI", "LLM Evaluation"],
-    github:
-      "https://github.com/bobaoxu2001/SOC-Engineering-Copilot-RAG-Agent-Workflow-Assistant",
-    liveDemo: "https://soc-ai-copilot.streamlit.app/",
-    highlight: "Live demo · cited RAG + eval",
+    id: "ai-knowledge",
+    label: "AI + Knowledge & LLM Workflows",
+    tagline:
+      "RAG assistants, agentic triage, and enterprise LLM workflows with evaluation built in.",
+    accent: "indigo",
+    projects: [socCopilot, chinaTelecom, forwardDeployed],
   },
   {
-    id: "digital-asset-market-behavior",
-    title: "Digital Asset Market Behavior Intelligence Platform",
-    category: "Market Data / Research Terminal",
-    problem:
-      "Crypto research workflows need more than price prediction: analysts need regimes, event reactions, breadth, liquidity stress, and clear caveats.",
-    built:
-      "Built a Streamlit research terminal combining crypto price, sentiment, DeFi liquidity, on-chain proxies, macro data, and curated events into regime labels and event studies.",
-    impact:
-      "Produced analyst-ready strategy readouts across nine assets with sample-mode disclosure and reproducible dashboard outputs.",
-    technologies: ["Python", "Streamlit", "Plotly", "Event Study", "Market Data"],
-    tags: ["Python", "Streamlit", "Event Study", "Market Regimes"],
-    github:
-      "https://github.com/bobaoxu2001/Digital-Asset-Market-Behavior-Intelligence-Platform",
-    liveDemo: "https://crypto-market-behavior.streamlit.app/",
-    highlight: "Live demo · 9 assets",
+    id: "ai-markets",
+    label: "AI + Markets & Finance",
+    tagline:
+      "Crypto market-behavior research and investment-strategy analytics — signals with caveats, not hype.",
+    accent: "emerald",
+    projects: [digitalAsset, altInvestment],
   },
   {
-    id: "support-ticket-routing",
-    title: "LLM-powered Support Ticket Routing System",
-    category: "Support Ops / Decision System",
-    problem:
-      "Support teams need to route cases accurately while balancing automation coverage, human review load, and LLM cost.",
-    built:
-      "Built a support-routing decision system combining rules, calibrated ML, selective LLM fallback, and human triage.",
-    impact:
-      "Benchmarked 8,325 deduplicated support-ticket records and evaluated routing confidence, automation coverage, manual review load, and estimated LLM cost.",
-    technologies: ["Python", "NLP", "scikit-learn", "Streamlit", "LLM Fallback"],
-    tags: ["NLP", "scikit-learn", "LLM Fallback", "Cost Modeling"],
-    github:
-      "https://github.com/bobaoxu2001/LLM-powered-Support-Ticket-Routing-System",
-    liveDemo: "https://portfolio-site-wheat-nu.vercel.app/",
-    highlight: "Live demo · 8,325 tickets",
-  },
-  {
-    id: "china-telecom-ai-workflow",
-    title: "China Telecom AI Workflow Platform",
-    category: "Enterprise · LLM Workflow",
-    problem:
-      "Enterprise AI teams needed structured workflows for messy dialogue logs, intent labels, prompt output review, and digital-human operations.",
-    built:
-      "Designed LLM/NLP workflows for intent classification, structured output review, prompt evaluation, and digital-human product operations.",
-    impact:
-      "Mapped 20K+ dialogue logs into 170+ intent labels and built QA loops for improving workflow reliability.",
-    technologies: ["LLM Workflow", "NLP", "Dify", "Prompt Evaluation", "AI Operations"],
-    tags: ["LLM Workflow", "Intent Classification", "Prompt Eval", "Digital Human"],
-    github: null,
-    liveDemo: null,
-    highlight: "20K+ logs / 170+ intent labels",
+    id: "ai-data-ops",
+    label: "AI + Data & Product Operations",
+    tagline:
+      "Routing systems, seller and creator analytics, and data pipelines that turn operations data into decisions.",
+    accent: "violet",
+    projects: [supportTicket, tiktokSeller, youtubePipeline],
   },
 ];
+
+// Homepage teaser: flagship first, then the two other live demos, then the
+// enterprise work.
+export const homepageProjects: Project[] = [socCopilot, digitalAsset, supportTicket, chinaTelecom];
 
 export const featuredProject = {
   title: "SOC Engineering Knowledge Copilot",
@@ -123,56 +229,7 @@ export const featuredProject = {
   liveDemo: "https://soc-ai-copilot.streamlit.app/",
 };
 
-export const secondaryProjects = [
-  {
-    id: "alternative-investment-sales",
-    title: "Alternative Investment Sales Strategy Analytics",
-    category: "Business Analytics / Executive Dashboard",
-    description:
-      "Built a reproducible analytics platform using synthetic CRM-style data to diagnose funnel conversion, product demand, campaign ROI, and advisor prioritization for investment-sales strategy.",
-    technologies: ["Python", "SQL", "SQLite", "Vercel", "Dashboard"],
-    github:
-      "https://github.com/bobaoxu2001/alternative-investment-sales-strategy-analytics",
-    liveDemo:
-      "https://alternative-investment-sales-strategy-analytics-matlvkct2.vercel.app/",
-    highlight: "Live dashboard demo",
-  },
-  {
-    id: "tiktok-seller-analytics",
-    title: "TikTok Seller Support Analytics",
-    category: "Product / Operations Analytics",
-    description:
-      "Diagnosed U.S. seller onboarding friction and support-ticket KPI distortion with SQL, Python, and Tableau — surfacing a 10% MoM satisfaction decline and a 48% conversion-lift opportunity across activation paths.",
-    technologies: ["SQL", "Python", "Tableau", "Funnel Analysis"],
-    github: null,
-    liveDemo: null,
-    highlight: "48% conversion-lift opportunity",
-  },
-  {
-    id: "forward-deployed-ai",
-    title: "Forward-Deployed AI Simulation",
-    category: "AI Deployment / Workflow Automation",
-    description:
-      "Built a Streamlit simulation of a forward-deployed AI engagement for enterprise support data, with structured extraction, evidence quotes, JSON validation, human review gates, and ROI modeling.",
-    technologies: ["Python", "Claude API", "Streamlit", "SQLite", "JSON Schema"],
-    github: null,
-    liveDemo: null,
-    highlight: "Synthetic FDE simulation",
-  },
-];
-
 export const archiveProjects = [
-  {
-    id: "youtube-pipeline",
-    title: "YouTube Creator Data Pipeline",
-    archiveCategory: "Product Analytics & Data Platforms",
-    description:
-      "Collected real YouTube creator and video metrics via the YouTube Data API and built a Streamlit dashboard for cohort benchmarking, awareness-vs-engagement analysis, and creator shortlisting.",
-    technologies: ["Python", "YouTube API", "Pandas", "Streamlit", "Feature Engineering"],
-    github: "https://github.com/bobaoxu2001/youtube_creator_data_pipeline",
-    liveDemo: null,
-    highlight: "200 creators, ~1,400 videos",
-  },
   {
     id: "nhanes-biomarkers",
     title: "NHANES Biomarker Analysis",
