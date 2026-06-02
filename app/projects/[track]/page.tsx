@@ -25,6 +25,12 @@ export default function TrackPage({ params }: { params: { track: string } }) {
   const style = TRACK_STYLE[track.id] ?? FALLBACK_TRACK_STYLE;
   const Icon = style.Icon;
 
+  const liveDemos = track.projects.filter((p) => p.liveDemo).length;
+  const repos = track.projects.filter((p) => p.github).length;
+  const techTags = Array.from(
+    new Set(track.projects.flatMap((p) => p.technologies)),
+  ).slice(0, 10);
+
   return (
     <div className="py-16">
       <div className="container-xl">
@@ -49,6 +55,34 @@ export default function TrackPage({ params }: { params: { track: string } }) {
             <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-slate-500">
               {track.tagline}
             </p>
+          </div>
+        </div>
+
+        <div className="mb-10 rounded-2xl border border-slate-200 bg-slate-50/70 p-5 sm:p-6">
+          <p className="text-[15px] font-semibold leading-relaxed text-slate-800">
+            {track.headline}
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-bold uppercase tracking-wide text-slate-500">
+            <span>{track.projects.length} projects</span>
+            {liveDemos > 0 && (
+              <>
+                <span className="text-slate-300">·</span>
+                <span>{liveDemos} live demo{liveDemos > 1 ? "s" : ""}</span>
+              </>
+            )}
+            {repos > 0 && (
+              <>
+                <span className="text-slate-300">·</span>
+                <span>{repos} on GitHub</span>
+              </>
+            )}
+          </div>
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {techTags.map((t) => (
+              <span key={t} className="tag">
+                {t}
+              </span>
+            ))}
           </div>
         </div>
 

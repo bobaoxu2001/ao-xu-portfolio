@@ -49,6 +49,7 @@ export type ProjectTrack = {
   id: string;
   label: string;
   tagline: string;
+  headline: string;
   accent: string;
   projects: Project[];
 };
@@ -180,6 +181,8 @@ export const projectTracks: ProjectTrack[] = [
     label: "AI + Knowledge & LLM Workflows",
     tagline:
       "RAG assistants, agentic triage, and enterprise LLM workflows with evaluation built in.",
+    headline:
+      "A cited RAG copilot (95% retrieval hit on synthetic eval) and a 20K-log enterprise LLM workflow.",
     accent: "indigo",
     projects: [socCopilot, chinaTelecom, forwardDeployed],
   },
@@ -188,6 +191,8 @@ export const projectTracks: ProjectTrack[] = [
     label: "AI + Markets & Finance",
     tagline:
       "Crypto market-behavior research and investment-strategy analytics — signals with caveats, not hype.",
+    headline:
+      "Crypto regime + event-study research across 9 assets, plus an investment-sales analytics dashboard.",
     accent: "emerald",
     projects: [digitalAsset, altInvestment],
   },
@@ -196,6 +201,8 @@ export const projectTracks: ProjectTrack[] = [
     label: "AI + Data & Product Operations",
     tagline:
       "Routing systems, seller and creator analytics, and data pipelines that turn operations data into decisions.",
+    headline:
+      "8,325 support tickets benchmarked and a 48% conversion-lift opportunity surfaced at TikTok.",
     accent: "violet",
     projects: [supportTicket, tiktokSeller, youtubePipeline],
   },

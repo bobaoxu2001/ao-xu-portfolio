@@ -8,7 +8,8 @@ import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { SkillsGrid } from "@/components/SkillsGrid";
 import { ContactSection } from "@/components/ContactSection";
 import { SectionHeader } from "@/components/SectionHeader";
-import { experiences, heroMetrics, homepageProjects, skillGroups } from "@/lib/data";
+import { experiences, heroMetrics, homepageProjects, projectTracks, skillGroups } from "@/lib/data";
+import { TRACK_STYLE, FALLBACK_TRACK_STYLE } from "@/lib/trackStyle";
 
 export default function HomePage() {
   return (
@@ -70,6 +71,44 @@ export default function HomePage() {
             <Link href="/projects" className="btn-secondary">
               Full archive <ArrowRight size={14} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="container-xl">
+          <SectionHeader
+            eyebrow="Browse by Track"
+            title="Explore my work by AI domain"
+            subtitle="Three focus areas — pick one to see the projects I've built in it."
+          />
+          <div className="mt-8 grid gap-5 sm:grid-cols-3">
+            {projectTracks.map((track) => {
+              const style = TRACK_STYLE[track.id] ?? FALLBACK_TRACK_STYLE;
+              const Icon = style.Icon;
+              return (
+                <Link
+                  key={track.id}
+                  href={`/projects/${track.id}`}
+                  className={`group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] ${style.hover}`}
+                >
+                  <span
+                    className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ring-1 ${style.ring}`}
+                  >
+                    <Icon size={26} strokeWidth={2} />
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-extrabold leading-snug text-slate-900 transition-colors group-hover:text-blue-700">
+                      {track.label}
+                    </h3>
+                    <p className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-blue-600">
+                      {track.projects.length} projects
+                      <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
