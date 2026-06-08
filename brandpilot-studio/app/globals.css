@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink-700 antialiased;
+    font-family: var(--font-inter), "Inter", "PingFang SC", "Hiragino Sans GB",
+      "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* 容器 */
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+  .container-narrow {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-6;
+  }
+
+  /* 柔和渐变背景 */
+  .bg-soft {
+    background:
+      radial-gradient(60% 50% at 50% 0%, rgba(99, 102, 241, 0.1), transparent 70%),
+      radial-gradient(45% 40% at 100% 0%, rgba(244, 63, 94, 0.07), transparent 70%),
+      #ffffff;
+  }
+
+  /* 卡片 */
+  .card {
+    @apply rounded-2xl border border-slate-100 bg-white shadow-soft;
+  }
+  .card-hover {
+    @apply transition duration-300 hover:-translate-y-1 hover:shadow-card;
+  }
+
+  /* 主按钮 */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-grad-brand px-6 py-3
+      text-sm font-semibold text-white shadow-glow transition
+      hover:opacity-95 hover:shadow-card active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-200
+      bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition
+      hover:border-brand-300 hover:bg-brand-50 active:scale-[0.98];
+  }
+
+  /* 渐变文字 */
+  .text-gradient {
+    @apply bg-grad-brand bg-clip-text text-transparent;
+  }
+
+  /* 标签 */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-brand-100 bg-brand-50
+      px-3 py-1 text-xs font-medium text-brand-700;
+  }
+
+  /* 区块标题样式 */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+  }
+
+  /* Markdown 排版（资源页） */
+  .prose-cn {
+    @apply text-[15px] leading-7 text-ink-700;
+  }
+  .prose-cn h1 {
+    @apply mb-4 mt-0 text-2xl font-bold text-ink-900;
+  }
+  .prose-cn h2 {
+    @apply mb-3 mt-8 text-lg font-bold text-ink-900;
+  }
+  .prose-cn h3 {
+    @apply mb-2 mt-6 text-base font-bold text-ink-900;
+  }
+  .prose-cn p {
+    @apply my-3;
+  }
+  .prose-cn ul,
+  .prose-cn ol {
+    @apply my-3 space-y-1.5 pl-5;
+  }
+  .prose-cn ul {
+    @apply list-disc;
+  }
+  .prose-cn ol {
+    @apply list-decimal;
+  }
+  .prose-cn blockquote {
+    @apply my-4 rounded-r-lg border-l-4 border-brand-300 bg-brand-50/60 py-2 pl-4 text-ink-700;
+  }
+  .prose-cn strong {
+    @apply font-semibold text-ink-900;
+  }
+  .prose-cn hr {
+    @apply my-6 border-slate-100;
+  }
+  .prose-cn code {
+    @apply rounded bg-slate-100 px-1.5 py-0.5 text-[13px] text-accent-600;
+  }
+  .prose-cn a {
+    @apply font-medium text-brand-600 underline underline-offset-2;
+  }
+}
