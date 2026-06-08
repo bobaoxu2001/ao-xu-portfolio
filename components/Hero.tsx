@@ -6,9 +6,9 @@ import { siteConfig } from "@/lib/data";
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-20 pb-12 sm:pt-28 sm:pb-16">
-      <div className="hero-grid pointer-events-none absolute inset-0 opacity-[0.14]" />
-      <div className="pointer-events-none absolute -top-48 left-1/2 h-[520px] w-[760px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[360px] w-[420px] rounded-full bg-cyan-400/10 blur-3xl" />
+      <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0 opacity-[0.14]" />
+      <div aria-hidden="true" className="pointer-events-none absolute -top-48 left-1/2 h-[520px] w-[760px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl" />
+      <div aria-hidden="true" className="pointer-events-none absolute bottom-0 right-0 h-[360px] w-[420px] rounded-full bg-cyan-400/10 blur-3xl" />
 
       <div className="container-xl relative">
         <div className="grid lg:grid-cols-[1fr_300px] items-center gap-10 lg:gap-16">

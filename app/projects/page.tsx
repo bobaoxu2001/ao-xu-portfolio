@@ -45,7 +45,7 @@ export default function ProjectsPage() {
                 <Link
                   key={track.id}
                   href={`/projects/${track.id}`}
-                  className={`group flex flex-col items-center rounded-3xl border border-white/10 bg-white/[0.035] p-8 text-center backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:bg-white/[0.06] hover:shadow-[0_24px_60px_-16px_rgba(8,18,48,0.8)] ${style.hover}`}
+                  className={`group flex flex-col items-center rounded-3xl border border-white/10 bg-white/[0.035] p-8 text-center backdrop-blur-sm transition-all duration-200 motion-safe:hover:-translate-y-1 hover:bg-white/[0.06] hover:shadow-[0_24px_60px_-16px_rgba(8,18,48,0.8)] ${style.hover}`}
                 >
                   <span
                     className={`mb-6 flex h-24 w-24 items-center justify-center rounded-full ring-1 ${style.ring}`}

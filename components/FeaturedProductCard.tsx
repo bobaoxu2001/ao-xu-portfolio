@@ -58,11 +58,38 @@ export function FeaturedProductCard({ project }: { project: Project }) {
   const { Icon } = a;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_60px_-16px_rgba(8,18,48,0.8)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-sm transition-all duration-200 motion-safe:hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_60px_-16px_rgba(8,18,48,0.8)]">
       {/* Visual placeholder banner (stands in for a product screenshot) */}
       <div className={`relative h-36 overflow-hidden bg-gradient-to-br ${a.banner}`}>
         <div className="hero-grid absolute inset-0 opacity-[0.18]" />
         <div className={`absolute -right-10 -top-10 h-40 w-40 rounded-full blur-2xl ${a.glow}`} />
+        {/* Faint dashboard motif so the banner reads as a product surface */}
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 320 80"
+          preserveAspectRatio="none"
+          className="absolute inset-x-0 bottom-0 h-16 w-full text-white/25"
+        >
+          <polyline
+            points="0,64 40,52 80,58 120,38 160,44 200,24 240,30 280,14 320,20"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          {[20, 68, 116, 164, 212, 260, 300].map((x, i) => (
+            <rect
+              key={x}
+              x={x}
+              y={70 - (i % 3) * 8 - 6}
+              width="6"
+              height={(i % 3) * 8 + 10}
+              rx="1.5"
+              className="fill-white/15"
+            />
+          ))}
+        </svg>
         <div className="absolute left-5 top-5 flex items-center gap-2">
           <span className={`flex h-11 w-11 items-center justify-center rounded-xl ring-1 ${a.ring}`}>
             <Icon size={22} strokeWidth={2} />

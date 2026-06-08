@@ -69,7 +69,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Product design + data science skills — surfaced early for recruiters */}
       <section className="py-20 bg-white/[0.015]">
+        <div className="container-xl">
+          <SectionHeader
+            eyebrow="Skills & Stack"
+            title="Product Design + Data Science Toolkit"
+            subtitle="The capabilities I use to take an idea end to end — from messy input and modeling to a shipped, decision-ready product."
+          />
+          <div className="mt-8">
+            <SkillsGrid groups={skillGroups} />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
         <div className="container-xl">
           <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeader
@@ -109,7 +123,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 bg-white/[0.015]">
         <div className="container-xl">
           <SectionHeader
             eyebrow="Browse by Track"
@@ -124,7 +138,7 @@ export default function HomePage() {
                 <Link
                   key={track.id}
                   href={`/projects/${track.id}`}
-                  className={`group flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/[0.06] hover:shadow-[0_18px_50px_-12px_rgba(8,18,48,0.7)] ${style.hover}`}
+                  className={`group flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-white/[0.06] hover:shadow-[0_18px_50px_-12px_rgba(8,18,48,0.7)] ${style.hover}`}
                 >
                   <span
                     className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ring-1 ${style.ring}`}
@@ -171,19 +185,6 @@ export default function HomePage() {
             <Link href="/experience" className="btn-secondary">
               Full timeline <ArrowRight size={14} />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white/[0.015]">
-        <div className="container-xl">
-          <SectionHeader
-            eyebrow="Toolkit"
-            title="Technical Stack for AI + Data Delivery"
-            subtitle="Grouped by the capabilities I use to move from messy input to shipped, decision-ready product."
-          />
-          <div className="mt-8">
-            <SkillsGrid groups={skillGroups} />
           </div>
         </div>
       </section>

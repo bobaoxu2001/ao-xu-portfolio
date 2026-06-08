@@ -64,7 +64,7 @@ export type ProjectTrack = {
 const worldcupOracle = {
   id: "worldcup-oracle-agent",
   title: "WorldCup Oracle Agent",
-  category: "AI Agent · Sports Analytics",
+  category: "AI Agent · Sports Analytics · Prediction System",
   summary:
     "A news-aware AI agent that predicts World Cup 2026 matchups, runs 10K Monte Carlo simulations, explains its reasoning, and answers follow-ups in real time.",
   description:
@@ -84,7 +84,7 @@ const worldcupOracle = {
 const aiStockPlatform = {
   id: "ai-stock-platform",
   title: "FactorForge · AI Stock Platform",
-  category: "FinTech AI · Market Intelligence",
+  category: "FinTech AI · Market Intelligence · AI Research Platform",
   summary:
     "An AI quant research workbench for factor discovery, cost-aware backtesting, market-stress analysis, and a simulated model portfolio benchmarked against SPY/QQQ.",
   description:
@@ -104,7 +104,7 @@ const aiStockPlatform = {
 const worldCupLab = {
   id: "world-cup-ai-lab",
   title: "World Cup AI Lab",
-  category: "Sports Analytics · AI Product",
+  category: "AI Lab · Sports Data Product · Tournament Simulation",
   summary:
     "A commercial-MVP World Cup 2026 prediction product — match probabilities, expected scores, upset alerts, and full tournament simulations behind a freemium paywall.",
   description:
