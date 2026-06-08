@@ -29,7 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col bg-white">
+      <body className="min-h-screen flex flex-col">
+        <div className="app-backdrop" aria-hidden="true" />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

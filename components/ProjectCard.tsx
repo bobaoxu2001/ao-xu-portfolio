@@ -18,13 +18,13 @@ import {
 // wall of text. Accent class strings are written out in full so Tailwind's JIT
 // picks them up (no dynamic class construction).
 const ACCENTS = {
-  indigo: "bg-indigo-50 text-indigo-600 ring-indigo-100",
-  emerald: "bg-emerald-50 text-emerald-600 ring-emerald-100",
-  sky: "bg-sky-50 text-sky-600 ring-sky-100",
-  rose: "bg-rose-50 text-rose-600 ring-rose-100",
-  violet: "bg-violet-50 text-violet-600 ring-violet-100",
-  amber: "bg-amber-50 text-amber-600 ring-amber-100",
-  blue: "bg-blue-50 text-blue-600 ring-blue-100",
+  indigo: "bg-indigo-500/10 text-indigo-300 ring-indigo-400/20",
+  emerald: "bg-emerald-500/10 text-emerald-300 ring-emerald-400/20",
+  sky: "bg-sky-500/10 text-sky-300 ring-sky-400/20",
+  rose: "bg-rose-500/10 text-rose-300 ring-rose-400/20",
+  violet: "bg-violet-500/10 text-violet-300 ring-violet-400/20",
+  amber: "bg-amber-500/10 text-amber-300 ring-amber-400/20",
+  blue: "bg-blue-500/10 text-blue-300 ring-blue-400/20",
 } as const;
 
 const VISUAL_RULES: { pattern: RegExp; icon: LucideIcon; accent: keyof typeof ACCENTS }[] = [
@@ -77,9 +77,9 @@ export function ProjectCard({
 
   return (
     <article
-      className={`group flex h-full flex-col bg-white border border-slate-200 ${
+      className={`group flex h-full flex-col border border-white/10 bg-white/[0.035] backdrop-blur-sm ${
         compact ? "rounded-xl p-5" : "rounded-2xl p-6"
-      } hover:shadow-[0_10px_32px_rgba(15,23,42,0.08)] hover:border-slate-300 transition-all duration-200`}
+      } hover:shadow-[0_18px_50px_-12px_rgba(8,18,48,0.7)] hover:border-white/20 hover:bg-white/[0.06] transition-all duration-200`}
     >
       <div className="mb-4 flex items-start gap-3.5">
         <span
@@ -91,19 +91,19 @@ export function ProjectCard({
           <div className="flex flex-wrap items-center gap-2 mb-1.5">
             <p className="eyebrow">{category}</p>
             {highlight && (
-              <span className="px-2.5 py-0.5 text-[11px] font-bold bg-blue-50 text-blue-700 rounded-full border border-blue-100">
+              <span className="px-2.5 py-0.5 text-[11px] font-bold bg-blue-500/15 text-blue-200 rounded-full border border-blue-400/20">
                 {highlight}
               </span>
             )}
           </div>
 
-          <h3 className={`${compact ? "text-base" : "text-lg"} font-extrabold text-slate-900 leading-snug tracking-tight group-hover:text-blue-700 transition-colors`}>
+          <h3 className={`${compact ? "text-base" : "text-lg"} font-extrabold text-white leading-snug tracking-tight group-hover:text-blue-200 transition-colors`}>
             {title}
           </h3>
         </div>
       </div>
 
-      <p className="mb-4 flex-1 text-[13px] leading-relaxed text-slate-600 line-clamp-2">
+      <p className="mb-4 flex-1 text-[13px] leading-relaxed text-slate-400 line-clamp-2">
         {summary ?? description}
       </p>
 
@@ -119,13 +119,13 @@ export function ProjectCard({
       </div>
 
       {(github || liveDemo) && (
-        <div className="flex flex-wrap gap-4 pt-3 border-t border-slate-100 mt-auto">
+        <div className="flex flex-wrap gap-4 pt-3 border-t border-white/10 mt-auto">
           {github && (
             <a
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+              className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
             >
               <Github size={13} /> GitHub
             </a>
@@ -135,7 +135,7 @@ export function ProjectCard({
               href={liveDemo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors"
+              className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-blue-300 transition-colors"
             >
               <ExternalLink size={13} /> Live Demo
             </a>

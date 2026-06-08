@@ -19,7 +19,7 @@ export default function AboutPage() {
         <div className="flex flex-col lg:flex-row items-start gap-12 mb-16">
           {/* Photo */}
           <div className="shrink-0 mx-auto lg:mx-0">
-            <div className="relative w-44 h-44 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+            <div className="relative w-44 h-44 rounded-2xl overflow-hidden border border-white/10 shadow-lg shadow-black/40">
               <Image
                 src="/images/ao-xu-headshot.png"
                 alt={`${siteConfig.name}`}
@@ -32,35 +32,34 @@ export default function AboutPage() {
           {/* Bio */}
           <div className="max-w-2xl">
             <span className="eyebrow mb-3 block">About</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-5">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-5">
               {siteConfig.name}
             </h1>
 
-            <div className="space-y-4 text-slate-600 text-[15px] leading-relaxed">
+            <div className="space-y-4 text-slate-300 text-[15px] leading-relaxed">
               <p>
-                I work at the intersection of AI workflows, data analytics, and business
-                operations. The through-line in my work is turning messy inputs - support
-                tickets, dialogue logs, seller funnels, market signals, and internal knowledge -
-                into systems that help people make clearer decisions.
+                I&apos;m an AI builder and data scientist who turns data, workflows, and ideas
+                into products people can actually use. Across LLM applications, agentic analytics,
+                and market-intelligence platforms, I take projects end to end — from problem
+                framing to a shipped, live interface.
               </p>
               <p>
-                My strongest projects combine practical build work with evaluation discipline:
-                LLM workflow QA, RAG retrieval inspection, NLP classification benchmarks,
-                Streamlit dashboards, forecasting comparisons, and stakeholder-ready narratives.
-                I care less about flashy demos and more about whether a system is measurable,
-                reviewable, and useful in an operating workflow.
+                My recent work is product-first: a news-aware World Cup prediction agent, an
+                AI quant research platform, and a freemium tournament-simulation product. Underneath
+                the polish, I care about the engineering — probability modeling, evaluation harnesses,
+                retrieval inspection, and honest treatment of uncertainty — so the systems are
+                measurable and trustworthy, not just demos.
               </p>
               <p>
-                My background includes AI workflow and digital-human product work at China
-                Telecom&apos;s AI Center, seller support analytics at TikTok/ByteDance, forecasting
-                research with S&amp;P Global x NYU, and reporting automation at Deloitte.
-                Academically, I hold an M.S. in Data Science from NYU and a B.S. in Data Science
-                &amp; Applied Mathematics from UC Santa Barbara.
+                My background spans AI workflow and digital-human product work at China Telecom&apos;s
+                AI Center, seller support analytics at TikTok/ByteDance, forecasting research with
+                S&amp;P Global x NYU, and reporting automation at Deloitte. I hold an M.S. in Data
+                Science from NYU and a B.S. in Data Science &amp; Applied Mathematics from UC Santa Barbara.
               </p>
               <p>
-                I&apos;m targeting AI/Data Analyst, Applied AI Analyst, Business Data Scientist,
-                LLM/NLP Analytics, AI Operations, and AI Product / Strategy roles where analytics
-                and AI systems are close to real business workflows.
+                I&apos;m targeting AI Engineer, AI Product Manager, Data Scientist, and AI Strategist
+                roles where building real products and shipping data-driven systems sit at the center
+                of the work.
               </p>
             </div>
 
@@ -85,7 +84,7 @@ export default function AboutPage() {
 
         {/* Skills */}
         <div>
-          <h2 className="text-xl font-bold text-slate-900 mb-6 pb-3 border-b border-slate-100">
+          <h2 className="text-xl font-bold text-white mb-6 pb-3 border-b border-white/10">
             Technical Skills
           </h2>
           <SkillsGrid groups={skillGroups} />

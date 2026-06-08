@@ -99,16 +99,16 @@ function CapabilityCard({ cap }: { cap: Capability }) {
   const Icon = cap.icon;
 
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-blue-200 hover:shadow-[0_8px_28px_rgba(37,99,235,0.08)] transition-all duration-200">
+    <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-200 hover:border-blue-400/30 hover:bg-white/[0.06] hover:shadow-[0_8px_28px_rgba(37,99,235,0.12)]">
       <div className="flex items-start gap-3 mb-3">
-        <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-blue-50">
-          <Icon size={17} className="text-blue-600" />
+        <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-blue-400/20 bg-blue-500/10">
+          <Icon size={17} className="text-blue-300" />
         </div>
         <div>
-          <h3 className="text-[15px] font-extrabold text-slate-900 leading-snug">
+          <h3 className="text-[15px] font-extrabold text-white leading-snug">
             {cap.title}
           </h3>
-          <p className="mt-1 text-[13px] text-slate-500 leading-relaxed">
+          <p className="mt-1 text-[13px] text-slate-400 leading-relaxed">
             {cap.description}
           </p>
         </div>
@@ -118,7 +118,7 @@ function CapabilityCard({ cap }: { cap: Capability }) {
         {cap.evidence.map((e) => (
           <span
             key={e}
-            className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-semibold text-slate-600"
+            className="rounded-full border border-white/10 bg-white/[0.06] px-2 py-0.5 text-[11px] font-semibold text-slate-300"
           >
             {e}
           </span>
@@ -128,7 +128,7 @@ function CapabilityCard({ cap }: { cap: Capability }) {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="ml-12 flex items-center gap-1 rounded text-[11px] font-semibold text-blue-600 transition-colors hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        className="ml-12 flex items-center gap-1 rounded text-[11px] font-semibold text-blue-300 transition-colors hover:text-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
       >
         {open ? "Hide evidence" : "Show evidence"}
         <ChevronDown
@@ -138,9 +138,9 @@ function CapabilityCard({ cap }: { cap: Capability }) {
       </button>
 
       {open && (
-        <ul className="mt-3 space-y-2 border-t border-slate-100 pt-3 pl-12">
+        <ul className="mt-3 space-y-2 border-t border-white/10 pt-3 pl-12">
           {cap.examples.map((item) => (
-            <li key={item} className="flex gap-2 text-[12px] leading-snug text-slate-600">
+            <li key={item} className="flex gap-2 text-[12px] leading-snug text-slate-400">
               <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />
               {item}
             </li>
@@ -153,13 +153,13 @@ function CapabilityCard({ cap }: { cap: Capability }) {
 
 export function CapabilityMap() {
   return (
-    <section className="py-20 bg-slate-50/70">
+    <section className="py-20 bg-white/[0.015]">
       <div className="container-xl">
         <div className="mb-10">
           <span className="eyebrow mb-2 block">Capability Map</span>
-          <h2 className="section-heading">How I Turn Messy Workflows Into Decisions</h2>
+          <h2 className="section-heading">From Messy Inputs to Shipped AI Products</h2>
           <p className="section-subheading max-w-2xl">
-            Six business capabilities that connect the technical stack to real AI/data work.
+            Six capabilities that connect the technical stack to real AI product and data work.
           </p>
         </div>
 

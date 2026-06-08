@@ -36,7 +36,7 @@ export default function TrackPage({ params }: { params: { track: string } }) {
       <div className="container-xl">
         <Link
           href="/projects"
-          className="mb-8 inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900"
+          className="mb-8 inline-flex items-center gap-1.5 text-sm font-semibold text-slate-400 transition-colors hover:text-white"
         >
           <ArrowLeft size={15} /> All projects
         </Link>
@@ -49,30 +49,30 @@ export default function TrackPage({ params }: { params: { track: string } }) {
           </span>
           <div>
             <p className="eyebrow mb-1">AI Track</p>
-            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+            <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               {track.label}
             </h1>
-            <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-slate-500">
+            <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-slate-400">
               {track.tagline}
             </p>
           </div>
         </div>
 
-        <div className="mb-10 rounded-2xl border border-slate-200 bg-slate-50/70 p-5 sm:p-6">
-          <p className="text-[15px] font-semibold leading-relaxed text-slate-800">
+        <div className="mb-10 rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-sm sm:p-6">
+          <p className="text-[15px] font-semibold leading-relaxed text-slate-200">
             {track.headline}
           </p>
-          <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-bold uppercase tracking-wide text-slate-500">
+          <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-bold uppercase tracking-wide text-slate-400">
             <span>{track.projects.length} projects</span>
             {liveDemos > 0 && (
               <>
-                <span className="text-slate-300">·</span>
+                <span className="text-slate-600">·</span>
                 <span>{liveDemos} live demo{liveDemos > 1 ? "s" : ""}</span>
               </>
             )}
             {repos > 0 && (
               <>
-                <span className="text-slate-300">·</span>
+                <span className="text-slate-600">·</span>
                 <span>{repos} on GitHub</span>
               </>
             )}
@@ -104,8 +104,8 @@ export default function TrackPage({ params }: { params: { track: string } }) {
           ))}
         </div>
 
-        <div className="mt-14 border-t border-slate-200 pt-8">
-          <p className="mb-4 text-sm font-semibold text-slate-500">Explore other tracks</p>
+        <div className="mt-14 border-t border-white/10 pt-8">
+          <p className="mb-4 text-sm font-semibold text-slate-400">Explore other tracks</p>
           <div className="flex flex-wrap gap-3">
             {projectTracks
               .filter((t) => t.id !== track.id)
@@ -116,7 +116,7 @@ export default function TrackPage({ params }: { params: { track: string } }) {
                   <Link
                     key={t.id}
                     href={`/projects/${t.id}`}
-                    className={`group inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white py-2 pl-2 pr-4 text-sm font-semibold text-slate-700 transition-all hover:shadow-sm ${s.hover}`}
+                    className={`group inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] py-2 pl-2 pr-4 text-sm font-semibold text-slate-200 backdrop-blur-sm transition-all hover:bg-white/[0.08] ${s.hover}`}
                   >
                     <span className={`flex h-8 w-8 items-center justify-center rounded-full ring-1 ${s.ring}`}>
                       <TIcon size={16} strokeWidth={2} />

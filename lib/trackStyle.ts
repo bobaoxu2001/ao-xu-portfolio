@@ -1,26 +1,32 @@
-import { Bot, LineChart, BarChart3, type LucideIcon } from "lucide-react";
+import { Bot, Trophy, LineChart, BarChart3, type LucideIcon } from "lucide-react";
 
 // Shared per-track emblem icon + accent classes, used by the Projects overview
 // and the individual track pages. Class strings are written in full so
-// Tailwind's JIT picks them up (no dynamic construction).
+// Tailwind's JIT picks them up (no dynamic construction). Tuned for the dark
+// glassmorphism theme.
 export const TRACK_STYLE: Record<
   string,
   { Icon: LucideIcon; ring: string; hover: string }
 > = {
   "ai-knowledge": {
     Icon: Bot,
-    ring: "bg-indigo-50 text-indigo-600 ring-indigo-100",
-    hover: "hover:border-indigo-200",
+    ring: "bg-indigo-500/10 text-indigo-300 ring-indigo-400/20",
+    hover: "hover:border-indigo-400/30",
+  },
+  "ai-sports": {
+    Icon: Trophy,
+    ring: "bg-sky-500/10 text-sky-300 ring-sky-400/20",
+    hover: "hover:border-sky-400/30",
   },
   "ai-markets": {
     Icon: LineChart,
-    ring: "bg-emerald-50 text-emerald-600 ring-emerald-100",
-    hover: "hover:border-emerald-200",
+    ring: "bg-emerald-500/10 text-emerald-300 ring-emerald-400/20",
+    hover: "hover:border-emerald-400/30",
   },
   "ai-data-ops": {
     Icon: BarChart3,
-    ring: "bg-violet-50 text-violet-600 ring-violet-100",
-    hover: "hover:border-violet-200",
+    ring: "bg-violet-500/10 text-violet-300 ring-violet-400/20",
+    hover: "hover:border-violet-400/30",
   },
 };
 
