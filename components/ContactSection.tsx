@@ -3,18 +3,18 @@ import { siteConfig } from "@/lib/data";
 
 export function ContactSection() {
   return (
-    <section className="py-24 bg-slate-900 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden border-t border-white/10 bg-white/[0.02]">
       {/* Background decoration */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-blue-800/20 blur-3xl" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-blue-600/20 blur-3xl" />
 
       <div className="container-xl relative text-center">
-        <span className="eyebrow text-blue-400 mb-4 block">Get in Touch</span>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
-          Let&apos;s Build Useful AI + Data Systems
+        <span className="eyebrow mb-4 block">Get in Touch</span>
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 tracking-tight gradient-text">
+          Let&apos;s build AI products worth shipping
         </h2>
         <p className="text-slate-400 text-[15px] max-w-lg mx-auto mb-10 leading-relaxed">
-          Open to AI/Data Analyst, Applied AI, Business Data Scientist, LLM/NLP Analytics,
-          AI Operations, and AI Product / Strategy roles in NYC, California, or remote teams.
+          Open to AI Engineer, AI Product Manager, Data Scientist, Applied AI, and AI Strategist
+          roles in NYC, California, or remote teams.
         </p>
 
         <div className="flex flex-wrap gap-3 justify-center">

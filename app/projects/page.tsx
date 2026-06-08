@@ -37,7 +37,7 @@ export default function ProjectsPage() {
 
       <section className="py-14">
         <div className="container-xl">
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {projectTracks.map((track) => {
               const style = TRACK_STYLE[track.id] ?? FALLBACK_TRACK_STYLE;
               const Icon = style.Icon;
@@ -45,20 +45,20 @@ export default function ProjectsPage() {
                 <Link
                   key={track.id}
                   href={`/projects/${track.id}`}
-                  className={`group flex flex-col items-center rounded-3xl border border-slate-200 bg-white p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(15,23,42,0.10)] ${style.hover}`}
+                  className={`group flex flex-col items-center rounded-3xl border border-white/10 bg-white/[0.035] p-8 text-center backdrop-blur-sm transition-all duration-200 motion-safe:hover:-translate-y-1 hover:bg-white/[0.06] hover:shadow-[0_24px_60px_-16px_rgba(8,18,48,0.8)] ${style.hover}`}
                 >
                   <span
-                    className={`mb-6 flex h-28 w-28 items-center justify-center rounded-full ring-1 ${style.ring}`}
+                    className={`mb-6 flex h-24 w-24 items-center justify-center rounded-full ring-1 ${style.ring}`}
                   >
-                    <Icon size={52} strokeWidth={1.75} />
+                    <Icon size={44} strokeWidth={1.75} />
                   </span>
-                  <h2 className="text-lg font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-blue-700">
+                  <h2 className="text-base font-extrabold tracking-tight text-white transition-colors group-hover:text-blue-200">
                     {track.label}
                   </h2>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500">
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-400">
                     {track.tagline}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
+                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-300">
                     View {track.projects.length} project{track.projects.length > 1 ? "s" : ""}
                     <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
                   </span>
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
 
       <FeaturedProject />
 
-      <section className="py-16 bg-slate-50/70">
+      <section className="py-16 bg-white/[0.015]">
         <div className="container-xl">
           <SectionHeader
             eyebrow="Capstone Projects"
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
           <div className="mt-10 space-y-12">
             {capstoneGroups.map((group) => (
               <div key={group.group}>
-                <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-blue-600">
+                <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-blue-300">
                   {group.group}
                 </h3>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -107,13 +107,13 @@ export default function ProjectsPage() {
 
       <section className="py-16">
         <div className="container-xl">
-          <h2 className="mb-8 border-b border-slate-200 pb-2 text-xl font-bold text-slate-900">
+          <h2 className="mb-8 border-b border-white/10 pb-2 text-xl font-bold text-white">
             Archive
           </h2>
           <div className="space-y-12">
             {Object.entries(groupedArchive).map(([category, projects]) => (
               <div key={category}>
-                <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-blue-600">
+                <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-blue-300">
                   {category}
                 </h3>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -3,27 +3,29 @@
 export const siteConfig = {
   name: "Ao (Allen) Xu",
   shortName: "Ao Xu",
-  title: "AI + Data Analyst",
-  tagline: "Applied AI Builder · Data Analyst",
-  headline: "AI + Data Analyst Building Decision Systems from Messy Business Data",
+  title: "AI Builder · Data Scientist",
+  tagline: "AI Builder · Data Scientist · Product-minded Engineer",
+  headline: "I build AI products that turn data, workflows, and ideas into usable systems.",
   positioning:
-    "I turn support tickets, dialogue logs, market signals, and operational workflows into AI-powered systems, dashboards, and decision-ready insights using Python, SQL, LLM workflows, RAG, NLP evaluation, and BI tools.",
+    "AI Builder and Data Scientist with experience across LLM applications, analytics platforms, product prototyping, and data-driven decision systems.",
+  currentlyBuilding:
+    "Currently building AI-native products across sports prediction, financial intelligence, sales automation, and data quality workflows.",
   email: "ax2183@nyu.edu",
   linkedin: "https://www.linkedin.com/in/ao-xu/",
   github: "https://github.com/bobaoxu2001",
   resumeUrl: "/resume/Allen_Xu_Resume.pdf",
-  seoTitle: "Ao Xu | AI + Data Analyst",
+  seoTitle: "Ao Xu | AI Builder & Data Scientist",
   seoDescription:
-    "Portfolio of Ao Xu, an AI + Data Analyst and Applied AI Builder focused on LLM workflows, RAG, NLP analytics, dashboards, forecasting, and operational decision systems.",
+    "Portfolio of Ao Xu — AI Builder and Data Scientist shipping LLM products, agentic analytics, market-intelligence platforms, and data-driven decision systems.",
   ogImage: "/images/ao-xu-headshot.png",
 };
 
 export const heroMetrics = [
+  { value: "10+", label: "AI products & systems shipped" },
+  { value: "10K", label: "Monte Carlo sims per prediction" },
   { value: "20K+", label: "dialogue logs structured" },
-  { value: "170+", label: "intent labels mapped" },
-  { value: "8K+", label: "support tickets benchmarked" },
   { value: "71%", label: "forecasting MAE reduction" },
-  { value: "SQL / Python / LLM / RAG / Streamlit", label: "working toolkit" },
+  { value: "Next.js / Python / LLM / RAG", label: "core build stack" },
 ];
 
 // ─── Projects, grouped into "AI + X" thematic tracks ─────────────────────────
@@ -44,6 +46,8 @@ export type Project = {
   github: string | null;
   liveDemo: string | null;
   highlight: string;
+  // Optional 3 short, recruiter-facing impact bullets used by featured cards.
+  bullets?: string[];
 };
 
 export type ProjectTrack = {
@@ -53,6 +57,68 @@ export type ProjectTrack = {
   headline: string;
   accent: string;
   projects: Project[];
+};
+
+// ─── Latest AI products (shipped, live, product-first) ───────────────────────
+
+const worldcupOracle = {
+  id: "worldcup-oracle-agent",
+  title: "WorldCup Oracle Agent",
+  category: "AI Agent · Sports Analytics · Prediction System",
+  summary:
+    "A news-aware AI agent that predicts World Cup 2026 matchups, runs 10K Monte Carlo simulations, explains its reasoning, and answers follow-ups in real time.",
+  description:
+    "An AI-powered World Cup prediction agent that combines football data, probability modeling, scenario analysis, and LLM reasoning to generate interactive match predictions and tournament insights.",
+  technologies: ["Next.js 15", "TypeScript", "MongoDB", "Gemini", "Monte Carlo", "Tailwind"],
+  tags: ["AI Agent", "Monte Carlo", "MongoDB Memory", "News-aware"],
+  github: "https://github.com/bobaoxu2001/worldcup-oracle-agent",
+  liveDemo: "https://worldcup-oracle-agent.vercel.app",
+  highlight: "Live · agentic predictions",
+  bullets: [
+    "Built an agentic workflow that plans the analysis, pulls live injury & squad news, and runs 10,000 Monte Carlo simulations per matchup.",
+    "Designed prediction logic around probability, uncertainty, and base-vs-adjusted scenario comparison with transparent reasoning.",
+    "Shipped a productized chat interface with a MongoDB memory layer for follow-up 'what-if' questions across sessions.",
+  ],
+};
+
+const aiStockPlatform = {
+  id: "ai-stock-platform",
+  title: "FactorForge · AI Stock Platform",
+  category: "FinTech AI · Market Intelligence · AI Research Platform",
+  summary:
+    "An AI quant research workbench for factor discovery, cost-aware backtesting, market-stress analysis, and a simulated model portfolio benchmarked against SPY/QQQ.",
+  description:
+    "An AI-powered stock market research platform that helps users analyze market signals, compare strategies, summarize financial data, and generate investment research insights through a productized AI interface.",
+  technologies: ["Next.js 14", "TypeScript", "SQLite", "Recharts", "LLM", "Docker"],
+  tags: ["FinTech AI", "Backtesting", "Factor Research", "Market Stress"],
+  github: "https://github.com/bobaoxu2001/FactorForge",
+  liveDemo: "https://factor-forge-ashy.vercel.app/",
+  highlight: "Live · quant research lab",
+  bullets: [
+    "Built a finance-focused AI research workflow: deterministic engines compute factors and backtests, then LLM calls turn validated payloads into prose.",
+    "Integrated market data, five rule-based strategies, factor-attribution regressions, and a simulated model portfolio with provenance-aware metadata.",
+    "Designed a clean dashboard product with a safe public demo mode — optional keys, labeled fallbacks, and no trade-execution path.",
+  ],
+};
+
+const worldCupLab = {
+  id: "world-cup-ai-lab",
+  title: "World Cup AI Lab",
+  category: "AI Lab · Sports Data Product · Tournament Simulation",
+  summary:
+    "A commercial-MVP World Cup 2026 prediction product — match probabilities, expected scores, upset alerts, and full tournament simulations behind a freemium paywall.",
+  description:
+    "A World Cup-focused AI lab for experimenting with football prediction, tournament simulation, and data storytelling — packaged as a premium product, not a notebook.",
+  technologies: ["Next.js", "TypeScript", "Supabase", "Stripe", "Monte Carlo", "shadcn/ui"],
+  tags: ["Sports Analytics", "Tournament Sim", "Freemium", "Elo · Poisson"],
+  github: "https://github.com/bobaoxu2001/world-cup-ai-lab",
+  liveDemo: "https://world-cup-ai-lab.vercel.app",
+  highlight: "Live · freemium MVP",
+  bullets: [
+    "Ported an Elo → Dixon-Coles bivariate Poisson → Monte Carlo engine to TypeScript behind clean prediction APIs.",
+    "Modeled all 48 teams and 72 group matches from the confirmed 2026 draw, with upset-risk and confidence-level outputs.",
+    "Packaged the data-science work as a mobile-first product with a freemium paywall, Supabase auth, and Stripe checkout.",
+  ],
 };
 
 const socCopilot = {
@@ -204,14 +270,24 @@ export const projectTracks: ProjectTrack[] = [
     projects: [socCopilot, chinaTelecom, forwardDeployed],
   },
   {
+    id: "ai-sports",
+    label: "AI + Sports & Prediction Products",
+    tagline:
+      "Agentic and simulation-driven football products that turn data science into fan-facing predictions.",
+    headline:
+      "A news-aware prediction agent and a freemium tournament-simulation product, both running 10K Monte Carlo sims per matchup.",
+    accent: "sky",
+    projects: [worldcupOracle, worldCupLab],
+  },
+  {
     id: "ai-markets",
     label: "AI + Markets & Finance",
     tagline:
-      "Crypto market-behavior research and investment-strategy analytics — signals with caveats, not hype.",
+      "Market-intelligence platforms and research analytics — signals with caveats, not hype.",
     headline:
-      "Crypto regime + event-study research across 9 assets, plus an investment-sales analytics dashboard.",
+      "An AI quant research workbench, crypto regime + event-study research across 9 assets, and an investment-sales analytics dashboard.",
     accent: "emerald",
-    projects: [digitalAsset, altInvestment],
+    projects: [aiStockPlatform, digitalAsset, altInvestment],
   },
   {
     id: "ai-data-ops",
@@ -225,8 +301,11 @@ export const projectTracks: ProjectTrack[] = [
   },
 ];
 
-// Homepage teaser: flagship first, then the two other live demos, then the
-// enterprise work.
+// Latest shipped AI products, surfaced as the homepage "Featured AI Products"
+// showcase with impact bullets and live demos.
+export const featuredProducts: Project[] = [worldcupOracle, aiStockPlatform, worldCupLab];
+
+// Homepage teaser grid: flagship deep-dive first, then live demos across tracks.
 export const homepageProjects: Project[] = [socCopilot, digitalAsset, supportTicket, chinaTelecom];
 
 export const featuredProject = {

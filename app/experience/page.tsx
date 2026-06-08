@@ -21,7 +21,7 @@ export default function ExperiencePage() {
 
         {/* Work experience */}
         <div className="mb-16">
-          <h2 className="text-lg font-bold text-slate-700 uppercase tracking-wider mb-8">
+          <h2 className="text-lg font-bold text-slate-300 uppercase tracking-wider mb-8">
             Work Experience
           </h2>
           <ExperienceTimeline experiences={experiences} />
@@ -29,7 +29,7 @@ export default function ExperiencePage() {
 
         {/* Education */}
         <div>
-          <h2 className="text-lg font-bold text-slate-700 uppercase tracking-wider mb-8 flex items-center gap-2">
+          <h2 className="text-lg font-bold text-slate-300 uppercase tracking-wider mb-8 flex items-center gap-2">
             <GraduationCap size={20} />
             Education
           </h2>
@@ -38,18 +38,18 @@ export default function ExperiencePage() {
               <div key={edu.school} className="card">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                   <div>
-                    <h3 className="text-base font-bold text-slate-900">{edu.degree}</h3>
-                    <p className="text-blue-600 font-semibold text-sm">{edu.school}</p>
+                    <h3 className="text-base font-bold text-white">{edu.degree}</h3>
+                    <p className="text-blue-300 font-semibold text-sm">{edu.school}</p>
                     {edu.notes && (
-                      <p className="text-slate-500 text-sm mt-1">{edu.notes}</p>
+                      <p className="text-slate-400 text-sm mt-1">{edu.notes}</p>
                     )}
                   </div>
                   <div className="flex flex-col sm:items-end gap-1 shrink-0">
-                    <span className="flex items-center gap-1 text-xs text-slate-500">
+                    <span className="flex items-center gap-1 text-xs text-slate-400">
                       <Calendar size={12} />
                       {edu.period}
                     </span>
-                    <span className="text-xs px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full font-medium">
+                    <span className="text-xs px-2 py-0.5 bg-white/[0.06] text-slate-300 border border-white/10 rounded-full font-medium">
                       GPA {edu.gpa}
                     </span>
                   </div>

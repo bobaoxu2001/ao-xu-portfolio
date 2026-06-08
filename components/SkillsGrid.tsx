@@ -9,11 +9,11 @@ interface SkillsGridProps {
 }
 
 const colorMap: Record<string, { accent: string; dot: string }> = {
-  blue:   { accent: "text-blue-600",   dot: "bg-blue-400" },
-  violet: { accent: "text-violet-600", dot: "bg-violet-400" },
-  indigo: { accent: "text-indigo-600", dot: "bg-indigo-400" },
-  sky:    { accent: "text-sky-600",    dot: "bg-sky-400" },
-  emerald:{ accent: "text-emerald-600", dot: "bg-emerald-400" },
+  blue:   { accent: "text-blue-300",   dot: "bg-blue-400" },
+  violet: { accent: "text-violet-300", dot: "bg-violet-400" },
+  indigo: { accent: "text-indigo-300", dot: "bg-indigo-400" },
+  sky:    { accent: "text-sky-300",    dot: "bg-sky-400" },
+  emerald:{ accent: "text-emerald-300", dot: "bg-emerald-400" },
 };
 
 export function SkillsGrid({ groups }: SkillsGridProps) {
@@ -24,7 +24,7 @@ export function SkillsGrid({ groups }: SkillsGridProps) {
         return (
           <div
             key={group.label}
-            className="bg-white border border-slate-200 rounded-2xl p-5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:border-slate-300 transition-all duration-200"
+            className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-200 hover:border-white/20 hover:bg-white/[0.06]"
           >
             {/* Header with colored dot */}
             <div className="flex items-center gap-2 mb-3">
@@ -37,7 +37,7 @@ export function SkillsGrid({ groups }: SkillsGridProps) {
               {group.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-2.5 py-1 text-[12px] font-medium text-slate-600 bg-slate-50 border border-slate-200 rounded-full leading-none"
+                  className="px-2.5 py-1 text-[12px] font-medium text-slate-300 bg-white/[0.06] border border-white/10 rounded-full leading-none"
                 >
                   {skill}
                 </span>

@@ -14,29 +14,29 @@ export default function ResumePage() {
       <div className="container-xl max-w-3xl">
         {/* Header */}
         <div className="mb-10 text-center">
-          <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-2">
+          <p className="text-blue-300 font-semibold text-sm tracking-widest uppercase mb-2">
             Resume &amp; Contact
           </p>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-3">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
             {siteConfig.name}
           </h1>
-          <p className="text-slate-500 text-base">
+          <p className="text-slate-400 text-base">
             {siteConfig.tagline}
           </p>
-          <p className="mt-3 text-sm leading-relaxed text-slate-500">
-            Open to AI/Data Analyst, Applied AI, Business Data Scientist, LLM/NLP Analytics, and AI Product/Ops roles.
+          <p className="mt-3 text-sm leading-relaxed text-slate-400">
+            Open to AI Engineer, AI Product Manager, Data Scientist, Applied AI, and AI Strategist roles.
           </p>
         </div>
 
         {/* Resume download card */}
         <div className="card mb-10 text-center">
           <div className="flex justify-center mb-4">
-            <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center">
-              <FileText className="text-blue-600" size={28} />
+            <div className="w-14 h-14 rounded-full bg-blue-500/10 ring-1 ring-blue-400/20 flex items-center justify-center">
+              <FileText className="text-blue-300" size={28} />
             </div>
           </div>
-          <h2 className="text-xl font-bold text-slate-900 mb-2">Resume / CV</h2>
-          <p className="text-slate-500 text-sm mb-6 max-w-md mx-auto">
+          <h2 className="text-xl font-bold text-white mb-2">Resume / CV</h2>
+          <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
             Download or view my full resume, including work experience, education, and skills.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
@@ -62,18 +62,18 @@ export default function ResumePage() {
 
         {/* Contact links */}
         <div className="card">
-          <h2 className="text-lg font-bold text-slate-900 mb-6">Contact &amp; Links</h2>
+          <h2 className="text-lg font-bold text-white mb-6">Contact &amp; Links</h2>
           <div className="space-y-4">
             <a
               href={`mailto:${siteConfig.email}`}
-              className="flex items-center gap-4 p-4 rounded-lg border border-slate-100 hover:bg-slate-50 hover:border-blue-200 transition-colors group"
+              className="flex items-center gap-4 p-4 rounded-lg border border-white/10 hover:bg-white/[0.06] hover:border-blue-400/30 transition-colors group"
             >
-              <span className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                <Mail className="text-blue-600" size={18} />
+              <span className="w-10 h-10 rounded-full bg-blue-500/10 ring-1 ring-blue-400/20 flex items-center justify-center shrink-0">
+                <Mail className="text-blue-300" size={18} />
               </span>
               <div>
-                <p className="text-xs text-slate-400 font-medium">Email</p>
-                <p className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                <p className="text-xs text-slate-500 font-medium">Email</p>
+                <p className="text-sm font-semibold text-slate-200 group-hover:text-blue-200 transition-colors">
                   {siteConfig.email}
                 </p>
               </div>
@@ -83,14 +83,14 @@ export default function ResumePage() {
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 rounded-lg border border-slate-100 hover:bg-slate-50 hover:border-blue-200 transition-colors group"
+              className="flex items-center gap-4 p-4 rounded-lg border border-white/10 hover:bg-white/[0.06] hover:border-blue-400/30 transition-colors group"
             >
-              <span className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                <Linkedin className="text-blue-600" size={18} />
+              <span className="w-10 h-10 rounded-full bg-blue-500/10 ring-1 ring-blue-400/20 flex items-center justify-center shrink-0">
+                <Linkedin className="text-blue-300" size={18} />
               </span>
               <div>
-                <p className="text-xs text-slate-400 font-medium">LinkedIn</p>
-                <p className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                <p className="text-xs text-slate-500 font-medium">LinkedIn</p>
+                <p className="text-sm font-semibold text-slate-200 group-hover:text-blue-200 transition-colors">
                   linkedin.com/in/ao-xu
                 </p>
               </div>
@@ -100,14 +100,14 @@ export default function ResumePage() {
               href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 rounded-lg border border-slate-100 hover:bg-slate-50 hover:border-slate-300 transition-colors group"
+              className="flex items-center gap-4 p-4 rounded-lg border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-colors group"
             >
-              <span className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                <Github className="text-slate-700" size={18} />
+              <span className="w-10 h-10 rounded-full bg-white/[0.06] ring-1 ring-white/10 flex items-center justify-center shrink-0">
+                <Github className="text-slate-200" size={18} />
               </span>
               <div>
-                <p className="text-xs text-slate-400 font-medium">GitHub</p>
-                <p className="text-sm font-semibold text-slate-800 group-hover:text-slate-900 transition-colors">
+                <p className="text-xs text-slate-500 font-medium">GitHub</p>
+                <p className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
                   github.com/bobaoxu2001
                 </p>
               </div>
