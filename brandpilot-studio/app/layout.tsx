@@ -4,6 +4,7 @@ import "./globals.css";
 import { site } from "@/lib/config";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,8 +45,10 @@ export default function RootLayout({
     <html lang="zh-CN" className={inter.variable}>
       <body>
         <Navbar />
-        <main>{children}</main>
+        {/* 移动端底部留出空间，避免内容被常驻 CTA 条遮住 */}
+        <main className="pb-20 md:pb-0">{children}</main>
         <Footer />
+        <StickyMobileCTA />
       </body>
     </html>
   );

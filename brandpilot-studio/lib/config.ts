@@ -13,6 +13,11 @@ export const site = {
   // ⬇️ 上线前必改：把 YOUR_WECHAT_ID 换成你的真实微信号
   wechatId: "YOUR_WECHAT_ID",
 
+  // ⬇️ 强烈建议：放一张你的微信二维码图（中国用户习惯扫码加好友，不爱手输微信号）
+  //   做法：把二维码图片放到 public/wechat-qr.png，这里写 "/wechat-qr.png"。
+  //   留空字符串则只显示微信号 + 复制按钮。
+  wechatQr: "",
+
   // ⬇️ 可选：用于「提交咨询」按钮的 mailto 兜底（没有也行）
   contactEmail: "YOUR_EMAIL@example.com",
 
@@ -21,6 +26,10 @@ export const site = {
 
   // 站点地址（部署后改成真实域名，用于分享与 SEO）
   url: "https://brandpilot.example.com",
+
+  // ⬇️ 营销用：案例价剩余名额（用于制造合理稀缺，成交后手动 -1；为 0 时自动隐藏）
+  slotsLeft: 3,
+  slotsTotal: 3,
 };
 
 export const nav = [

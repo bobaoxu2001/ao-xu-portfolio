@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Sparkles,
   GraduationCap,
   Dumbbell,
   Store,
@@ -19,6 +18,7 @@ import PricingCards from "@/components/PricingCards";
 import CaseCard from "@/components/CaseCard";
 import FAQ from "@/components/FAQ";
 import WeChatCTA from "@/components/WeChatCTA";
+import SlotsBadge from "@/components/SlotsBadge";
 
 const audiences = [
   { icon: GraduationCap, label: "留学生 / 求职者", desc: "一页式作品集，HR 30 秒看懂你" },
@@ -35,10 +35,7 @@ export default function HomePage() {
       <section className="bg-soft">
         <div className="container-page py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="chip mx-auto">
-              <Sparkles size={14} />
-              前 3 位案例客户 ¥399 限定
-            </span>
+            <SlotsBadge className="mx-auto" />
             <h1 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-5xl">
               7 天内，把你的
               <span className="text-gradient">「线上名片」</span>
