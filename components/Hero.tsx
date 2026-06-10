@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Github, Linkedin, FileText, ArrowRight, Sparkles } from "lucide-react";
+import { Mail, FileText, ArrowRight, Sparkles } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 
 export function Hero() {
@@ -13,15 +13,26 @@ export function Hero() {
       <div className="container-xl relative">
         <div className="grid lg:grid-cols-[1fr_300px] items-center gap-10 lg:gap-16">
           <div className="max-w-4xl">
-            <div className="mb-6 flex flex-wrap items-center gap-2">
+            <div className="mb-4 flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-2 rounded-full border border-blue-300/25 bg-blue-400/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-blue-200">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px] shadow-emerald-400" />
-                {siteConfig.tagline}
+                Open to new-grad & entry-level roles
               </span>
               <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-300">
                 NYU M.S. Data Science
               </span>
             </div>
+
+            <ul className="mb-6 flex flex-wrap gap-2" aria-label="Target roles">
+              {siteConfig.roles.map((role) => (
+                <li
+                  key={role}
+                  className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-xs font-semibold text-slate-200"
+                >
+                  {role}
+                </li>
+              ))}
+            </ul>
 
             <h1 className="mb-5 max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.5rem]">
               <span className="gradient-text">{siteConfig.headline}</span>
@@ -35,32 +46,13 @@ export function Hero() {
               <Link href="/projects" className="btn-primary">
                 View Projects <ArrowRight size={14} />
               </Link>
-              <a
-                href={siteConfig.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
+              <a href={siteConfig.resumeUrl} download className="btn-secondary">
                 <FileText size={14} />
-                View Resume
+                Download Resume
               </a>
-              <a
-                href={siteConfig.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
-                <Github size={14} />
-                GitHub
-              </a>
-              <a
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
-                <Linkedin size={14} />
-                LinkedIn
+              <a href={`mailto:${siteConfig.email}`} className="btn-secondary">
+                <Mail size={14} />
+                Contact Me
               </a>
             </div>
 

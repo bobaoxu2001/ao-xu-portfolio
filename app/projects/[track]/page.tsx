@@ -100,6 +100,7 @@ export default function TrackPage({ params }: { params: { track: string } }) {
               github={p.github}
               liveDemo={p.liveDemo}
               highlight={p.highlight}
+              caseStudy={p.caseStudy}
             />
           ))}
         </div>

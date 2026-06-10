@@ -1,21 +1,19 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/Hero";
-import { CapabilityMap } from "@/components/CapabilityMap";
-import { FeaturedProject } from "@/components/FeaturedProject";
+import { RoleFitSection } from "@/components/RoleFitSection";
+import { RecruiterSnapshot } from "@/components/RecruiterSnapshot";
+import { CaseProjectCard } from "@/components/CaseProjectCard";
 import { FeaturedProductCard } from "@/components/FeaturedProductCard";
-import { ProjectCard } from "@/components/ProjectCard";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
-import { SkillsGrid } from "@/components/SkillsGrid";
 import { ContactSection } from "@/components/ContactSection";
 import { SectionHeader } from "@/components/SectionHeader";
 import {
   experiences,
+  featuredCaseProjects,
   featuredProducts,
   heroMetrics,
-  homepageProjects,
   projectTracks,
-  skillGroups,
 } from "@/lib/data";
 import { TRACK_STYLE, FALLBACK_TRACK_STYLE } from "@/lib/trackStyle";
 
@@ -24,7 +22,8 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <section className="border-y border-white/10 bg-white/[0.02]">
+      {/* Proof in numbers */}
+      <section aria-label="Proof in numbers" className="border-y border-white/10 bg-white/[0.02]">
         <div className="container-xl py-5">
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
             {heroMetrics.map((metric) => (
@@ -44,14 +43,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured AI Products — the latest shipped, product-first work */}
+      {/* Role fit: which roles, why, and the proof */}
+      <RoleFitSection />
+
+      {/* Top featured projects, ranked by job-market value */}
+      <section className="py-20 bg-white/[0.015]">
+        <div className="container-xl">
+          <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeader
+              eyebrow="Featured Projects"
+              title="Strongest work first"
+              subtitle="Five projects, each framed the same way: the problem, what I built or analyzed, and the measured outcome."
+            />
+            <Link
+              href="/projects"
+              className="hidden items-center gap-1 text-sm font-semibold text-blue-300 transition-colors hover:text-blue-200 sm:flex"
+            >
+              All projects <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-2">
+            {featuredCaseProjects.map((p, i) => (
+              <CaseProjectCard key={p.id} project={p} rank={i + 1} />
+            ))}
+          </div>
+
+          <div className="mt-8 text-center sm:hidden">
+            <Link href="/projects" className="btn-secondary">
+              All projects <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Skimmable facts for recruiters */}
+      <RecruiterSnapshot />
+
+      {/* Shipped, live AI products */}
       <section className="py-20">
         <div className="container-xl">
           <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeader
-              eyebrow="Featured AI Products"
-              title="AI-native products I've shipped"
-              subtitle="Live, end-to-end builds — agentic prediction, market intelligence, and a freemium product — not notebooks or slides."
+              eyebrow="Shipped AI Products"
+              title="Live, end-to-end builds"
+              subtitle="Product-first AI work with live demos — agentic prediction, market intelligence, and a freemium simulation product."
             />
             <Link
               href="/projects"
@@ -69,60 +105,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Product design + data science skills — surfaced early for recruiters */}
-      <section className="py-20 bg-white/[0.015]">
-        <div className="container-xl">
-          <SectionHeader
-            eyebrow="Skills & Stack"
-            title="Product Design + Data Science Toolkit"
-            subtitle="The capabilities I use to take an idea end to end — from messy input and modeling to a shipped, decision-ready product."
-          />
-          <div className="mt-8">
-            <SkillsGrid groups={skillGroups} />
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container-xl">
-          <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeader
-              eyebrow="Selected AI/Data Systems"
-              title="Practical AI + Data Systems"
-              subtitle="A focused set of projects that show problem framing, build quality, evaluation discipline, and business-facing outcomes."
-            />
-            <Link
-              href="/projects"
-              className="hidden items-center gap-1 text-sm font-semibold text-blue-300 transition-colors hover:text-blue-200 sm:flex"
-            >
-              View full project archive <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          <div className="grid gap-5 lg:grid-cols-2">
-            {homepageProjects.map((p) => (
-              <ProjectCard
-                key={p.id}
-                title={p.title}
-                category={p.category}
-                summary={p.summary}
-                technologies={p.technologies}
-                tags={p.tags}
-                github={p.github}
-                liveDemo={p.liveDemo}
-                highlight={p.highlight}
-              />
-            ))}
-          </div>
-
-          <div className="mt-8 text-center sm:hidden">
-            <Link href="/projects" className="btn-secondary">
-              Full archive <ArrowRight size={14} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
+      {/* Browse by track */}
       <section className="py-20 bg-white/[0.015]">
         <div className="container-xl">
           <SectionHeader
@@ -161,10 +144,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <FeaturedProject />
-
-      <CapabilityMap />
-
+      {/* Experience */}
       <section className="py-20">
         <div className="container-xl">
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">

@@ -1,6 +1,8 @@
+import Link from "next/link";
 import {
   ExternalLink,
   Github,
+  BookOpen,
   Bot,
   LineChart,
   Headset,
@@ -57,6 +59,7 @@ interface ProjectCardProps {
   github?: string | null;
   liveDemo?: string | null;
   highlight?: string | null;
+  caseStudy?: string | null;
   compact?: boolean;
 }
 
@@ -70,6 +73,7 @@ export function ProjectCard({
   github,
   liveDemo,
   highlight,
+  caseStudy,
   compact = false,
 }: ProjectCardProps) {
   const visibleTags = tags ?? technologies;
@@ -118,8 +122,16 @@ export function ProjectCard({
         )}
       </div>
 
-      {(github || liveDemo) && (
+      {(github || liveDemo || caseStudy) && (
         <div className="flex flex-wrap gap-4 pt-3 border-t border-white/10 mt-auto">
+          {caseStudy && (
+            <Link
+              href={caseStudy}
+              className="flex items-center gap-1.5 text-xs font-semibold text-blue-300 hover:text-blue-200 transition-colors"
+            >
+              <BookOpen size={13} /> Case Study
+            </Link>
+          )}
           {github && (
             <a
               href={github}

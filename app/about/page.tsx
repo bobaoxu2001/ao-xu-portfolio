@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Mail, Linkedin } from "lucide-react";
 import { siteConfig, skillGroups } from "@/lib/data";
 import { SkillsGrid } from "@/components/SkillsGrid";
+import { CapabilityMap } from "@/components/CapabilityMap";
 
 export const metadata: Metadata = {
   title: "About | Ao Xu",
@@ -90,6 +91,8 @@ export default function AboutPage() {
           <SkillsGrid groups={skillGroups} />
         </div>
       </div>
+
+      <CapabilityMap />
     </div>
   );
 }
