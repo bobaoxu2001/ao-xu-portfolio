@@ -5,6 +5,7 @@ import { RoleFitSection } from "@/components/RoleFitSection";
 import { RecruiterSnapshot } from "@/components/RecruiterSnapshot";
 import { CaseProjectCard } from "@/components/CaseProjectCard";
 import { FeaturedProductCard } from "@/components/FeaturedProductCard";
+import { FlagshipProductCard } from "@/components/FlagshipProductCard";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ContactSection } from "@/components/ContactSection";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -53,7 +54,7 @@ export default function HomePage() {
             <SectionHeader
               eyebrow="Featured Projects"
               title="Strongest work first"
-              subtitle="Five projects, each framed the same way: the problem, what I built or analyzed, and the measured outcome."
+              subtitle="Six projects, each framed the same way: the problem, what I built or analyzed, and the measured outcome."
             />
             <Link
               href="/projects"
@@ -87,7 +88,7 @@ export default function HomePage() {
             <SectionHeader
               eyebrow="Shipped AI Products"
               title="Live, end-to-end builds"
-              subtitle="Product-first AI work with live demos — agentic prediction, market intelligence, and a freemium simulation product."
+              subtitle="Product-first AI work with live demos — a privacy-first consumer stress game, agentic prediction, market intelligence, and a freemium simulation product."
             />
             <Link
               href="/projects"
@@ -97,8 +98,10 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProducts.map((p) => (
+          {featuredProducts[0] && <FlagshipProductCard project={featuredProducts[0]} />}
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {featuredProducts.slice(1).map((p) => (
               <FeaturedProductCard key={p.id} project={p} />
             ))}
           </div>
@@ -111,9 +114,9 @@ export default function HomePage() {
           <SectionHeader
             eyebrow="Browse by Track"
             title="Explore my work by AI domain"
-            subtitle="Four focus areas — pick one to see the products and systems I've built in it."
+            subtitle="Five focus areas — pick one to see the products and systems I've built in it."
           />
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {projectTracks.map((track) => {
               const style = TRACK_STYLE[track.id] ?? FALLBACK_TRACK_STYLE;
               const Icon = style.Icon;

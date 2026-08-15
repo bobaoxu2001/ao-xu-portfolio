@@ -10,7 +10,7 @@ import { TRACK_STYLE, FALLBACK_TRACK_STYLE } from "@/lib/trackStyle";
 export const metadata: Metadata = {
   title: "Projects | Ao Xu",
   description:
-    "AI + Data projects by Ao (Allen) Xu, organized into AI + Knowledge, AI + Markets, and AI + Data & Operations tracks, plus academic capstones.",
+    "AI + Data projects by Ao (Allen) Xu, organized into five AI + domain tracks — consumer products, knowledge, sports, markets, and data & operations — plus academic capstones.",
 };
 
 function groupByCategory(projects: typeof archiveProjects) {
@@ -37,7 +37,7 @@ export default function ProjectsPage() {
 
       <section className="py-14">
         <div className="container-xl">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projectTracks.map((track) => {
               const style = TRACK_STYLE[track.id] ?? FALLBACK_TRACK_STYLE;
               const Icon = style.Icon;

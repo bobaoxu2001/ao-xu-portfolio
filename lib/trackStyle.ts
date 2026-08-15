@@ -1,4 +1,4 @@
-import { Bot, Trophy, LineChart, BarChart3, type LucideIcon } from "lucide-react";
+import { Bot, Trophy, LineChart, BarChart3, Gamepad2, type LucideIcon } from "lucide-react";
 
 // Shared per-track emblem icon + accent classes, used by the Projects overview
 // and the individual track pages. Class strings are written in full so
@@ -8,6 +8,11 @@ export const TRACK_STYLE: Record<
   string,
   { Icon: LucideIcon; ring: string; hover: string }
 > = {
+  "ai-products": {
+    Icon: Gamepad2,
+    ring: "bg-rose-500/10 text-rose-300 ring-rose-400/20",
+    hover: "hover:border-rose-400/30",
+  },
   "ai-knowledge": {
     Icon: Bot,
     ring: "bg-indigo-500/10 text-indigo-300 ring-indigo-400/20",

@@ -52,6 +52,8 @@ export type Project = {
   bullets?: string[];
   // Optional internal route to a structured case study page.
   caseStudy?: string;
+  // Optional local banner image (rendered by the flagship product card).
+  bannerImage?: string;
 };
 
 export type ProjectTrack = {
@@ -64,6 +66,34 @@ export type ProjectTrack = {
 };
 
 // ─── Latest AI products (shipped, live, product-first) ───────────────────────
+
+const unhappyBuster = {
+  id: "unhappy-buster",
+  title: "Unhappy Buster",
+  category: "AI Consumer Product · Stress Arcade",
+  summary:
+    "A private 30-second stress arcade that turns frustration into a fictional boss — privacy-aware AI generation with graceful fallbacks. Shipped v1.0.",
+  description:
+    "A shipped, live consumer AI product: vent a frustration (or fight today's public boss), watch it become a named fictional monster, fight it in a 30-second counter-based arena, and close with honest closure — no account, no stored vents.",
+  problem:
+    "People want a fast emotional reset after an annoying interaction, but wellness tools feel too slow and serious — and typing raw frustration into an AI product raises real privacy and safety concerns.",
+  built:
+    "Designed and built the full product: the vent-to-boss AI pipeline with PII redaction, safety gates, and output scans; the 30-second arena engine; local-first progression; and curated fallbacks that keep the loop playable when AI is unavailable.",
+  impact:
+    "Shipped v1.0 to production with 47 deterministic tests, clean lint/typecheck, verified responsive builds, and a core loop that works end-to-end even without live AI generation.",
+  technologies: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Framer Motion", "OpenAI API"],
+  tags: ["Shipped v1.0", "Privacy-by-Design", "Local-first", "AI Fallbacks"],
+  github: "https://github.com/bobaoxu2001/fuck-your-unhappy",
+  liveDemo: "https://fuck-your-unhappy.vercel.app",
+  highlight: "Shipped v1.0 · live",
+  bullets: [
+    "Turned venting into a 30-second boss fight: frustration → fictional boss → arena → honest closure, with zero accounts.",
+    "Built a privacy-aware AI pipeline: PII redaction, sensitive-input gates, structured generation, output scans, curated fallbacks.",
+    "Shipped v1.0 to production — 47 deterministic tests, responsive builds verified, playable even when live AI is down.",
+  ],
+  caseStudy: "/case-studies/unhappy-buster",
+  bannerImage: "/projects/unhappy-buster/cover.png",
+};
 
 const worldcupOracle = {
   id: "worldcup-oracle-agent",
@@ -314,6 +344,16 @@ const youtubePipeline = {
 
 export const projectTracks: ProjectTrack[] = [
   {
+    id: "ai-products",
+    label: "AI + Consumer Products",
+    tagline:
+      "Shipped, live consumer AI products with privacy, safety, and graceful-failure design built in.",
+    headline:
+      "Unhappy Buster — a private 30-second stress arcade with a privacy-aware AI pipeline, shipped to production with a full test suite.",
+    accent: "rose",
+    projects: [unhappyBuster],
+  },
+  {
     id: "ai-knowledge",
     label: "AI + Knowledge & LLM Workflows",
     tagline:
@@ -357,11 +397,12 @@ export const projectTracks: ProjectTrack[] = [
 
 // Latest shipped AI products, surfaced as the homepage "Featured AI Products"
 // showcase with impact bullets and live demos.
-export const featuredProducts: Project[] = [worldcupOracle, aiStockPlatform, worldCupLab];
+export const featuredProducts: Project[] = [unhappyBuster, worldcupOracle, aiStockPlatform, worldCupLab];
 
 // Top featured projects, ranked by job-market value. Rendered as
 // problem → built → outcome case cards on the homepage.
 export const featuredCaseProjects: Project[] = [
+  unhappyBuster,
   socCopilot,
   supportTicket,
   digitalHumanPlatform,

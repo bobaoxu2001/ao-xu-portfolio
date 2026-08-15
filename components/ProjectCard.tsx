@@ -13,6 +13,7 @@ import {
   Database,
   Workflow,
   Sparkles,
+  Swords,
   type LucideIcon,
 } from "lucide-react";
 
@@ -30,6 +31,7 @@ const ACCENTS = {
 } as const;
 
 const VISUAL_RULES: { pattern: RegExp; icon: LucideIcon; accent: keyof typeof ACCENTS }[] = [
+  { pattern: /unhappy|boss|stress|arcade|vent/, icon: Swords, accent: "rose" },
   { pattern: /rag|copilot|retrieval/, icon: Bot, accent: "indigo" },
   { pattern: /forecast|bitcoin|time-series|crypto|digital asset|market behavior/, icon: LineChart, accent: "emerald" },
   { pattern: /ticket|routing/, icon: Headset, accent: "sky" },
