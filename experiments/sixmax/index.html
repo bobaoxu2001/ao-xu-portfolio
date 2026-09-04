@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Six‑Max Decision Lab — 12 Hand Assessment</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bobaoxu2001/ao-xu-portfolio@sixmax-poker-lab/experiments/sixmax/style.css">
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand"><div class="logo">♠</div><div><h1>Six‑Max Decision Lab</h1><div class="sub">12 手 · 100BB · 无即时答案 · 最终能力诊断</div></div></div>
+    <div class="progress-wrap"><div class="progress-label" id="progressText">Hand 1 / 12</div><div class="bar"><div id="progressBar"></div></div></div>
+  </div>
+  <div class="grid">
+    <section class="card table-card">
+      <div class="table">
+        <div class="felt"></div>
+        <div id="seats"></div>
+        <div class="center">
+          <div class="pot">Pot <strong id="pot">—</strong> · Effective <strong id="eff">—</strong></div>
+          <div class="cards" id="board"></div>
+        </div>
+        <div class="hero-cards" id="heroCards"></div>
+      </div>
+      <div class="action-log" id="log"></div>
+      <div class="decision" id="decisionBox">
+        <div class="decision-top"><div><h2 id="decisionTitle">轮到你</h2><p id="decisionText"></p></div><div class="clock" id="clock">00:00</div></div>
+        <div class="actions" id="actions"></div>
+      </div>
+    </section>
+    <aside class="card side">
+      <div class="eyebrow">Table read</div>
+      <h3>当前主要对手</h3>
+      <div class="villain">
+        <div class="villain-name"><span id="villainName">—</span><span class="badge" id="villainTag">—</span></div>
+        <div class="stats"><div class="stat"><b id="vpip">—</b><span>VPIP</span></div><div class="stat"><b id="pfr">—</b><span>PFR</span></div><div class="stat"><b id="river">—</b><span>River AF</span></div></div>
+      </div>
+      <div class="note" id="note">—</div>
+      <div class="rules">
+        <div><strong>测试方式：</strong> 每手只有一个关键决策，前序行动已给定。</div>
+        <div><strong>不要查表：</strong> 这轮更看范围、尺寸和 exploit 直觉。</div>
+        <div><strong>评分：</strong> 中途不揭答案，避免后续手牌被训练污染。</div>
+        <div><strong>结束：</strong> 复制 Session Report 回 ChatGPT，我会再做人工复盘。</div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div class="overlay show" id="intro">
+  <div class="modal">
+    <div class="eyebrow">Assessment protocol</div>
+    <h2>12 手，看看你到底是什么水平</h2>
+    <p>这不是“背 solver 答案”测验。桌上 5 个对手有不同倾向；有些手按理论打，有些手必须 exploit。每手 100BB 独立重置，避免上一手输赢影响测试。系统会记录你的行动与思考时间，但中途不会告诉你对错。</p>
+    <p>最终会生成 6 项能力分数：翻前结构、范围/牌面、下注尺寸、价值提取、Bluff/Blocker、Exploit/纪律。12 手样本不够证明长期胜率，但足够暴露几个很典型的 leak。</p>
+    <div class="modal-actions"><button class="primary" id="startBtn">开始第 1 手</button></div>
+  </div>
+</div>
+
+<div class="overlay" id="between">
+  <div class="modal" style="max-width:430px;text-align:center">
+    <div class="eyebrow">Decision locked</div><h2 id="betweenTitle">已记录</h2><p id="betweenText">不会显示答案。继续下一手。</p>
+    <div class="modal-actions" style="justify-content:center"><button class="primary" id="nextBtn">下一手</button></div>
+  </div>
+</div>
+
+<div class="overlay" id="finish">
+  <div class="modal">
+    <div class="eyebrow">Session complete</div><h2>12 手完成</h2>
+    <p>下面是机器初筛，不是最终判定。点击复制，把完整 Session Report 粘回当前 ChatGPT 对话，我会结合每一手的线路、理论混合频率和对手倾向给你最终评级。</p>
+    <div class="scoregrid" id="scoreGrid"></div>
+    <textarea id="report" readonly></textarea>
+    <div class="modal-actions"><button class="primary" id="copyBtn">复制 Session Report</button><button class="secondary" id="downloadBtn">下载 .txt</button><button class="secondary" id="restartBtn">重新打 12 手</button></div>
+  </div>
+</div>
+<div class="toast" id="toast">已复制</div>
+<script src="https://cdn.jsdelivr.net/gh/bobaoxu2001/ao-xu-portfolio@sixmax-poker-lab/experiments/sixmax/app.js"></script>
+</body>
+</html>
